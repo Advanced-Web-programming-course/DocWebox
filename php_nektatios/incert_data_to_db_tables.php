@@ -40,7 +40,7 @@ insert_to_doctor_service("Εξέταση", 23.8 , 2);
 insert_to_doctor_service("Αφαίρεση γύψου", 50.0 , 3);
 insert_to_doctor_service("Καθαρισμός", 30.58 , 4);
 insert_to_doctor_service("Αιμοληψία", 9.4 , 5);
-insert_to_doctor_service("Σφράγιμα", 25.53 , 6);
+insert_to_doctor_service("Σφράγισμα", 25.53 , 6);
 insert_to_doctor_service("Συνταγογράφηση", 10.5 , 7);
 insert_to_doctor_service("Ψυχανάληση", 23.8 , 8);
 insert_to_doctor_service("Εξαγογή Δοντιού", 67.74 , 9);
