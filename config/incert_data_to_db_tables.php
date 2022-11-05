@@ -1,6 +1,5 @@
 <?php
-include "config.php";
-include "db_functions.php";
+include "../db_services/db_functions.php";
 
 //Patient
 echo "Table : Patient<br>";
