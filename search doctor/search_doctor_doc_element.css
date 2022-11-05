@@ -43,3 +43,6 @@
     font-style: normal;
     margin-right: 20px;
 }
+.circle{
+    border-radius: 50%;
+}
