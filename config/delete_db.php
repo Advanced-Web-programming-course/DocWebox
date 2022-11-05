@@ -1,7 +1,6 @@
 <?php
 include "config.php";
 
-
 // Create connection
 $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD);
 // Check connection
