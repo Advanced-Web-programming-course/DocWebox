@@ -8,8 +8,8 @@ echo "------------------<br>";
 create_patient('Ελισάβετ Αμπατζίδου', '6998422460', 'elisavetabatzidou@gmail.com', '1f555kl@hj6', 'https://avatars.githubusercontent.com/u/68596273?v=4');
 create_patient('Ευμορφία Ελπίδα Δασύρα', '6998422461', 'evitadasira@gmail.com', '1!985kl@hj6', 'https://cdn-icons-png.flaticon.com/512/194/194938.png');
 create_patient('Nίκος Κουταμάνης', '6998422462', 'nickkoutamanis@gmail.com', '1fahhkl@hj6', 'https://scontent.fskg1-2.fna.fbcdn.net/v/t1.6435-9/80818907_502405753708353_1901806038290530304_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=VDeI-3ivw9oAX9JzQ66&_nc_ht=scontent.fskg1-2.fna&oh=00_AfCqWF-K72eCA_Q85CyJO0DGvhvztE3NSa6xj6omR-BJRA&oe=6380CC54');
-create_patient('Αραβέλα Λούστα', '6998422463', 'aravela@gmail.com', '19%hkl@h)6', 'https://cdn.iconscout.com/icon/free/png-256/avatar-373-456325.png');
-create_patient('Νεκτάριος Παγαλάκης', '6998422464', 'npapagalakis@gmail.com', '1234l@hj6', 'https://i.pinimg.com/280x280_RS/71/ac/f0/71acf06b9e80d595b1aabfa08f0af762.jpg');
+create_patient('Αραβέλλα Λούστα', '6998422463', 'aravella@gmail.com', '19%hkl@h)6', 'https://cdn.iconscout.com/icon/free/png-256/avatar-373-456325.png');
+create_patient('Νεκτάριος Παπαγαλάκης', '6998422464', 'npapagalakis@gmail.com', '1234l@hj6', 'https://i.pinimg.com/280x280_RS/71/ac/f0/71acf06b9e80d595b1aabfa08f0af762.jpg');
 create_patient('Λέοναρντ Πέπα', '6998422465', 'leonardpepa@gmail.com', '1faskl@hj6', 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2FLeonardpepa&psig=AOvVaw0D3oMKwzSnkUhcAucIV5Aj&ust=1667042440307000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNjnypXngvsCFQAAAAAdAAAAABAE');
 
 
