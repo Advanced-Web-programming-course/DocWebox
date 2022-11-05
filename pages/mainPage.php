@@ -102,9 +102,10 @@
 
 <body>
     <div class="con">
-        <?php include "searchBar.php";
-        include "upcomingApointments.php";
-        include "allApointments.php";
+        <?php
+        include "../components/searchBar.php";
+        include "../components/upcomingApointments.php";
+        include "../components/allApointments.php";
     ?>
     </div>
 </body>
