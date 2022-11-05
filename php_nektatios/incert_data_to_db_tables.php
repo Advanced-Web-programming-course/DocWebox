@@ -1,5 +1,6 @@
 <?php
 include "config.php";
+include "db_functions.php";
 
 //Patient
 echo "Table : Patient<br>";
@@ -63,100 +64,27 @@ insert_to_appointment(5, 8 , '2021-08-18 10:23:54', 8);
 insert_to_appointment(4, 9 , '2022-09-17 22:43:04', 9);
 insert_to_appointment(2, 2 , '2022-11-11 23:23:44', 10);
 
-function insert_to_patients($fullname, $phone_num, $email, $pword, $img_url){
-    include "connect_to_db.php";
+echo"<br>";
+echo"<br>";
+echo "Table : review<br>";
+echo "------------------<br>";
 
-    $sql = "INSERT INTO patient (fullname, phone_num, email, pword, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$pword', '$img_url')";
+insert_to_review(1, 1 , 4, "");
+insert_to_review(2, 1 , 4, "Good");
+insert_to_review(1, 2 , 3, "Average");
+insert_to_review(3, 4 , 1, "bad");
+insert_to_review(1, 3, 4, "");
+insert_to_review(3, 1 , 5, "Very Good");
+insert_to_review(4, 2 , 2, "Average");
+insert_to_review(5, 3 , 1, "EW");
+insert_to_review(6, 4 , 5, "");
+insert_to_review(4, 5 , 4, "");
+insert_to_review(5, 2 , 2, "");
+insert_to_review(3, 1 , 4, "");
 
-    try{
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully<br>";
-            echo "FullName : ".$fullname."<br>";
-            echo "Phone number : ".$phone_num."<br>";
-            echo "Email : ".$email."<br>";
-            echo "Password : ".$pword."<br>";
-            echo "Img url : ".$img_url."<br>";
-        }
-    }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+echo"<br>";
+echo"<br>";
+echo "Table : admin<br>";
+echo "------------------<br>";
+insert_to_admin("admin","admin");
 
-    $conn->close();
-}
-
-function insert_to_doctors($fullname, $phone_num, $email, $pword, $rigion, $specialisation_id, $doctor_description, $img_url){
-    include "connect_to_db.php";
-
-    $sql = "INSERT INTO doctor (fullname, phone_num, email, pword, rigion, specialisation_id, doctor_description, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$pword', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
-
-    try{
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully<br>";
-            echo "FullName : ".$fullname."<br>";
-            echo "Phone number : ".$phone_num."<br>";
-            echo "Email : ".$email."<br>";
-            echo "Password : ".$pword."<br>";
-            echo "Rigion : ".$rigion."<br>";
-            echo "Specialisation id : ".$specialisation_id."<br>";
-            echo "Description : ".$doctor_description."<br>";
-            echo "Img url : ".$img_url."<br>";
-        }
-    }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
-
-    $conn->close();
-}
-
-function insert_to_doctor_service($title, $price , $specialisation_id){
-    include "connect_to_db.php";
-
-    $sql = "INSERT INTO doctor_service (title, price , specialisation_id)
-    VALUES ('$title', '$price', '$specialisation_id')";
-
-    try{
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully<br>";
-            echo "Title : ".$title."<br>";
-            echo "Price : ".$price."<br>";
-            echo "Specialisation_id : ".$specialisation_id."<br>";
-        }
-    }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
-
-    $conn->close();
-}
-
-function insert_to_appointment($patient_id, $doctor_id , $appointment_date, $service_id){
-    include "connect_to_db.php";
-
-    $sql = "INSERT INTO appointment (patient_id, doctor_id , appointment_date, service_id)
-    VALUES ('$patient_id', '$doctor_id', '$appointment_date', '$service_id')";
-
-    try{
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully<br>";
-            echo "Patient id : ".$patient_id."<br>";
-            echo "Doctor id : ".$doctor_id."<br>";
-            echo "Appointment Date : ".$appointment_date."<br>";
-            echo "Service id : ".$service_id."<br>";
-        }
-    }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
-
-    $conn->close();
-}
-
-?>

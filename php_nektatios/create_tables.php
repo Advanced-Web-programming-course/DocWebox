@@ -68,5 +68,33 @@ if (mysqli_query($conn, $sql)) {
 }
 echo"<br>";
 
+// Create Table review
+$sql = "CREATE TABLE IF NOT EXISTS review (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  patient_id INT NOT NULL,
+  doctor_id INT NOT NULL,
+  rating INT NOT NULL,
+  comment VARCHAR(150) NOT NULL
+  )";
+if (mysqli_query($conn, $sql)) {
+echo "Table review created successfully";
+} else {
+echo "Error creating table review: " . mysqli_error($conn);
+}
+echo"<br>";
+
+// Create Table admin
+$sql = "CREATE TABLE IF NOT EXISTS admin (
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(150) UNIQUE NOT NULL,
+  pword VARCHAR(150) UNIQUE NOT NULL
+  )";
+if (mysqli_query($conn, $sql)) {
+echo "Table admin created successfully";
+} else {
+echo "Error admin table review: " . mysqli_error($conn);
+}
+echo"<br>";
+
 mysqli_close($conn);
 ?>
