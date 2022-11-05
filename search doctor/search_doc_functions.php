@@ -1,11 +1,11 @@
 <?php
 function add_doctor($name, $speciality,$address,$price,$num_of_stars){
     $doc_element ="
-    <div class='doctor'>
+    <div class='doctor grey_font_color gray_borderline'>
         <div id='section_1'>
-            <label id='doc_name'>".$name."</label>
-            <label id='speciality'>".$speciality."</label>
-            <label id='adress'>".$address."</label>
+            <label class='big_text_size'>".$name."</label>
+            <label class='small_text_size'>".$speciality."</label>
+            <label class='small_text_size'>".$address."</label>
         </div>
         <div id='section_2'>
             <div id='stars'>";
@@ -28,7 +28,7 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars){
                 </div>
             <div id='section_2_supsec_2'>
                 <label id='price'>".$price." €</label>
-                <button>Κλέισε Ραντεβού</button>
+                <button class='pink_background'>Κλέισε Ραντεβού</button>
             </div>
             
         </div>

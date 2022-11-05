@@ -6,6 +6,7 @@ include "search_doc_functions.php";
 <head>
     <link rel="stylesheet" href="search_doctor_doc_element.css">
     <link rel="stylesheet" href="../search_bar.css">
+    <link rel="stylesheet" href="../general_css.css">
 </head>
 <title>doctor</title>
 <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
