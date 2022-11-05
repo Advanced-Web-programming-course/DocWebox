@@ -6,10 +6,10 @@
 ## Config
 * config.php (host, db name, user, password)
 * connection.php (συνδεση με την βαση)
-* initialize.php (εδω καλειτε ο κωδικας την πρωτη φορα που θα τρέξει η εφαρμογη ώστε να φτιαχτεί η βάση και οι πίνακες)
+* initialize.php (εδω καλείται ο κωδικας την πρωτη φορα που θα τρέξει η εφαρμογη ώστε να δημιουργηθεί η βάση και οι πίνακες)
 
 ## Pages
-* τα αρχεία που περιεχουν τις οθόνες (View χρήστη γιατρού κτλπ)
+* τα αρχεία που περιέχουν τις οθόνες (View χρήστη γιατρού κτλπ)
 
 ## Partials ή Components 
 * header.php
@@ -38,4 +38,4 @@
 * service_service.php
 * review_service.php
 
-## Shared (shared fucntionality [methods etc.] )
+## Shared (shared functionality [methods etc.] )
