@@ -1,6 +1,6 @@
 <?php
 
-function insert_to_patients($fullname, $phone_num, $email, $pword, $img_url){
+function create_patient($fullname, $phone_num, $email, $pword, $img_url){
     include "../config/db_connection.php";
     $sql = "INSERT INTO patient (full_name, phone, email, password, img_url)
     VALUES ('$fullname', '$phone_num', '$email', '$pword', '$img_url')";
@@ -23,7 +23,7 @@ function insert_to_patients($fullname, $phone_num, $email, $pword, $img_url){
     $conn->close();
 }
 
-function insert_to_doctors($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url){
+function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url){
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO doctor (full_name, phone, email, password, address, region, specialization, description, img_url)
@@ -51,7 +51,7 @@ function insert_to_doctors($fullname, $phone_num, $email, $pword, $address, $rig
     $conn->close();
 }
 
-function insert_to_doctor_service($title, $price , $specialisation_id){
+function create_doctor_service($title, $price , $specialisation_id){
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO service (title, price , specialization)
@@ -73,7 +73,7 @@ function insert_to_doctor_service($title, $price , $specialisation_id){
     $conn->close();
 }
 
-function insert_to_appointment($patient_id, $doctor_id , $appointment_date, $service_id){
+function create_appointment($patient_id, $doctor_id , $appointment_date, $service_id){
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO appointment (patient_id, doctor_id , appointment_date, service_id)
@@ -96,7 +96,7 @@ function insert_to_appointment($patient_id, $doctor_id , $appointment_date, $ser
     $conn->close();
 }
 
-function insert_to_review($patient_id, $doctor_id , $rating, $comment){
+function create_review($patient_id, $doctor_id , $rating, $comment){
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO review (patient_id, doctor_id , rating, comment)
@@ -119,7 +119,7 @@ function insert_to_review($patient_id, $doctor_id , $rating, $comment){
     $conn->close();
 }
 
-function insert_to_admin($email, $pword){
+function create_admin($email, $pword){
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO admin (email, password )

@@ -116,5 +116,10 @@ if (mysqli_query($conn, $sql)) {
 }
 echo"<br>";
 
+
+
+// insert dummy data
+require_once "insert_initial_data.php";
+
 mysqli_close($conn);
 ?>
