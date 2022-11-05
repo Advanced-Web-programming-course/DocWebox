@@ -44,7 +44,7 @@ create_doctor_service("Σφράγισμα", 25.53 , 6);
 create_doctor_service("Συνταγογράφηση", 10.5 , 7);
 create_doctor_service("Ψυχανάληση", 23.8 , 8);
 create_doctor_service("Εξαγωγή Δοντιού", 67.74 , 9);
-create_doctor_service("Ανάγνοση εξετάσεων", 50.5 , 10);
+create_doctor_service("Ανάγνωση εξετάσεων", 50.5 , 10);
 create_doctor_service("Γενική εξέταση", 30.55 , 11);
 
 echo"<br>";
