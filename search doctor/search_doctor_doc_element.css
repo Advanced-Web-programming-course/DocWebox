@@ -1,0 +1,62 @@
+.doctor{
+    border: 2px solid #CBD2E0;
+    padding: 23px 31px;
+    background-color: #FFFFFF;
+    display:flex;
+    font-family: 'Inter';
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.doctor>div>label{
+    display: block;
+}
+#section_1{
+    width: 70%;
+}
+#section_2{
+    text-align:right;
+    width: 30%;        
+}
+#section_2_supsec_2{
+    display: flex;
+    float:right;
+}
+#section_2_supsec_2>button{
+    background: #E43F6F;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+#stars{
+    display: flex;
+    float:right;
+    margin-bottom: 16px;
+}
+#price{
+    background: #E8F9F8;
+    border-radius: 155px;
+    border: none;
+    color: black;
+    padding: 16px 23px;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 16px;
+    margin-right: 20px;
+}
+#doc_name{
+    font-size: 20px;
+}
+#speciality{
+    font-size: 17px;
+    margin-bottom: 17px;
+}
+#adress{
+    font-size: 17px;
+}
