@@ -23,11 +23,11 @@ function insert_to_patients($fullname, $phone_num, $email, $pword, $img_url){
     $conn->close();
 }
 
-function insert_to_doctors($fullname, $phone_num, $email, $pword, $rigion, $specialisation_id, $doctor_description, $img_url){
+function insert_to_doctors($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url){
     include "connect_to_db.php";
 
-    $sql = "INSERT INTO doctor (fullname, phone_num, email, pword, rigion, specialisation_id, doctor_description, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$pword', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
+    $sql = "INSERT INTO doctor (fullname, phone_num, email, pword, address, rigion, specialisation_id, doctor_description, img_url)
+    VALUES ('$fullname', '$phone_num', '$email', '$pword','$address', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
 
     try{
         if ($conn->query($sql) === TRUE) {
@@ -36,6 +36,7 @@ function insert_to_doctors($fullname, $phone_num, $email, $pword, $rigion, $spec
             echo "Phone number : ".$phone_num."<br>";
             echo "Email : ".$email."<br>";
             echo "Password : ".$pword."<br>";
+            echo "Address : ".$address."<br>";
             echo "Rigion : ".$rigion."<br>";
             echo "Specialisation id : ".$specialisation_id."<br>";
             echo "Description : ".$doctor_description."<br>";

@@ -27,6 +27,7 @@ $sql = "CREATE TABLE IF NOT EXISTS doctor (
     phone_num VARCHAR(50) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     pword VARCHAR(150) UNIQUE NOT NULL,
+    address VARCHAR(150) UNIQUE NOT NULL,
     rigion INT NOT NULL,
     specialisation_id INT NOT NULL,
     doctor_description VARCHAR(150) NOT NULL,
