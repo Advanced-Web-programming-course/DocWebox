@@ -153,7 +153,7 @@ function get_doctors($filters){
         array_push($doctors, array($row["id"],$row["full_name"],$row["phone"],$row["email"],$row["password"],$row["address"],$row["region"],$row["specialization"],$row["description"],$row["img_url"]));
     }
     } else {
-        return "0 results";
+    echo "0 results";
     }
     $conn->close();
 
