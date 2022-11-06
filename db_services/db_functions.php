@@ -145,7 +145,6 @@ function get_doctors($filters){
     $doctors = array();
 
     $sql = "SELECT * FROM doctor".$filters;
-    echo $sql."<br>";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -154,7 +153,7 @@ function get_doctors($filters){
         array_push($doctors, array($row["id"],$row["full_name"],$row["phone"],$row["email"],$row["password"],$row["address"],$row["region"],$row["specialization"],$row["description"],$row["img_url"]));
     }
     } else {
-    echo "0 results";
+        return "0 results";
     }
     $conn->close();
 
