@@ -56,7 +56,7 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
 <body>
 
 <div style = "margin-bottom: 25px;">
-        <?php include "../components/searchBar.php";?>
+        <?php include "../components/search_bar.php";?>
 </div>
 <?php
 foreach ($doctors as $doc) {
