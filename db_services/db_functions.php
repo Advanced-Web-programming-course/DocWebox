@@ -1,157 +1,162 @@
 <?php
 
-function create_patient($fullname, $phone_num, $email, $pword, $img_url){
+function create_patient($fullname, $phone_num, $email, $pword, $img_url)
+{
     include "../config/db_connection.php";
-    $sql = "INSERT INTO patient (full_name, phone, email, password, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$pword', '$img_url')";
+    $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
-    try{
+    $sql = "INSERT INTO patient (full_name, phone, email, password, img_url)
+    VALUES ('$fullname', '$phone_num', '$email', '$hashed_password', '$img_url')";
+
+    try {
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully<br>";
-            echo "FullName : ".$fullname."<br>";
-            echo "Phone number : ".$phone_num."<br>";
-            echo "Email : ".$email."<br>";
-            echo "Password : ".$pword."<br>";
-            echo "Img url : ".$img_url."<br>";
+            echo "FullName : " . $fullname . "<br>";
+            echo "Phone number : " . $phone_num . "<br>";
+            echo "Email : " . $email . "<br>";
+            echo "Password : " . $pword . "<br>";
+            echo "Img url : " . $img_url . "<br>";
         }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
     }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+    echo "<br>";
 
     $conn->close();
 }
 
-function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url){
+function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url)
+{
     include "../config/db_connection.php";
+    $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO doctor (full_name, phone, email, password, address, region, specialization, description, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$pword','$address', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
+    VALUES ('$fullname', '$phone_num', '$email', '$hashed_password','$address', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
 
-    try{
+    try {
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully<br>";
-            echo "FullName : ".$fullname."<br>";
-            echo "Phone number : ".$phone_num."<br>";
-            echo "Email : ".$email."<br>";
-            echo "Password : ".$pword."<br>";
-            echo "Address : ".$address."<br>";
-            echo "Rigion : ".$rigion."<br>";
-            echo "Specialisation id : ".$specialisation_id."<br>";
-            echo "Description : ".$doctor_description."<br>";
-            echo "Img url : ".$img_url."<br>";
+            echo "FullName : " . $fullname . "<br>";
+            echo "Phone number : " . $phone_num . "<br>";
+            echo "Email : " . $email . "<br>";
+            echo "Password : " . $pword . "<br>";
+            echo "Address : " . $address . "<br>";
+            echo "Rigion : " . $rigion . "<br>";
+            echo "Specialisation id : " . $specialisation_id . "<br>";
+            echo "Description : " . $doctor_description . "<br>";
+            echo "Img url : " . $img_url . "<br>";
         }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
     }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+    echo "<br>";
 
     $conn->close();
 }
 
-function create_doctor_service($title, $price , $specialisation_id){
+function create_doctor_service($title, $price, $specialisation_id)
+{
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO service (title, price , specialization)
     VALUES ('$title', '$price', '$specialisation_id')";
 
-    try{
+    try {
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully<br>";
-            echo "Title : ".$title."<br>";
-            echo "Price : ".$price."<br>";
-            echo "Specialisation_id : ".$specialisation_id."<br>";
+            echo "Title : " . $title . "<br>";
+            echo "Price : " . $price . "<br>";
+            echo "Specialisation_id : " . $specialisation_id . "<br>";
         }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
     }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+    echo "<br>";
 
     $conn->close();
 }
 
-function create_appointment($patient_id, $doctor_id , $appointment_date, $service_id){
+function create_appointment($patient_id, $doctor_id, $appointment_date, $service_id)
+{
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO appointment (patient_id, doctor_id , appointment_date, service_id)
     VALUES ('$patient_id', '$doctor_id', '$appointment_date', '$service_id')";
 
-    try{
+    try {
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully<br>";
-            echo "Patient id : ".$patient_id."<br>";
-            echo "Doctor id : ".$doctor_id."<br>";
-            echo "Appointment Date : ".$appointment_date."<br>";
-            echo "Service id : ".$service_id."<br>";
+            echo "Patient id : " . $patient_id . "<br>";
+            echo "Doctor id : " . $doctor_id . "<br>";
+            echo "Appointment Date : " . $appointment_date . "<br>";
+            echo "Service id : " . $service_id . "<br>";
         }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
     }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+    echo "<br>";
 
     $conn->close();
 }
 
-function create_review($patient_id, $doctor_id , $rating, $comment){
+function create_review($patient_id, $doctor_id, $rating, $comment)
+{
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO review (patient_id, doctor_id , rating, comment)
     VALUES ('$patient_id', '$doctor_id', '$rating', '$comment')";
 
-    try{
+    try {
         if ($conn->query($sql) === TRUE) {
             echo "New review created successfully<br>";
-            echo "Patient id : ".$patient_id."<br>";
-            echo "Doctor id : ".$doctor_id."<br>";
-            echo "Rating : ".$rating."<br>";
-            echo "Comment : ".$comment."<br>";
+            echo "Patient id : " . $patient_id . "<br>";
+            echo "Doctor id : " . $doctor_id . "<br>";
+            echo "Rating : " . $rating . "<br>";
+            echo "Comment : " . $comment . "<br>";
         }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
     }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+    echo "<br>";
 
     $conn->close();
 }
 
-function create_admin($email, $pword){
+function create_admin($email, $pword)
+{
     include "../config/db_connection.php";
+    $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO admin (email, password )
-    VALUES ('$email', '$pword')";
+    VALUES ('$email', '$hashed_password')";
 
-    try{
+    try {
         if ($conn->query($sql) === TRUE) {
             echo "New admin created successfully<br>";
-            echo "Email : ".$email."<br>";
-            echo "Password : ".$pword."<br>";
+            echo "Email : " . $email . "<br>";
+            echo "Password : " . $pword . "<br>";
         }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
     }
-    catch (Throwable $e) {
-        echo "Error: " . $conn->error. "<br>";
-     }
-    echo"<br>";
+    echo "<br>";
 
     $conn->close();
 }
-function get_doctors($filters){
+function get_doctors($filters)
+{
     include "../config/db_connection.php";
 
     $doctors = array();
 
-    $sql = "SELECT * FROM doctor".$filters;
+    $sql = "SELECT * FROM doctor" . $filters;
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        array_push($doctors, array($row["id"],$row["full_name"],$row["phone"],$row["email"],$row["password"],$row["address"],$row["region"],$row["specialization"],$row["description"],$row["img_url"]));
-    }
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            array_push($doctors, array($row["id"], $row["full_name"], $row["phone"], $row["email"], $row["password"], $row["address"], $row["region"], $row["specialization"], $row["description"], $row["img_url"]));
+        }
     } else {
         return "0 results";
     }
@@ -159,4 +164,3 @@ function get_doctors($filters){
 
     return $doctors;
 }
-?>
