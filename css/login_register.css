@@ -1,0 +1,133 @@
+/*style for upcomming apointments*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+
+  width: 100%;
+  align-items: center;
+
+/* 
+  /* !!!!!!!!!!!!!!!!!!!!!!DELETE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!! *
+  box-shadow: 0 0 20px 6px #090b6f85;  */
+}
+
+button {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  text-align: center;
+  border: none;
+  
+  /* !!!!!!!!!!!!!!!!!!!!!!!!!!!CHECK AGAIN FOR RESPONSIVENESS!!!!!!!!!!!!!!!!!!!!!!!!! */
+  height: 40px;
+  width: 120px;
+}
+
+/* first sign in btn*/
+.container .sign-in {
+  color: #FFFFFF;
+  background: #00BFB4;
+  border-radius: 36px;
+}
+
+/* first register btn*/
+.container .register {
+  background: none;
+}
+
+.upbtns{
+  margin: 10px;
+}
+
+/* form title*/
+.container .title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 47px;
+  color: #000000;
+
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+/* form subtitle*/
+.container .subtitle {
+  font-weight: 400;
+  line-height: 14px;
+  color: #545454;
+
+  margin-bottom: 50px;
+}
+
+/* labels for form-field email, password*/
+.form-field label {
+  font-weight: 400;
+  line-height: 14px;
+  color: #AAAAAA;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+
+    border-bottom: 0.7px solid #AAAAAA;
+    background-color: none;
+
+    margin-bottom: 40px;
+  }
+
+
+  /* login button */
+.loginbtn, .registerbtn {
+  margin-left: 20px;
+  background: #E43F6F;
+  border-radius: 36px;
+  color: #FFFFFF;
+}
+
+/* forgot my pass link */
+.forgot-pass {
+  color: #545454;
+}
+
+.forgot-pass , .loginbtn, .registerbtn {
+  margin-bottom: 10px;
+}
+
+
+/* sign as doctor/patient link*/
+.sign-as a{
+  color: #00BFB4;
+}
+.sign-as {
+  
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* -------- EXTRA -------- */
+/* first sign in btn for registerForm.php*/
+.container .sign-in2 {
+  background: none;
+}
+
+/* first register btn for registerForm.php*/
+.container .register2 {
+  color: #FFFFFF;
+  background: #00BFB4;
+  border-radius: 36px;
+}
+
+
+
