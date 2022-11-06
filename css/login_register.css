@@ -11,18 +11,13 @@
   font-style: normal;
   font-size: 12px;
 
-
-  /* change later 
-  box-shadow: 0 0 20px 6px #090b6f85; */
-
-  
   width: 100%;
-
   align-items: center;
 
-
+/* 
+  /* !!!!!!!!!!!!!!!!!!!!!!DELETE LATER!!!!!!!!!!!!!!!!!!!!!!!!!!!!! *
+  box-shadow: 0 0 20px 6px #090b6f85;  */
 }
-
 
 button {
   font-size: 15px;
@@ -31,19 +26,19 @@ button {
   text-align: center;
   border: none;
   
-  /* KSANA DESTOOOO gia responsiveness */
+  /* !!!!!!!!!!!!!!!!!!!!!!!!!!!CHECK AGAIN FOR RESPONSIVENESS!!!!!!!!!!!!!!!!!!!!!!!!! */
   height: 40px;
   width: 120px;
 }
 
-/* up button -> sign in*/
+/* first sign in btn*/
 .container .sign-in {
   color: #FFFFFF;
   background: #00BFB4;
   border-radius: 36px;
 }
 
-/* up button -> register*/
+/* first register btn*/
 .container .register {
   background: none;
 }
@@ -61,7 +56,6 @@ button {
 
   margin-top: 50px;
   margin-bottom: 10px;
-
 }
 
 /* form subtitle*/
@@ -69,7 +63,6 @@ button {
   font-weight: 400;
   line-height: 14px;
   color: #545454;
-
 
   margin-bottom: 50px;
 }
@@ -95,7 +88,7 @@ button {
 
 
   /* login button */
-.logbtn {
+.loginbtn, .registerbtn {
   margin-left: 20px;
   background: #E43F6F;
   border-radius: 36px;
@@ -107,30 +100,29 @@ button {
   color: #545454;
 }
 
+.forgot-pass , .loginbtn, .registerbtn {
+  margin-bottom: 10px;
+}
+
+
 /* sign as doctor/patient link*/
 .sign-as a{
   color: #00BFB4;
 }
 .sign-as {
   
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-
-
-/* .forgot-pass ,.logbtn {
-  margin-bottom: 10px;
-} */
-
-
-/* up button -> sign in*/
+/* -------- EXTRA -------- */
+/* first sign in btn for registerForm.php*/
 .container .sign-in2 {
   background: none;
 }
 
-/* up button -> register*/
+/* first register btn for registerForm.php*/
 .container .register2 {
   color: #FFFFFF;
   background: #00BFB4;

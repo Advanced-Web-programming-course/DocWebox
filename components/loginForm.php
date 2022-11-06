@@ -14,18 +14,18 @@
 
             <div>
                <label class='lemail' for='login-email'>E-mail</label><br>
-               <input id='login-email' class="form-input" type='email'  required>
-            </div>
-
-            <div>
-               <label class='lpass' for='login-pass'>Password</label><br>
-               <input id='login-pass' class="form-input" type='password'  required>
+               <input id='login-email' type='email' required autofocus>
             </div>
             
+            <div>
+               <label class='lpass' for='login-pass'>Password</label><br>
+               <input id='login-pass' type='password' required>
+            </div>     
+            
             <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
-            <button class='logbtn'>Login</button>
+            <button class='loginbtn'>Σύνδεση</button>
             <div class='sign-as'>
-               <a  href="#">Είσοδος ως XXXX</a>
+              <a  href="#">Είσοδος ως XXXX</a>
             </div>
          </div>
 
