@@ -47,9 +47,9 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../css/searchingForDoctors.css">
+    <link rel="stylesheet" href="../css/searching_for_doctors.css">
     <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/searchBar.css">
+    <link rel="stylesheet" href="../css/search_bar.css">
 </head>
 <title>Search For Doctor</title>
 <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
