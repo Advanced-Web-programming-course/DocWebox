@@ -1,4 +1,6 @@
 <?php
+include "../db_services/db_functions.php";
+$doctors = get_doctors("");
 function add_doctor($name, $speciality,$address,$price,$num_of_stars){
     $doc_element ="
     <div class='doctor grey_font_color gray_borderline'>
@@ -57,6 +59,10 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars){
         <?php include "../components/searchBar.php";?>
 </div>
 <?php
+foreach ($doctors as $doc) {
+    print_r($doc);
+    echo "<br>";
+  }
 echo add_doctor("Μαρια Παπαδοπούλου","Παθολόγος","Λαζαράκη 33,Γλυφάδα","50",0);
 echo add_doctor("Άννα Παπαδοπούλου","Ουρολόγος","Καποδίστρια 9, Ωραιόκαστο","100",3);?>
 

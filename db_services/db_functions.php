@@ -151,7 +151,7 @@ function get_doctors($filters){
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        array_push($doctors, array($row["id"],$row["full_name"],$row["phone"]));
+        array_push($doctors, array($row["id"],$row["full_name"],$row["phone"],$row["email"],$row["password"],$row["address"],$row["region"],$row["specialization"],$row["description"],$row["img_url"]));
     }
     } else {
     echo "0 results";
