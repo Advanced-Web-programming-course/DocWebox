@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 .doctor{
     padding: 23px 31px;
     background-color: #FFFFFF;
@@ -12,11 +14,9 @@
     width: 70%;
 }
 #section_2{
-    text-align:right;
     width: 30%;        
 }
 #section_2_supsec_2{
-    display: flex;
     float:right;
 }
 #section_2_supsec_2>button{
@@ -28,9 +28,10 @@
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
+    font-family: 'Inter';
 }
 #stars{
-    display: flex;
+    display: block;
     float:right;
     margin-bottom: 16px;
 }
@@ -45,4 +46,7 @@
 }
 .circle{
     border-radius: 50%;
+}
+#address{
+    margin-top: 18px;
 }

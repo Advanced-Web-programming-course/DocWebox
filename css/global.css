@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.big_text_size{
+    font-family: 'Inter';
+    font-size: 14px;
+}
+.small_text_size{
+    font-family: 'Inter';
+    font-size: 12px;
+}
+.grey_font_color{
+    color: #404040;
+}
+.pink_background{
+    background-color: #E43F6F;
+}
+.gray_borderline{
+    border: 2px solid #CBD2E0;
+    border-radius: 6px;
+}
