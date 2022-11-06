@@ -1,12 +1,12 @@
 <?php
 include "../db_services/db_functions.php";
 $doctors = get_doctors("");
-function add_doctor($name, $speciality,$address,$price,$num_of_stars){
+function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
     $doc_element ="
     <div class='doctor grey_font_color gray_borderline'>
         <div id='section_1'>
             <div style='display: flex;'>
-            <img src='https://cdn-icons-png.flaticon.com/512/3774/3774293.png' alt='doctor' height='48px' height='48px'>
+            <img src='$img_url' alt='doctor' height='48px' height='48px'>
             <div style = margin-left:14px;'>
                 <label style='display: block;' class='big_text_size'>".$name."</label>
                 <label style='display: block;' class='small_text_size'>".$speciality."</label>
@@ -60,13 +60,10 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars){
 </div>
 <?php
 foreach ($doctors as $doc) {
-    print_r($doc);
+    echo add_doctor($doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα","50",0,$doc[9]);
     echo "<br>";
   }
-echo add_doctor("Μαρια Παπαδοπούλου","Παθολόγος","Λαζαράκη 33,Γλυφάδα","50",0);
-echo add_doctor("Άννα Παπαδοπούλου","Ουρολόγος","Καποδίστρια 9, Ωραιόκαστο","100",3);?>
-
-
+?>
 
 </body>
 </html>
