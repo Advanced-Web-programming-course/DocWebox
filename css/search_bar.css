@@ -1,0 +1,23 @@
+select {
+    width: 40%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.search>a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 66px;
+    height: 48px;
+    border-radius: 6px;
+    background-color: #E43F6F;
+}
