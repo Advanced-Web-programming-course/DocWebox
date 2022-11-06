@@ -13,25 +13,39 @@
             <h4 class='subtitle'>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</h4>
 
             <div>
-               <label class='lname' for='login-name'>Ονοματεπώνυμο</label><br>
-               <input id='login-name' type='text' required autofocus>
+               <label for='register-name'>Ονοματεπώνυμο</label><br>
+               <input id='register-name' type='text' required autofocus>
             </div>
 
             <div>
-               <label class='lemail' for='login-email'>E-mail</label><br>
-               <input id='login-email' type='email' required>
+               <label for='register-email'>E-mail</label><br>
+               <input id='register-email' type='email' required>
             </div>
 
             <div>
-               <label class='lpass' for='login-pass'>Password</label><br>
-               <input id='login-pass' type='password'  required>
+               <label for='register-pass'>Password</label><br>
+               <input id='register-pass' type='password'  required>
+            </div>
+
+            <div>
+               <label for='register-phone'>Τηλέφωνο</label><br>
+               <input id='register-phone' type='tel' placeholder="τύπος: +30 6930405060" pattern="+30 [0-9]{3}[0-9]{4}[0-9]{3}" required>
+            </div>
+
+            <div>
+               <label for='register-address'>Διεύθυνση</label><br>
+               <input id='register-address' type='text' required>
+            </div>
+
+            <div>
+               <label for='register-region'>Περιοχή</label><br>
+               <input id='register-region' type='text' required>
             </div>
             
             <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
             <button class='registerbtn'>Εγγραφή</button>
          </div>
-
-         
+    
 
    </form>
 
