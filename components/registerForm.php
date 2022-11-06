@@ -28,7 +28,7 @@
             </div>
             
             <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
-            <button class='logbtn'>Login</button>
+            <button class='logbtn'>Εγγραφή</button>
          </div>
 
          
