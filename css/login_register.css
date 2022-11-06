@@ -116,6 +116,12 @@ button {
   text-align: center;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #d792a6;
+  opacity: 1; /* Firefox */
+}
+
+
 /* -------- EXTRA -------- */
 /* first sign in btn for registerForm.php*/
 .container .sign-in2 {
