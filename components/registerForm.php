@@ -1,16 +1,21 @@
-<!-- login form -->
+<!-- register form -->
 <div class='container'>
 
    <div class='upbtns'>
-             <button class='sign-in'>Σύνδεση</button>
-             <button class='register'>Εγγραφή</button>
+             <button class='sign-in2'>Σύνδεση</button>
+             <button class='register2'>Εγγραφή</button>
    </div>
 
    <form class='login' action='' method='post'>
 
          <div class='form-field'>
             <h1 class='title'>Καλωσήρθατε</h1>
-            <h4 class='subtitle'>Συνδεθείτε για να δείτε τα ραντεβού σας</h4>
+            <h4 class='subtitle'>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</h4>
+
+            <div>
+               <label class='lname' for='login-name'>Ονοματεπώνυμο</label><br>
+               <input id='login-name' class="form-input" type='text'  required>
+            </div>
 
             <div>
                <label class='lemail' for='login-email'>E-mail</label><br>
@@ -24,9 +29,6 @@
             
             <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
             <button class='logbtn'>Login</button>
-            <div class='sign-as'>
-               <a  href="#">Είσοδος ως XXXX</a>
-            </div>
          </div>
 
          

@@ -125,7 +125,17 @@ button {
 } */
 
 
+/* up button -> sign in*/
+.container .sign-in2 {
+  background: none;
+}
 
+/* up button -> register*/
+.container .register2 {
+  color: #FFFFFF;
+  background: #00BFB4;
+  border-radius: 36px;
+}
 
 
 
