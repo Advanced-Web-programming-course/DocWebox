@@ -31,8 +31,9 @@
     font-family: 'Inter';
 }
 #stars{
+    width: 100%;
     display: block;
-    float:right;
+    text-align: right;
     margin-bottom: 16px;
 }
 #price{
