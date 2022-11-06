@@ -1,8 +1,8 @@
 <?php
-function insert_to_patients($fullname, $phone_num, $email, $pword, $img_url){
-    include "connect_to_db.php";
 
-    $sql = "INSERT INTO patient (fullname, phone_num, email, pword, img_url)
+function create_patient($fullname, $phone_num, $email, $pword, $img_url){
+    include "../config/db_connection.php";
+    $sql = "INSERT INTO patient (full_name, phone, email, password, img_url)
     VALUES ('$fullname', '$phone_num', '$email', '$pword', '$img_url')";
 
     try{
@@ -23,11 +23,11 @@ function insert_to_patients($fullname, $phone_num, $email, $pword, $img_url){
     $conn->close();
 }
 
-function insert_to_doctors($fullname, $phone_num, $email, $pword, $rigion, $specialisation_id, $doctor_description, $img_url){
-    include "connect_to_db.php";
+function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url){
+    include "../config/db_connection.php";
 
-    $sql = "INSERT INTO doctor (fullname, phone_num, email, pword, rigion, specialisation_id, doctor_description, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$pword', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
+    $sql = "INSERT INTO doctor (full_name, phone, email, password, address, region, specialization, description, img_url)
+    VALUES ('$fullname', '$phone_num', '$email', '$pword','$address', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
 
     try{
         if ($conn->query($sql) === TRUE) {
@@ -36,6 +36,7 @@ function insert_to_doctors($fullname, $phone_num, $email, $pword, $rigion, $spec
             echo "Phone number : ".$phone_num."<br>";
             echo "Email : ".$email."<br>";
             echo "Password : ".$pword."<br>";
+            echo "Address : ".$address."<br>";
             echo "Rigion : ".$rigion."<br>";
             echo "Specialisation id : ".$specialisation_id."<br>";
             echo "Description : ".$doctor_description."<br>";
@@ -50,10 +51,10 @@ function insert_to_doctors($fullname, $phone_num, $email, $pword, $rigion, $spec
     $conn->close();
 }
 
-function insert_to_doctor_service($title, $price , $specialisation_id){
-    include "connect_to_db.php";
+function create_doctor_service($title, $price , $specialisation_id){
+    include "../config/db_connection.php";
 
-    $sql = "INSERT INTO doctor_service (title, price , specialisation_id)
+    $sql = "INSERT INTO service (title, price , specialization)
     VALUES ('$title', '$price', '$specialisation_id')";
 
     try{
@@ -72,8 +73,8 @@ function insert_to_doctor_service($title, $price , $specialisation_id){
     $conn->close();
 }
 
-function insert_to_appointment($patient_id, $doctor_id , $appointment_date, $service_id){
-    include "connect_to_db.php";
+function create_appointment($patient_id, $doctor_id , $appointment_date, $service_id){
+    include "../config/db_connection.php";
 
     $sql = "INSERT INTO appointment (patient_id, doctor_id , appointment_date, service_id)
     VALUES ('$patient_id', '$doctor_id', '$appointment_date', '$service_id')";
@@ -95,8 +96,8 @@ function insert_to_appointment($patient_id, $doctor_id , $appointment_date, $ser
     $conn->close();
 }
 
-function insert_to_review($patient_id, $doctor_id , $rating, $comment){
-    include "connect_to_db.php";
+function create_review($patient_id, $doctor_id , $rating, $comment){
+    include "../config/db_connection.php";
 
     $sql = "INSERT INTO review (patient_id, doctor_id , rating, comment)
     VALUES ('$patient_id', '$doctor_id', '$rating', '$comment')";
@@ -118,10 +119,10 @@ function insert_to_review($patient_id, $doctor_id , $rating, $comment){
     $conn->close();
 }
 
-function insert_to_admin($email, $pword){
-    include "connect_to_db.php";
+function create_admin($email, $pword){
+    include "../config/db_connection.php";
 
-    $sql = "INSERT INTO admin (email, pword )
+    $sql = "INSERT INTO admin (email, password )
     VALUES ('$email', '$pword')";
 
     try{

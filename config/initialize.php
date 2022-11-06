@@ -1,16 +1,33 @@
-<?php
+<?php 
 include "config.php";
-include "connect_to_db.php";
+
+$conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// Create database
+$sql = "CREATE DATABASE IF NOT EXISTS ".DB_DATABASE_NAME." CHARACTER SET utf8 COLLATE utf8_general_ci;";
+if (mysqli_query($conn, $sql)) {
+  echo "Database ".DB_DATABASE_NAME." created successfully";
+} else {
+  echo "Error creating database: " . mysqli_error($conn);
+}
+
+$conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE_NAME);
+
+
 
 //------------- Create Tables
 
 // Create Table Patient
 $sql = "CREATE TABLE IF NOT EXISTS patient (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    fullname VARCHAR(150) NOT NULL,
-    phone_num VARCHAR(50) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    phone VARCHAR(50) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
-    pword VARCHAR(150) UNIQUE NOT NULL,
+    password VARCHAR(150) UNIQUE NOT NULL,
     img_url TEXT NOT NULL
     )";
 if (mysqli_query($conn, $sql)) {
@@ -23,13 +40,14 @@ echo"<br>";
 // Create Table doctor
 $sql = "CREATE TABLE IF NOT EXISTS doctor (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    fullname VARCHAR(150) NOT NULL,
-    phone_num VARCHAR(50) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    phone VARCHAR(50) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
-    pword VARCHAR(150) UNIQUE NOT NULL,
-    rigion INT NOT NULL,
-    specialisation_id INT NOT NULL,
-    doctor_description VARCHAR(150) NOT NULL,
+    password VARCHAR(150) UNIQUE NOT NULL,
+    address VARCHAR(150) UNIQUE NOT NULL,
+    region INT NOT NULL,
+    specialization INT NOT NULL,
+    description VARCHAR(150) NOT NULL,
     img_url TEXT NOT NULL
     )";
 if (mysqli_query($conn, $sql)) {
@@ -55,11 +73,11 @@ if (mysqli_query($conn, $sql)) {
 echo"<br>";
 
 // Create Table service
-$sql = "CREATE TABLE IF NOT EXISTS doctor_service (
+$sql = "CREATE TABLE IF NOT EXISTS service (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(150) NOT NULL,
     price FLOAT NOT NULL,
-    specialisation_id VARCHAR(150) NOT NULL
+    specialization VARCHAR(150) NOT NULL
     )";
 if (mysqli_query($conn, $sql)) {
   echo "Table service created successfully";
@@ -76,10 +94,11 @@ $sql = "CREATE TABLE IF NOT EXISTS review (
   rating INT NOT NULL,
   comment VARCHAR(150) NOT NULL
   )";
+
 if (mysqli_query($conn, $sql)) {
-echo "Table review created successfully";
+    echo "Table review created successfully";
 } else {
-echo "Error creating table review: " . mysqli_error($conn);
+    echo "Error creating table review: " . mysqli_error($conn);
 }
 echo"<br>";
 
@@ -87,14 +106,20 @@ echo"<br>";
 $sql = "CREATE TABLE IF NOT EXISTS admin (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   email VARCHAR(150) UNIQUE NOT NULL,
-  pword VARCHAR(150) UNIQUE NOT NULL
+  password VARCHAR(150) UNIQUE NOT NULL
   )";
+
 if (mysqli_query($conn, $sql)) {
-echo "Table admin created successfully";
+    echo "Table admin created successfully";
 } else {
-echo "Error admin table review: " . mysqli_error($conn);
+    echo "Error admin table review: " . mysqli_error($conn);
 }
 echo"<br>";
+
+
+
+// insert dummy data
+require_once "insert_initial_data.php";
 
 mysqli_close($conn);
 ?>
