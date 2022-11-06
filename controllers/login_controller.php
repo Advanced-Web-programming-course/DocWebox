@@ -9,16 +9,14 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 require_once "../config/db_connection.php";
+require_once "../shared/utils.php";
 
 // Define variables and initialize with empty values
 $email = $password = "";
 $email_err = $password_err = $login_err = "";
 
 // user_type
-$user_type = "p"; // p for patient
-if (isset($_GET["user_type"]) && $_GET["user_type"] != "") {
-    $user_type = $_GET["user_type"];
-}
+$user_type = get_user_type();
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,7 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($email_err) && empty($password_err)) {
         // get the correct table
-        require_once "../shared/utils.php";
         $table = get_user_table_based_on_type($user_type);
 
         // Prepare a select statement
@@ -152,7 +149,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Login">
                 </div>
-                <p>Don't have an account? <a href="register.php?user_type=<?php echo $user_type; ?>">Sign up now</a>.</p>
+                <p>Don't have an account? <a href="register_controller.php?user_type=<?php echo $user_type; ?>">Sign up now</a>.</p>
             </form>
         </div>
     </main>

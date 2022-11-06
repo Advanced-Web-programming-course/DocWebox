@@ -11,3 +11,13 @@ function get_user_table_based_on_type($user_type)
     }
     return null;
 }
+
+function get_user_type()
+{
+    // user_type
+    $user_type = "p"; // p for patient
+    if (isset($_GET["user_type"]) && $_GET["user_type"] != "") {
+        $user_type = $_GET["user_type"];
+    }
+    return $user_type;
+}
