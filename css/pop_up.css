@@ -42,7 +42,11 @@ form {
     bottom: -20px;
 }
 
-.cancel , .send , .confirm, .save, .continue {
+button {
+    font-size: 12px;
+}
+
+.cancel , .send , .confirm, .save, .continue, .change {
     background: #404040;
     border-radius: 36px;
     border: none;
@@ -51,8 +55,12 @@ form {
     color:#FFFFFF;
 }
 
-.send, .confirm, .save, .continue {
+.send, .confirm, .save {
     background: #00BFB4;
+}
+
+.continue, .change{
+    background: #E43F6F;
 }
 
 
