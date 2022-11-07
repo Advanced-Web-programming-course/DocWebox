@@ -42,7 +42,7 @@ form {
     bottom: -20px;
 }
 
-.cancel , .send , .confirm, .save {
+.cancel , .send , .confirm, .save, .continue {
     background: #404040;
     border-radius: 36px;
     border: none;
@@ -51,7 +51,7 @@ form {
     color:#FFFFFF;
 }
 
-.send, .confirm, .save {
+.send, .confirm, .save, .continue {
     background: #00BFB4;
 }
 
@@ -108,6 +108,14 @@ form {
 
 
 
+/*----------- BOOK APPOINTMENT POP UP ---------- */
+.subtitle {
+    padding: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: normal;
+}
+/*---------------------------------------------- */
 
 
 
