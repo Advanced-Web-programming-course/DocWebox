@@ -1,7 +1,6 @@
 <!-- review popUp form -->
-<head>
-    <link rel="stylesheet" href="../css/pop_up.css">
-</head>
+<link rel="stylesheet" href="../css/pop_up.css">
+
 <div class='popUp'>
     <form class='description-form' action='' method='post'>  
 
