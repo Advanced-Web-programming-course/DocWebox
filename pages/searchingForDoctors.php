@@ -1,18 +1,20 @@
 <?php
 include "../db_services/db_functions.php";
 $doctors = get_doctors("");
-function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
+function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars,$img_url){
     $doc_element ="
-    <div class='doctor grey_font_color gray_borderline'>
+    <div class='doctor grey_font_color gray_borderline' id='doc_".$id."'>
+        
         <div id='section_1'>
             <div style='display: flex;'>
-            <img src='$img_url' alt='doctor' height='48px' height='48px'>
-            <div style = margin-left:14px;'>
+            <img class='circle' src='$img_url' alt='doctor' height='48px' height='48px'>
+            <div style = 'margin-left:14px;'>
                 <label style='display: block;' class='big_text_size'>".$name."</label>
                 <label style='display: block;' class='small_text_size'>".$speciality."</label>
             </div>
         </div>
             <label id='address' class='small_text_size'>".$address."</label>
+            <input style='display:none;' id='doc_".$id."region' type='text' value='".$region."'>
         </div>
         <div id='section_2'>
             <div id='stars'>";
@@ -35,7 +37,7 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
                 </div>
             <div id='section_2_supsec_2'>
                 <label id='price'>".$price." €</label>
-                <button class='pink_background'>Κλέισε Ραντεβού</button>
+                <button onclick=\"select_doctor(".$id.")\" class='pink_background'>Κλέισε Ραντεβού</button>
             </div>
             
         </div>
@@ -50,9 +52,10 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
     <link rel="stylesheet" href="../css/searching_for_doctors.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/search_bar.css">
+    <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
 </head>
 <title>Search For Doctor</title>
-<script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
+
 <body>
 
 <div style = "margin-bottom: 25px;">
@@ -60,10 +63,10 @@ function add_doctor($name, $speciality,$address,$price,$num_of_stars,$img_url){
 </div>
 <?php
 foreach ($doctors as $doc) {
-    echo add_doctor($doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα","50",0,$doc[9]);
+    echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
     echo "<br>";
   }
 ?>
-
+ <script src="../js/searchig_for_doctor.js"></script> 
 </body>
 </html>
