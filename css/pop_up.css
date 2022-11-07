@@ -34,10 +34,15 @@ form {
 .bottombtns {
     padding: 5px;
     align-self: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     margin-right: 10px;
+    position: relative;
+    bottom: -20px;
 }
 
-.cancel , .send , .confirm{
+.cancel , .send , .confirm, .save {
     background: #404040;
     border-radius: 36px;
     border: none;
@@ -46,13 +51,10 @@ form {
     color:#FFFFFF;
 }
 
-.send {
+.send, .confirm, .save {
     background: #00BFB4;
 }
 
-.confirm{
-    background: #00BFB4;
-}
 
 /* --------------------------------------------  */
 
