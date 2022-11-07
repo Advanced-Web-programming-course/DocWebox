@@ -4,10 +4,10 @@
 <link rel="stylesheet" href="../css/pop_up.css">
 </head>
 <div class='popUp'>
-    <form class='review' action='' method='post'>  
+    <form class='review-form' action='' method='post'>  
 
-        <div class='row'> 
-                <div class='col'>Η κριτική μου</div>
+        <div class='review-head'> 
+                <div class='title'>Η κριτική μου</div>
                 <a class='stars' >
                     <i class="fa-regular fa-star" onmouseover="this.className = 'fa-solid fa-star'"; onmouseout="this.className='fa-regular fa-star'" ></i>
                     <i class="fa-regular fa-star" onmouseover="this.className = 'fa-solid fa-star'"; onmouseout="this.className='fa-regular fa-star'" ></i>
@@ -23,7 +23,7 @@
         </div>
 
         <div class='bottombtns'>
-            <button class='cancel' id='cancelbtn'>Ακύρωση</button>
+            <button class='cancel' id='rcancelbtn'>Ακύρωση</button>
             <button class='send' id='sendbtn'>Αποστολή</button>
         </div>
 
