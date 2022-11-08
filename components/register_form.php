@@ -42,8 +42,10 @@
                <input id='register-region' type='text' required>
             </div>
             
-            <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
-            <button class='registerbtn'>Εγγραφή</button>
+            <div>
+               <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
+               <button class='registerbtn'>Εγγραφή</button>
+            </div>
          </div>
     
 

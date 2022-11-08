@@ -7,7 +7,7 @@
 <body>
     <div >
         <?php
-        include "../components/loginForm.php";
+        include "../components/login_form.php";
     ?>
     </div>
 </body>
