@@ -20,16 +20,16 @@
             <div>
                <label class='lpass' for='login-pass'>Password</label><br>
                <input id='login-pass' type='password' required>
-            </div>     
-            
-            <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
-            <button class='loginbtn'>Σύνδεση</button>
+            </div>    
+
+            <div>
+               <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
+               <button class='loginbtn'>Σύνδεση</button>
+            </div>
             <div class='sign-as'>
               <a  href="#">Είσοδος ως XXXX</a>
             </div>
          </div>
-
-         
 
    </form>
 
