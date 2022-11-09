@@ -68,23 +68,26 @@ button {
 }
 
 /* labels for form-field email, password*/
-.form-field label {
+label {
   font-weight: 400;
   line-height: 14px;
   color: #AAAAAA;
 }
 
-.form-field input {
-    width: 100%;
-    padding: 10px;
+input {
+    box-sizing: border-box;
     border: none;
     outline: none;
-
     border-bottom: 0.7px solid #AAAAAA;
     background-color: none;
 
-    margin-bottom: 40px;
-  }
+    padding: 5px;
+    margin: 8px 0;
+    margin-bottom: 15%;
+
+    width: 100%;
+   
+}
 
 
   /* login button */
@@ -117,7 +120,7 @@ button {
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #d792a6;
+  color: #eecccc;
   opacity: 1; /* Firefox */
 }
 
