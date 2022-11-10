@@ -12,7 +12,7 @@ echo "<div class='search'>
             <option value='ath'>ΑΘΗΝΑ</option>
             <option value='lar'>ΛΑΡΙΣΣΑ</option>
         </select>
-    <a href=''>
+    <a href='' id='search_button'>
         <svg width='36' height='25' viewBox='0 0 36 25' fill='none' xmlns='http://www.w3.org/2000/svg'
             xmlns:xlink='http://www.w3.org/1999/xlink'>
             <rect x='0.781982' width='34.6068' height='25' fill='url(#pattern0)' />
