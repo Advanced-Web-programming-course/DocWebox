@@ -10,7 +10,21 @@
        
         <!-- ΤΗΑ ΒΑΛΟΥΜΕ CALENDAR ΕΔΩ -->
         <div class='comment'>
-            <textarea class='dtext' id='description-text' type='text' placeholder="......"></textarea>
+            <div class='calendararea'> 
+                <header id='datesrow'>
+                    <!-- na valw chevron icon -->
+                    <p>Δευτέρα 07/11</p>
+                    <p>Τρίτη 08/11</p>
+                    <p>Τετάρτη 09/11</p>
+                    <p>Πέμπτη 08/11</p>
+                    <p>Παρασκευή 09/11</p>
+                </header>
+                <div id='times'>
+                    <p>09:00</p>
+                    <p>11:00</p>
+                    <p>12:30</p>
+                </div>
+            </div>
         </div>
 
         <div class='bottombtns'>
