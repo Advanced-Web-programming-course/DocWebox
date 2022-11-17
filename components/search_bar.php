@@ -2,15 +2,15 @@
 echo "<div class='search'>
         <select name='doctor' id='doctor'>
             <option selected hidden>Υπηρεσία</option>
-            <option value='thess'>ΠΑΘΟΛΟΓΟΣ</option>
-            <option value='ath'>ΨΥΧΟΛΟΓΟΣ</option>
-            <option value='lar'>ΓΥΝΑΙΚΟΛΟΓΟΣ</option>
+            <option value='1'>ΠΑΘΟΛΟΓΟΣ</option>
+            <option value='2'>ΨΥΧΟΛΟΓΟΣ</option>
+            <option value='3'>ΓΥΝΑΙΚΟΛΟΓΟΣ</option>
         </select>
         <select name='location' id='location'>
             <option selected hidden>Τοποθεσία</option>
-            <option value='thess'>ΘΕΣΣΑΛΟΝΙΚΗ</option>
-            <option value='ath'>ΑΘΗΝΑ</option>
-            <option value='lar'>ΛΑΡΙΣΣΑ</option>
+            <option value='1'>ΘΕΣΣΑΛΟΝΙΚΗ</option>
+            <option value='2'>ΑΘΗΝΑ</option>
+            <option value='3'>ΛΑΡΙΣΣΑ</option>
         </select>
     <a href='' id='search_button'>
         <svg width='36' height='25' viewBox='0 0 36 25' fill='none' xmlns='http://www.w3.org/2000/svg'
