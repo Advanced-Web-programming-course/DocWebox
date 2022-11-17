@@ -3,7 +3,6 @@
 
 <head>
     <title>Page Title</title>
-    <link rel="stylesheet" href="../css/main_page.css">
     <link rel="stylesheet" href="../css/all_apointments.css">
     <link rel="stylesheet" href="../css/search_bar.css">
     <link rel="stylesheet" href="../css/upcoming_apointments.css">
@@ -13,6 +12,7 @@
 <body>
     <?php
         include "../components/header.php";
+        echo "<br/>";
         include "../components/search_bar.php";
         include "../components/upcoming_apointments.php";
         include "../components/all_apointments.php";
