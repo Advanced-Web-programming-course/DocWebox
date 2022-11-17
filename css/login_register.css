@@ -1,13 +1,11 @@
 /*style for upcomming apointments*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-html, body{
+.container {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 12px;
-}
 
-.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +14,7 @@ html, body{
   /* box-shadow: 0 0 20px 6px #090b6f85;  */
 }
 
-button, input[type='submit'] {
+button, .loginbtn, .registerbtn {
   font-size: 15px;
   line-height: 18px;
   font-weight: 400;
@@ -32,20 +30,22 @@ button, input[type='submit'] {
 .upbtns{
   margin: 10px;
 }
+
 .sign-in {
   color: #FFFFFF;
   background: #00BFB4;
 }
 
 /* form title-> h1, form subtitle-> p */
-h1 {
+.title h1 {
   font-size: 40px;
   font-weight: 700;
   line-height: 47px;
   color: #000000;
   margin-bottom: 10px;
 }
-p {
+
+.title p {
   font-weight: 400;
   line-height: 14px;
   color: #545454;
@@ -58,6 +58,7 @@ p {
   line-height: 14px;
   color: #AAAAAA;
 }
+
 .row input {
     box-sizing: border-box;
     border: none;
@@ -70,7 +71,7 @@ p {
     width: 100%;  
 }
 
-input[type='submit'] {
+.loginbtn, .registerbtn{
   margin-left: 20px;
   background: #E43F6F;
   color: #FFFFFF;
@@ -80,12 +81,13 @@ input[type='submit'] {
 .forgot-pass {
   color: #545454;
 }
+
 .forgot-pass , .loginbtn, .registerbtn {
   margin-bottom: 5px;
 }
 
 /* sign as doctor/patient link*/
-.sign-as a{
+.sign-as a {
   color: #00BFB4;
 }
 .sign-as {
