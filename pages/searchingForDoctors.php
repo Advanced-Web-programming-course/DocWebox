@@ -53,6 +53,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/search_bar.css">
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
+    <script src="../js/searchig_for_doctor.js"></script>
 </head>
 <title>Search For Doctor</title>
 
@@ -67,6 +68,30 @@ foreach ($doctors as $doc) {
     echo "<br>";
   }
 ?>
- <script src="../js/searchig_for_doctor.js"></script> 
+ <script >
+    document.getElementById("search_button").addEventListener("click", search_for_doctor);
+    
+    function search_for_doctor(){
+        var doctors_list = document.getElementsByClassName("doctor");
+        //doctor location
+        if(document.getElementById("doctor").value == "Υπηρεσία" && document.getElementById("location").value != "Τοποθεσία"){
+            alert("Τοποθεσία");
+            window.location.replace("http://www.w3schools.com");
+        }
+        //doctor speciality
+        else if(document.getElementById("doctor").value != "Υπηρεσία" && document.getElementById("location").value == "Τοποθεσία"){
+            alert("Υπηρεσία");
+        }
+        //both
+        else if(document.getElementById("doctor").value == "Υπηρεσία" && document.getElementById("location").value == "Τοποθεσία"){
+            alert("--");
+        }
+        //Nothing
+        else if(document.getElementById("doctor").value != "Υπηρεσία" && document.getElementById("location").value != "Τοποθεσία"){
+            alert("2");
+            window.location.replace("http://www.w3schools.com");
+        }
+    }
+ </script>
 </body>
 </html>
