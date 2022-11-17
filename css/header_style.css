@@ -8,6 +8,8 @@
     top:0;
     left:0;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 #lowerheader{
@@ -17,7 +19,6 @@
 }
 
 #lowertext{
-    display: block;
     align-self: center;
     color: white;
 }
@@ -30,16 +31,12 @@
 #logoicon{
     margin-left: 77px;
     align-self: flex-start;
-    position: relative;
     
 }
 
 #logotext{
     font-family: 'Lexend';
     vertical-align: top;
-    margin-top: 45px;
-    margin-left: 185px;
     font-size: 29px;
     color: #404040;
-    position: absolute;
 }
