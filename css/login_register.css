@@ -1,16 +1,24 @@
 /*style for upcomming apointments*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
 .container {
+   
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 12px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
+  justify-content: flex-end; 
+  /* width: 100%; */
+  align-items: center; 
+  /* colum ai -> x , js -> y me row to anapodo */
   /* box-shadow: 0 0 20px 6px #090b6f85;  */
 }
 
