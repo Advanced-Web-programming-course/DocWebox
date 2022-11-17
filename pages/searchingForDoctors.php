@@ -72,26 +72,35 @@ foreach ($doctors as $doc) {
     document.getElementById("search_button").addEventListener("click", search_for_doctor);
     
     function search_for_doctor(){
-        var doctors_list = document.getElementsByClassName("doctor");
-        //doctor location
-        if(document.getElementById("doctor").value == "Υπηρεσία" && document.getElementById("location").value != "Τοποθεσία"){
-            alert("Τοποθεσία");
-            window.location.replace("http://www.w3schools.com");
-        }
-        //doctor speciality
-        else if(document.getElementById("doctor").value != "Υπηρεσία" && document.getElementById("location").value == "Τοποθεσία"){
-            alert("Υπηρεσία");
-        }
-        //both
-        else if(document.getElementById("doctor").value == "Υπηρεσία" && document.getElementById("location").value == "Τοποθεσία"){
-            alert("--");
-        }
-        //Nothing
-        else if(document.getElementById("doctor").value != "Υπηρεσία" && document.getElementById("location").value != "Τοποθεσία"){
-            alert("2");
-            window.location.replace("http://www.w3schools.com");
-        }
+        document.getElementById("search_button").href="searchingForDoctors.php?location="+document.getElementById("location").value+"&speciality="+document.getElementById("doctor").value;
     }
+    if(window.location.href.includes("location")){
+        var doctor_element_list = document.getElementsByClassName("doctor");
+    
+        let params = (new URL(window.location.href)).searchParams;
+        /*alert(params.get('location'));
+        alert(params.get('speciality'));*/
+
+        //No filters
+        if(params.get('location')=="Τοποθεσία" && params.get('speciality')=="Υπηρεσία"){
+            
+        }
+        //
+        else if(params.get('location')!="Τοποθεσία" && params.get('speciality')=="Υπηρεσία"){
+            alert(params.get('location'));
+            document.getElementById(id).value = params.get('location');
+        }
+        else if(params.get('location')=="Τοποθεσία" && params.get('speciality')!="Υπηρεσία"){
+            alert(params.get('speciality'));
+        }
+        else if(params.get('location')!="Τοποθεσία" && params.get('speciality')!="Υπηρεσία"){
+            alert(params.get('speciality'));
+            alert(params.get('location'));
+        }
+
+    }
+    
+
  </script>
 </body>
 </html>
