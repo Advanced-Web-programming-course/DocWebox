@@ -13,7 +13,7 @@
         color: #fff;
     }
 
-    header,
+    .all-apointments header,
     .row {
         display: flex;
         padding: 12px 21px;
@@ -36,7 +36,7 @@
         /* distributes space on the line equally among items */
     }
 
-    header {
+    .all-apointments header {
         margin-top: 19px;
         background: #F3F6F9;
         border-radius: 6px;

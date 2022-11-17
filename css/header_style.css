@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Lexend');
 
-header{
+#header-component{
     width:100%;
     position:absolute;
     font-family: 'Roboto';
@@ -28,8 +28,6 @@ header{
 }
 
 #logoicon{
-    width: 125px;
-    height: 125px;
     margin-left: 77px;
     align-self: flex-start;
     position: relative;
