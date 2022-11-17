@@ -7,9 +7,6 @@
     font-family: 'Roboto';
     top:0;
     left:0;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
 }
 
 #lowerheader{
@@ -31,7 +28,7 @@
 #logoicon{
     margin-left: 77px;
     align-self: flex-start;
-    
+    position: relative;
 }
 
 #logotext{
@@ -39,4 +36,7 @@
     vertical-align: top;
     font-size: 29px;
     color: #404040;
+    margin-top: 45px;
+    margin-left: 185px;
+    position: absolute;
 }
