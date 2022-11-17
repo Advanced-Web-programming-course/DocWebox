@@ -5,10 +5,10 @@
 </head>
 
 <body>
-    <div >
+    <div class='container'>
         <?php
-        include "../components/login_form.php";
-    ?>
+            include "../components/login_form.php";
+        ?>
     </div>
 </body>
 
