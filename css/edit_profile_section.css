@@ -43,7 +43,7 @@
     flex: 4;
 }
 
-.edit-profile-section #profile-pic{
+.edit-profile-section #profile-picture{
     padding: 12px 20px;
     text-align: center;
     font-weight: 700;
@@ -54,7 +54,7 @@
     white-space: nowrap;
 }
 
-.edit-profile-section #submit{
+.edit-profile-section #save{
     padding: 12px 20px;
     font-weight: 700;
     text-align: center;

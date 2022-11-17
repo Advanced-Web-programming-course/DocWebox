@@ -8,10 +8,10 @@
         </div>
         <div class="row2">
             <input type='email' id='email' name='email' placeholder='Email'>
-            <input type='file' name='uploadfile' accept='.jpg, .jpeg, .png' style='display:none;' />
-            <label id='profile-pic' for='profile-pic'>Ανέβασμα Εικόνας</label>
-            <input type='submit' style='display:none;'>
-            <label id='submit' for='submit'>Αποθήκευση</label>
+            <input type='file' name='profile-pic' id='profile-pic' accept='.jpg, .jpeg, .png' style='display:none;' />
+            <label id='profile-picture' for='profile-pic'>Ανέβασμα Εικόνας</label>
+            <input type='submit' id='submit' style='display:none;'>
+            <label id='save' for='submit'>Αποθήκευση</label>
         </div>
     </form>
 
