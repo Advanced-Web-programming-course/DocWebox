@@ -12,15 +12,6 @@ $phone = $phone_err = "";
 $address = $address_err = "";
 $region = $region_err = "";
 
-
-function check_empty($var, $error)
-{
-    if (empty($var)) {
-        return $error;
-    }
-    return "";
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = clean_input($_POST["name"]);
@@ -36,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $email_err = "Invalid email format";
         } else {
-            $sql = "SELECT id FROM $table WHERE email = $email";
+            $sql = "SELECT id FROM $table WHERE email = '$email'";
             if ($result = $conn->query($sql)) {
                 if ($result->num_rows >= 1) {
                     $email_err = "Email already exists";
