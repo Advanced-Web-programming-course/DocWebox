@@ -30,7 +30,7 @@ include "../controllers/login_controller.php";
 
     <?php
     include "../components/header.php";
-    display_header("login", $type);
+    display_login_register_header("login", $type);
     ?>
 
     <div class='container'>

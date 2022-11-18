@@ -27,7 +27,7 @@ include "../controllers/register_controller.php";
 <body>
     <?php
     include "../components/header.php";
-    display_header("register", $type);
+    display_login_register_header("register", $type);
     ?>
     <div class='container'>
 

@@ -1,6 +1,6 @@
 <?php
 
-function display_header($action, $type)
+function display_login_register_header($action, $type)
 {
     if ($type == "d") {
         $type = "Γιατρού";
@@ -24,6 +24,26 @@ function display_header($action, $type)
         </div>
         <div id='lowerheader'>
             <p id='lowertext'>$action $type</p> <!-- Will change using login page buttons -->
+        </div>
+    </header>
+    <br/>
+    <br/>
+    <br/>
+    <br/>";
+}
+
+function display_default_header($name)
+{
+    $logo = file_get_contents("../images/logo.svg");
+    echo "<header id='header-component'>
+        <div id='upperheader'>
+            <link rel='stylesheet' href='../css/header_style.css'>
+            <a id='wholelogo' href='#top'>
+                $logo
+            <p id='logotext'>DOCWEBOX</p></a>
+        </div>
+        <div id='lowerheader'>
+            <p id='lowertext'>Καλωσήρθες *ΟΝΟΜΑ*$name</p> <!-- Will change using login page buttons -->
         </div>
     </header>
     <br/>

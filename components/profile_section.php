@@ -16,7 +16,7 @@
                 <a id="delete-button">Διαγραφή Λογαριασμού</a>
             </div>
             <div class="col">
-                <a id="logout-button">Αποσύνδεση</a>
+                <a href="../controllers/logout.php" id="logout-button">Αποσύνδεση</a>
                 <a id="edit-button">Επεξεργασία</a>
             </div>
         </div>
