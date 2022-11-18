@@ -14,7 +14,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
             </div>
         </div>
             <label id='address' class='small_text_size'>".$address."</label>
-            <input style='display:none;' id='doc_".$id."region' type='text' value='".$region."'>
+            <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region."'>
         </div>
         <div id='section_2'>
             <div id='stars'>";
@@ -63,10 +63,43 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
         <?php include "../components/search_bar.php";?>
 </div>
 <?php
-foreach ($doctors as $doc) {
-    echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
-    echo "<br>";
-  }
+if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
+    foreach ($doctors as $doc) {
+        echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+    }
+}
+else{
+    
+    if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
+        foreach ($doctors as $doc) {
+            echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+          }
+    }
+    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
+        foreach ($doctors as $doc) {
+            if( $doc[6] == $_GET['location']){
+                echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+            }
+          }
+    }
+    else if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
+        foreach ($doctors as $doc) {
+            if( "Παθολόγος" == $_GET['speciality']){
+                echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+            }
+          }
+    }
+    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
+        foreach ($doctors as $doc) {
+            if( "Παθολόγος" == $_GET['speciality'] && $doc[6] == $_GET['location']){
+                echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+            }
+          }
+    }
+
+}
+//echo $_GET["location"];
+
 ?>
  <script >
     document.getElementById("search_button").addEventListener("click", search_for_doctor);
@@ -75,29 +108,10 @@ foreach ($doctors as $doc) {
         document.getElementById("search_button").href="searchingForDoctors.php?location="+document.getElementById("location").value+"&speciality="+document.getElementById("doctor").value;
     }
     if(window.location.href.includes("location")){
-        var doctor_element_list = document.getElementsByClassName("doctor");
-    
+          
         let params = (new URL(window.location.href)).searchParams;
-        /*alert(params.get('location'));
-        alert(params.get('speciality'));*/
-
-        //No filters
-        if(params.get('location')=="Τοποθεσία" && params.get('speciality')=="Υπηρεσία"){
-            
-        }
-        //
-        else if(params.get('location')!="Τοποθεσία" && params.get('speciality')=="Υπηρεσία"){
-            alert(params.get('location'));
-            document.getElementById(id).value = params.get('location');
-        }
-        else if(params.get('location')=="Τοποθεσία" && params.get('speciality')!="Υπηρεσία"){
-            alert(params.get('speciality'));
-        }
-        else if(params.get('location')!="Τοποθεσία" && params.get('speciality')!="Υπηρεσία"){
-            alert(params.get('speciality'));
-            alert(params.get('location'));
-        }
-
+        document.getElementById("doctor").value = params.get('speciality');
+        document.getElementById("location").value = params.get('location');
     }
     
 
