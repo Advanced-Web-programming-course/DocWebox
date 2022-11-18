@@ -17,6 +17,7 @@
     width: 30%;        
 }
 #section_2_supsec_2{
+    display: flex;
     float:right;
 }
 #section_2_supsec_2>button{

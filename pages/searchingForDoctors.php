@@ -62,8 +62,8 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
                 <i class='fa-".$stars[4]." fa-star'></i>
                 </div>
             <div id='section_2_supsec_2'>
-                <label id='price'>".$price." €</label>
-                <button onclick=\"select_doctor(".$id.")\" class='pink_background'>Κλέισε Ραντεβού</button>
+                <label id='price'>".$price."&nbsp€</label>
+                <button onclick=\"select_doctor(".$id.")\" class='pink_background'>Κλέισε&nbspΡαντεβού</button>
             </div>
             
         </div>
