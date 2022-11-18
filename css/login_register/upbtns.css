@@ -1,0 +1,19 @@
+/* top buttons for login form*/
+.upbtns{
+    margin: 10px;
+  }
+  
+.sign-in {
+    color: #FFFFFF;
+    background: #00BFB4;
+  }
+
+/* top buttons in register form */
+.sign-in2 {
+    background: none;
+  }
+
+.register2 {
+    color: #FFFFFF;
+    background: #00BFB4;
+  }

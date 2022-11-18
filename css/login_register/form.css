@@ -8,17 +8,15 @@ body {
 }
 
 .container {
-   
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 12px;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; 
-  /* width: 100%; */
+  width: 100%;
   align-items: center; 
-  /* colum ai -> x , js -> y me row to anapodo */
+  /* οταν flex-direction:column align-items-> τον άξονα x , justify-content ->  τον άξονα y me row το ανάποδο */
   /* box-shadow: 0 0 20px 6px #090b6f85;  */
 }
 
@@ -32,16 +30,6 @@ button, .loginbtn, .registerbtn {
   width: 120px;
   border-radius: 36px;
   background: none;
-}
-
-/* top buttons for login form*/
-.upbtns{
-  margin: 10px;
-}
-
-.sign-in {
-  color: #FFFFFF;
-  background: #00BFB4;
 }
 
 /* form title-> h1, form subtitle-> p */
@@ -60,6 +48,7 @@ button, .loginbtn, .registerbtn {
   margin-bottom: 50px;
 }
 
+
 /* labels for inputs */
 .row label {
   font-weight: 400;
@@ -75,52 +64,37 @@ button, .loginbtn, .registerbtn {
     background-color: none;
     padding: 5px;
     margin: 8px 0;
-    margin-bottom: 15%;
+    margin-bottom: 15%; 
     width: 100%;  
-}
-
-.loginbtn, .registerbtn{
-  margin-left: 20px;
-  background: #E43F6F;
-  color: #FFFFFF;
-}
-
-/* forgot my pass link */
-.forgot-pass {
-  color: #545454;
-}
-
-.forgot-pass , .loginbtn, .registerbtn {
-  margin-bottom: 5px;
-}
-
-/* sign as doctor/patient link*/
-.sign-as a {
-  color: #00BFB4;
-}
-.sign-as {
-  margin-top: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* top buttons in register form */
-.sign-in2 {
-  background: none;
-}
-.register2 {
-  color: #FFFFFF;
-  background: #00BFB4;
-}
-
-
-a:hover{
-  text-decoration: none;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #eecccc;
   opacity: 1; /* Firefox */
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 110%;
+}
+
+.column {
+  flex: 50%; 
+}
+  
+@media screen and (max-width: 600px) {
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+  .column{
+    width: 100%;
+  }
 }
 
 

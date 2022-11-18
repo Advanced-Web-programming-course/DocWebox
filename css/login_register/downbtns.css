@@ -1,0 +1,36 @@
+.down{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+  
+.loginbtn, .registerbtn{
+    margin-left: 10px;
+    background: #E43F6F;
+    color: #FFFFFF;
+}
+
+/* forgot my pass link */
+.forgot-pass {
+    color: #545454;
+}
+  
+.forgot-pass , .loginbtn, .registerbtn {
+margin-bottom: 15px;
+}
+
+/* sign as doctor/patient link*/
+.sign-as a {
+color: #00BFB4;
+}
+
+.sign-as {
+margin-top: 10px;
+margin-bottom: 20px;
+text-align: center;
+}
+
+a:hover{
+text-decoration: none;
+}
