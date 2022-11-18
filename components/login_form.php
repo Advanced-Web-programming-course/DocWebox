@@ -8,7 +8,7 @@
    </div>
 
    <div class='row'>
-      <label class='lpass' for='login-pass'>Password</label><br>
+      <label class='lpass' for='login-pass'>Κωδικός</label><br>
       <input name="password" id='login-pass' type='password' required>
       <p style="color: red;"><?php echo $password_err; ?> </p>
    </div>

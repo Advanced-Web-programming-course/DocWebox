@@ -9,8 +9,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 include "../controllers/login_controller.php";
-include "../controllers/register_controller.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -30,8 +28,8 @@ include "../controllers/register_controller.php";
     <div class='container'>
 
         <div class='upbtns'>
-            <button class='sign-in'>Σύνδεση</button>
-            <button class='register'>Εγγραφή</button>
+            <button class='sign-in2'>Σύνδεση</button>
+            <button class='register2'>Εγγραφή</button>
         </div>
 
         <div class='title'>
@@ -39,13 +37,13 @@ include "../controllers/register_controller.php";
             <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>
         </div>
 
-        <div>
-            <?php include "../components/register_form.php"; ?>
-        </div>
-
-        <div class='sign-as'><a href="#">Είσοδος ως XXXX</a></div>
-
+        <?php include "../components/login_form.php"; ?>
+        
+        <div class='sign-as'><a href="#">Είσοδος ως γιατρός</a></div> 
     </div>
+
+    
+
 </body>
 
 </html>
