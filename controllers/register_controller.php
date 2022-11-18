@@ -21,20 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = clean_input($_POST["address"]);
     $region = clean_input($_POST["region"]);
 
-    if (empty($email)) {
-        $email_err = "Email cannot be empty";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email_err = "Invalid email format";
     } else {
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $email_err = "Invalid email format";
-        } else {
-            $sql = "SELECT id FROM $table WHERE email = '$email'";
-            if ($result = $conn->query($sql)) {
-                if ($result->num_rows >= 1) {
-                    $email_err = "Email already exists";
-                }
+        $sql = "SELECT id FROM $table WHERE email = '$email'";
+        if ($result = $conn->query($sql)) {
+            if ($result->num_rows >= 1) {
+                $email_err = "Email already exists";
             }
         }
     }
+
 
     $name_err = check_empty($name, "Name cannot be empty");
     $password_err = check_empty($password, "Password cannot be empty");
@@ -43,7 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $region_err = check_empty($region, "Region cannot be empty");
 
     if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
-        create_doctor($name, $phone, $email, $password, $address, $region, "", "", "");
-        header("location: ../pages/login_page.php");
+        $ok = create_doctor($name, $phone, $email, $password, $address, $region, "", "", "");
+        if ($ok) {
+            header("location: ../pages/login_page.php");
+        }
     }
 }
