@@ -44,5 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
         create_doctor($name, $phone, $email, $password, $address, $region, "", "", "");
+        header("location: ../pages/login_page.php");
     }
 }
