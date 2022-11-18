@@ -1,5 +1,6 @@
 <?php
 include "../db_services/db_functions.php";
+$doctor_specialities = array("","Παθολόγος", "Ψυχολόγος", "Γυναικολόγος", "Ενδοκρινολόγος");
 
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
     $doctors = get_doctors("");
@@ -26,7 +27,7 @@ else{
 
 
 function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars,$img_url){
-    $doctor_specialities = array("Παθολόγος", "Ψυχολόγος", "Γυναικολόγος");
+    
     $doc_element ="
     <div class='doctor grey_font_color gray_borderline' id='doc_".$id."'>
         
@@ -88,44 +89,8 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
         <?php include "../components/search_bar.php";?>
 </div>
 <?php
-/*if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
-    foreach ($doctors as $doc) {
-        echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
-    }
-}
-else{
-    
-    if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
-        foreach ($doctors as $doc) {
-            echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
-          }
-    }
-    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
-        foreach ($doctors as $doc) {
-            if( $doc[6] == $_GET['location']){
-                echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
-            }
-          }
-    }
-    else if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
-        foreach ($doctors as $doc) {
-            if( "Παθολόγος" == $_GET['speciality']){
-                echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
-            }
-          }
-    }
-    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
-        foreach ($doctors as $doc) {
-            if( "Παθολόγος" == $_GET['speciality'] && $doc[6] == $_GET['location']){
-                echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
-            }
-          }
-    }
-
-}
-*/
 foreach ($doctors as $doc) {
-    echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+    echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doc[6],"50",0,$doc[9]);
 }
 
 ?>
