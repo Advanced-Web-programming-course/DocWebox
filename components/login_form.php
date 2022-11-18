@@ -5,7 +5,7 @@
       <button class='register'>Εγγραφή</button>
    </div>
 
-   <form class='login' action='' method='post'>
+   <form class='login' action='<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>' method='post'>
       <div class='title'>
          <h1>Καλωσήρθατε</h1>
          <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>

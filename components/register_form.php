@@ -5,7 +5,7 @@
       <button class='register2'>Εγγραφή</button>
    </div>
 
-   <form class='register' action='' method='post'>
+   <form class='register' action='<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>' method='post'>
       <div class='title'>
          <h1>Καλωσήρθατε</h1>
          <p>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</p>
