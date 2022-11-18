@@ -46,9 +46,9 @@
     </div>
 
     <div class='down'>
-      <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
-      <input type='submit' class='registerbtn' value='Εγγραφή'>
-   </div>
+        <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
+        <input type='submit' class='registerbtn' value='Εγγραφή'>
+    </div>
 </form>
 
-<div class='sign-as'><a href="#">Εγγραφή ως μέλος</a></div>
+<div class='sign-as'><a href="../pages/register_page.php?type=p">Εγγραφή ως μέλος</a></div>

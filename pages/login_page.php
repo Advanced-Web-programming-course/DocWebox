@@ -8,6 +8,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     exit;
 }
 
+include "../shared/utils.php";
+$type = "p";
+if (isset($_GET["type"])) {
+    $type = validate_type($_GET["type"]);
+}
 include "../controllers/login_controller.php";
 ?>
 
@@ -25,14 +30,14 @@ include "../controllers/login_controller.php";
 
     <?php
     include "../components/header.php";
-    display_header("login", "p");
+    display_header("login", $type);
     ?>
 
     <div class='container'>
 
         <div class='upbtns'>
             <button class='sign-in'>Σύνδεση</button>
-            <button class='register'>Εγγραφή</button>
+            <button onclick='window.location.href = "register_page.php<?php echo "?type=$type"; ?>"' class='register'>Εγγραφή</button>
         </div>
 
         <div class='title'>
@@ -40,9 +45,15 @@ include "../controllers/login_controller.php";
             <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>
         </div>
 
-        <?php include "../components/login_form.php"; ?>
-
-        <div class='sign-as'><a href="#">Είσοδος ως γιατρός</a></div>
+        <?php
+        include "../components/login_form.php";
+        if ($type == "d") {
+            echo "<div class='sign-as'><a href='login_page.php?type=p'>Είσοδος ως Μέλος</a></div>";
+        } else if ($type == "p") {
+            echo "<div class='sign-as'><a href='login_page.php?type=d'>Είσοδος ως γιατρός</a></div>";
+        }
+        ?>
+        <!-- <div class='sign-as'><a href="#">Είσοδος ως γιατρός</a></div> -->
     </div>
 
 

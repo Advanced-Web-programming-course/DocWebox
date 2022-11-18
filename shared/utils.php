@@ -17,3 +17,14 @@ function check_empty($var, $error)
     }
     return "";
 }
+
+function validate_type($type)
+{
+    $type = clean_input($type);
+
+    if ($type != "p" && $type != "d") {
+        $type = "p";
+    }
+
+    return $type;
+}
