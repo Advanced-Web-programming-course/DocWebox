@@ -1,7 +1,32 @@
 <?php
 include "../db_services/db_functions.php";
-$doctors = get_doctors("");
+
+if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
+    $doctors = get_doctors("");
+}
+else{
+    
+    if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
+        $doctors = get_doctors("");
+    }
+    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
+        $doctors = get_doctors(" WHERE region=".$_GET['location']);
+    }
+    else if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
+        $doctors = get_doctors(" WHERE specialization=".$_GET['speciality']);
+    }
+    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
+        $doctors = get_doctors(" WHERE specialization=".$_GET['speciality']." and region=".$_GET['location']);
+    }
+}
+
+
+
+
+
+
 function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars,$img_url){
+    $doctor_specialities = array("Παθολόγος", "Ψυχολόγος", "Γυναικολόγος");
     $doc_element ="
     <div class='doctor grey_font_color gray_borderline' id='doc_".$id."'>
         
@@ -63,7 +88,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
         <?php include "../components/search_bar.php";?>
 </div>
 <?php
-if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
+/*if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
     foreach ($doctors as $doc) {
         echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
     }
@@ -98,7 +123,10 @@ else{
     }
 
 }
-//echo $_GET["location"];
+*/
+foreach ($doctors as $doc) {
+    echo add_doctor($doc[0],$doc[1],"Παθολόγος","Λαζαράκη 33,Γλυφάδα",$doc[6],"50",0,$doc[9]);
+}
 
 ?>
  <script >
