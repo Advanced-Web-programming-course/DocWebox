@@ -4,7 +4,7 @@ require_once "../config/db_connection.php";
 require_once "../shared/utils.php";
 require_once "../db_services/db_functions.php";
 
-$table = "doctor";
+$table = get_table_name($type);
 $email = $email_err =  "";
 $password = $password_err = "";
 
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["loggedin"] = true;
                 $_SESSION["id"] = $id;
                 $_SESSION["email"] = $email;
-                $_SESSION["user_type"] = $table;
+                $_SESSION["type"] = $type;
                 $_SESSION["full_name"] = $full_name;
                 header("location: ../pages/main_page.php");
             } else {

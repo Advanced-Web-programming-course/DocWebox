@@ -28,3 +28,12 @@ function validate_type($type)
 
     return $type;
 }
+
+function get_table_name($type)
+{
+    if ($type == "d") {
+        return "doctor";
+    } else if ($type == "p") {
+        return "patient";
+    }
+}
