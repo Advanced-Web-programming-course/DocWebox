@@ -28,8 +28,8 @@ include "../controllers/login_controller.php";
     <div class='container'>
 
         <div class='upbtns'>
-            <button class='sign-in2'>Σύνδεση</button>
-            <button class='register2'>Εγγραφή</button>
+            <button class='sign-in'>Σύνδεση</button>
+            <button class='register'>Εγγραφή</button>
         </div>
 
         <div class='title'>
