@@ -9,20 +9,43 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 include "../controllers/login_controller.php";
+include "../controllers/register_controller.php";
+
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" href="../css/login_register.css">
+    <link rel="stylesheet" href="../css/login_register/form.css">
+    <link rel="stylesheet" href="../css/login_register/upbtns.css">
+    <link rel="stylesheet" href="../css/login_register/downbtns.css">
+
 </head>
 
 <body>
-    <?php
-    include "../components/header.php";
-    include "../components/login_form.php";
-    ?>
+
+    <?php include "../components/header.php"; ?>
+
+    <div class='container'>
+
+        <div class='upbtns'>
+            <button class='sign-in'>Σύνδεση</button>
+            <button class='register'>Εγγραφή</button>
+        </div>
+
+        <div class='title'>
+            <h1>Καλωσήρθατε</h1>
+            <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>
+        </div>
+
+        <div>
+            <?php include "../components/register_form.php"; ?>
+        </div>
+
+        <div class='sign-as'><a href="#">Είσοδος ως XXXX</a></div>
+
+    </div>
 </body>
 
 </html>

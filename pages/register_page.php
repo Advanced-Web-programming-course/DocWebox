@@ -18,10 +18,7 @@ include "../controllers/register_controller.php";
 </head>
 
 <body>
-    <?php
-    include "../components/header.php";
-    include "../components/register_form.php";
-    ?>
+
 </body>
 
 </html>
