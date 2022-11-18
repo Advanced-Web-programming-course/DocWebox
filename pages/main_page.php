@@ -12,12 +12,13 @@
 
 <body>
     <?php
-        include "../components/header.php";
-        echo" <div id='main-page-content'>";
-        include "../components/search_bar.php";
-        include "../components/upcoming_apointments.php";
-        include "../components/all_apointments.php";
-        echo"</div>";
+    include "../components/header.php";
+    display_default_header("");
+    echo " <div id='main-page-content'>";
+    include "../components/search_bar.php";
+    include "../components/upcoming_apointments.php";
+    include "../components/all_apointments.php";
+    echo "</div>";
     ?>
 </body>
 
