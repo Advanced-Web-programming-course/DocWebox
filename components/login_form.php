@@ -13,21 +13,20 @@
 
       <div class='row'>
          <label class='lemail' for='login-email'>E-mail</label><br>
-         <input id='login-email' type='email' required autofocus>
+         <input name="email" id='login-email' type='email' required autofocus>
       </div>
-      
+
       <div class='row'>
          <label class='lpass' for='login-pass'>Password</label><br>
-         <input id='login-pass' type='password' required>
-      </div>    
+         <input name="password" id='login-pass' type='password' required>
+      </div>
 
       <div>
          <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
          <input type='submit' class='loginbtn' value='Σύνδεση'>
       </div>
 
-      <div class='sign-as'><a  href="#">Είσοδος ως XXXX</a></div>
+      <div class='sign-as'><a href="#">Είσοδος ως XXXX</a></div>
 
    </form>
 </div>
-
