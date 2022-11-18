@@ -11,11 +11,12 @@
 
 <body>
     <?php
-        include "../components/header.php";
-        echo" <div id='member-profile-page-content'>";
-        include "../components/profile_section.php";
-        include "../components/edit_profile_section.php";
-        echo"</div>";
+    include "../components/header.php";
+    display_default_header("");
+    echo " <div id='member-profile-page-content'>";
+    include "../components/profile_section.php";
+    include "../components/edit_profile_section.php";
+    echo "</div>";
     ?>
 </body>
 
