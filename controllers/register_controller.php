@@ -4,7 +4,7 @@ require_once "../config/db_connection.php";
 require_once "../shared/utils.php";
 require_once "../db_services/db_functions.php";
 
-$table = "doctor";
+$table = get_table_name($type);
 $name = $name_err = "";
 $email = $email_err =  "";
 $password = $password_err = "";
@@ -39,10 +39,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address_err = check_empty($address, "Address cannot be empty");
     $region_err = check_empty($region, "Region cannot be empty");
 
-    if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
-        $ok = create_doctor($name, $phone, $email, $password, $address, $region, "", "", "");
-        if ($ok) {
-            header("location: ../pages/login_page.php");
+    if ($type == "d") {
+        if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
+            $ok = create_doctor($name, $phone, $email, $password, $address, $region, "", "", "");
+            if ($ok) {
+                header("location: ../pages/login_page.php?type=d");
+            }
+        }
+    } else if ($type == "p") {
+        if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err)) {
+            $ok = create_patient($name, $phone, $email, $password, "");
+            if ($ok) {
+                header("location: ../pages/login_page.php?type=p");
+            }
         }
     }
 }

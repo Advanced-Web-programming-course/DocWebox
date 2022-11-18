@@ -17,8 +17,10 @@ function create_patient($fullname, $phone_num, $email, $pword, $img_url)
             echo "Password : " . $pword . "<br>";
             echo "Img url : " . $img_url . "<br>";
         }
+        return TRUE;
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
+        return FALSE;
     }
     echo "<br>";
 
