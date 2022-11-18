@@ -5,7 +5,7 @@
       <button class='register'>Εγγραφή</button>
    </div>
 
-   <form class='login' action='' method='post'>
+   <form class='login' action='<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>' method='post'>
       <div class='title'>
          <h1>Καλωσήρθατε</h1>
          <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>
@@ -13,21 +13,22 @@
 
       <div class='row'>
          <label class='lemail' for='login-email'>E-mail</label><br>
-         <input id='login-email' type='email' required autofocus>
+         <input name="email" id='login-email' type='email' required autofocus>
+         <p style="color: red;"><?php echo $email_err; ?> </p>
       </div>
-      
+
       <div class='row'>
          <label class='lpass' for='login-pass'>Password</label><br>
-         <input id='login-pass' type='password' required>
-      </div>    
+         <input name="password" id='login-pass' type='password' required>
+         <p style="color: red;"><?php echo $password_err; ?> </p>
+      </div>
 
       <div>
          <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
          <input type='submit' class='loginbtn' value='Σύνδεση'>
       </div>
 
-      <div class='sign-as'><a  href="#">Είσοδος ως XXXX</a></div>
+      <div class='sign-as'><a href="#">Είσοδος ως XXXX</a></div>
 
    </form>
 </div>
-
