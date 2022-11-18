@@ -23,7 +23,10 @@ include "../controllers/login_controller.php";
 
 <body>
 
-    <?php include "../components/header.php"; ?>
+    <?php
+    include "../components/header.php";
+    display_header("login", "p");
+    ?>
 
     <div class='container'>
 
@@ -38,11 +41,11 @@ include "../controllers/login_controller.php";
         </div>
 
         <?php include "../components/login_form.php"; ?>
-        
-        <div class='sign-as'><a href="#">Είσοδος ως γιατρός</a></div> 
+
+        <div class='sign-as'><a href="#">Είσοδος ως γιατρός</a></div>
     </div>
 
-    
+
 
 </body>
 
