@@ -20,6 +20,7 @@ include "../controllers/login_controller.php";
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login_register/form.css">
     <link rel="stylesheet" href="../css/login_register/upbtns.css">
     <link rel="stylesheet" href="../css/login_register/downbtns.css">
@@ -34,29 +35,25 @@ include "../controllers/login_controller.php";
     ?>
 
     <div class='container'>
-
         <div class='upbtns'>
             <button class='sign-in'>Σύνδεση</button>
             <button onclick='window.location.href = "register_page.php<?php echo "?type=$type"; ?>"' class='register'>Εγγραφή</button>
         </div>
 
-        <div class='title'>
-            <h1>Καλωσήρθατε</h1>
-            <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>
+        <div>
+            <div class='title'>Καλωσήρθατε</div>
+            <div class='subtitle'>Συνδεθείτε για να δείτε τα ραντεβού σας</div>
         </div>
 
         <?php
         include "../components/login_form.php";
         if ($type == "d") {
-            echo "<div class='sign-as'><a href='login_page.php?type=p'>Είσοδος ως Μέλος</a></div>";
+            echo "<div class='sign-as'><a href='login_page.php?type=p'>Είσοδος ως μέλος</a></div>";
         } else if ($type == "p") {
             echo "<div class='sign-as'><a href='login_page.php?type=d'>Είσοδος ως γιατρός</a></div>";
         }
         ?>
-        <!-- <div class='sign-as'><a href="#">Είσοδος ως γιατρός</a></div> -->
     </div>
-
-
 
 </body>
 
