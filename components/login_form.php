@@ -1,9 +1,8 @@
 <!-- login form -->
 <form class='login' action='<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>' method='post'>
-
    <div class='row'>
       <label class='lemail' for='login-email'>E-mail</label><br>
-      <input name="email" id='login-email' type='email' required autofocus>
+      <input name="email" id='login-email' type='email'  placeholder="example@example.com/gr" required autofocus>
       <p style="color: red;"><?php echo $email_err; ?> </p>
    </div>
 

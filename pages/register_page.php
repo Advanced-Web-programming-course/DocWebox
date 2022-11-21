@@ -19,6 +19,7 @@ include "../controllers/register_controller.php";
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login_register/form.css">
     <link rel="stylesheet" href="../css/login_register/upbtns.css">
     <link rel="stylesheet" href="../css/login_register/downbtns.css">
@@ -35,10 +36,10 @@ include "../controllers/register_controller.php";
             <button onclick='window.location.href = "login_page.php<?php echo "?type=$type"; ?>"' class='sign-in2'>Σύνδεση</button>
             <button class='register2'>Εγγραφή</button>
         </div>
-
-        <div class='title'>
-            <h1>Καλωσήρθατε</h1>
-            <p>Συνδεθείτε για να δείτε τα ραντεβού σας</p>
+        
+        <div>
+            <div class='title'>Καλωσήρθατε</div>
+            <div class='subtitle'>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</div>
         </div>
 
         <?php

@@ -3,10 +3,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
 }
-  
+
 .loginbtn, .registerbtn{
-    margin-left: 10px;
     background: #E43F6F;
     color: #FFFFFF;
 }
@@ -17,20 +18,19 @@
 }
   
 .forgot-pass , .loginbtn, .registerbtn {
-margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* sign as doctor/patient link*/
 .sign-as a {
-color: #00BFB4;
+    color: #00BFB4;
 }
 
 .sign-as {
-margin-top: 10px;
-margin-bottom: 20px;
-text-align: center;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 a:hover{
-text-decoration: none;
+    text-decoration: none;
 }
