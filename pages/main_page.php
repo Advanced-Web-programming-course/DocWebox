@@ -18,7 +18,7 @@
     include "../components/search_bar.php";
     include "../components/upcoming_apointments.php";
     include "../components/all_apointments.php";
-    echo "</div>";
+     echo "</div>";
     ?>
 </body>
 

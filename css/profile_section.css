@@ -79,6 +79,7 @@
     background: #00BFB4;
     border-radius: 6px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 #logout-button{
@@ -86,6 +87,8 @@
     background: #00BEE7;
     border-radius: 6px;
     color: #FFFFFF;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 #edit-button{
@@ -93,4 +96,5 @@
     background: #E43F6F;
     border-radius: 6px;
     color: #FFFFFF;
+    cursor: pointer;
 }
