@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+#edit-doctor-profile-section{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-weight: 400;
+    gap: 4px;
+    visibility: hidden;
+}
+
+#edit-doctor-profile-section .title{
+    font-size: 20px;
+    line-height: 150%;
+    color: #00BFB4;
+}
+#edit-doctor-profile-section form{
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+#edit-doctor-profile-section .row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 34px;
+
+}
+
+#edit-doctor-profile-section #name,#edit-doctor-profile-section #email,#edit-doctor-profile-section #tel,#edit-doctor-profile-section #address,#edit-doctor-profile-section #region,#edit-doctor-profile-section #address,#edit-doctor-profile-section #doctor{
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 2px solid #CBD2E0;
+    flex: 1;
+}
+
+#edit-doctor-profile-section label{
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 700;
+    background: #404040;
+    color: #fff;
+    border-radius: 6px;
+    flex: 1;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#edit-doctor-profile-section #save{
+    padding: 12px 20px;
+    font-weight: 700;
+    text-align: center;
+    background: #00BFB4;
+    border: 2px solid #00BFB4;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer; 
+    align-self: flex-end;
+    justify-self: flex-end;
+    width: 25%;
+}
+
+
+
+
+   
