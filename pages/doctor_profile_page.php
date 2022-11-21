@@ -5,7 +5,7 @@
     <title>Page Title</title>
     <link rel="stylesheet" href="../css/profile_page.css">
     <link rel="stylesheet" href="../css/profile_section.css">
-    <link rel="stylesheet" href="../css/edit_profile_section.css">
+    <link rel="stylesheet" href="../css/edit_doctor_profile_section.css">
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
 </head>
 
@@ -15,8 +15,8 @@
     display_default_header("");
     echo " <div id='profile-page-content'>";
     include "../components/profile_section.php";
-    display_profile_section("Αναστασία Καμανά ","ankamana@gmail.com","+30 6912894727");
-    include "../components/edit_profile_section.php";
+    display_doctor_profile_section("Μαρία Παπαδοπούλου","Παθολόγος","Λαζαράκη 33","Γλυφάδα");
+    include "../components/edit_doctor_profile_section.php";
     echo "</div>";
 
     ?>
@@ -26,7 +26,7 @@
     });
 
     function openEditForm() {
-        let profileForm = document.getElementById('edit-profile-section');
+        let profileForm = document.getElementById('edit-doctor-profile-section');
         if (profileForm.style.visibility == 'visible') {
 
             profileForm.style.visibility = 'hidden';

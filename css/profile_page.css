@@ -4,7 +4,7 @@ body{
     gap: 130px;
 }
 
-#member-profile-page-content{
+#profile-page-content{
     display: flex;
     flex-direction: column;
     gap: 30px;
