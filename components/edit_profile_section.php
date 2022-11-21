@@ -1,13 +1,13 @@
-<div class='edit-profile-section'>
+<div id='edit-profile-section'>
     <div class='title'>Επεξεργασία Στοιχείων</div>
     <form action=''>
         <div class="row1">
-            <input type='text' id='firstname' name='firstname' placeholder='Όνομα'>
-            <input type='text' id='lastname' name='lastname' placeholder='Επώνυμο'>
-            <input type='tel' id='tel' name='tel' placeholder='Τηλέφωνο'>
+            <input type='text' id='name' name='name' placeholder='Ονοματεπώνυμο'>
+            <input type='email' id='email' name='email' placeholder='Email'>
         </div>
         <div class="row2">
-            <input type='email' id='email' name='email' placeholder='Email'>
+            <input type='tel' id='tel' name='tel' placeholder='Τηλέφωνο'>
+
             <input type='file' name='profile-pic' id='profile-pic' accept='.jpg, .jpeg, .png' style='display:none;' />
             <label id='profile-picture' for='profile-pic'>Ανέβασμα Εικόνας</label>
             <input type='submit' id='submit' style='display:none;'>

@@ -17,7 +17,21 @@
     include "../components/profile_section.php";
     include "../components/edit_profile_section.php";
     echo "</div>";
+
     ?>
+    <script>
+    document.getElementById('edit-button').addEventListener('click', function(e) {
+        openEditForm();
+    });
+
+    function openEditForm() {
+        let profileForm = document.getElementById('edit-profile-section');
+        if (profileForm.style.visibility == 'visible') {
+
+            profileForm.style.visibility = 'hidden';
+        } else profileForm.style.visibility = 'visible';
+    }
+    </script>
 </body>
 
 </html>
