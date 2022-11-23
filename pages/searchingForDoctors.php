@@ -26,7 +26,7 @@ else{
 
 
 
-function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars,$img_url){
+function add_doctor($id,$name, $speciality,$address,$region,$price,$img_url){
     
     $doc_element ="
     <div class='doctor grey_font_color gray_borderline' id='doc_".$id."'>
@@ -69,7 +69,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
 </div>
 <?php
 foreach ($doctors as $doc) {
-    echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doc[6],"50",0,$doc[9]);
+    echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doc[6],"50",$doc[9]);
 }
 
 ?>
