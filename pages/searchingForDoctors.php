@@ -43,8 +43,8 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
             <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region."'>
         </div>
         <div id='section_2'>
-            <div id='price'>".$price."&nbsp€</div>
-            <button onclick=\"select_doctor(".$id.")\" class='pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
+            <button class='price big_text_size'>".$price."&nbsp€</button>
+            <button onclick=\"select_doctor(".$id.")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
         </div>
     </div>
     ";
