@@ -43,29 +43,8 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$num_of_stars
             <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region."'>
         </div>
         <div id='section_2'>
-            <div id='stars'>";
-    $stars = array();
-    for ($x = 1; $x <= 5; $x++) {
-        if( $x <= $num_of_stars){
-            array_push($stars,"solid");
-        }
-        else{
-            array_push($stars,"regular");
-        }
-        
-      }
-    $doc_element =$doc_element."
-                <i class='fa-".$stars[0]." fa-star'></i>
-                <i class='fa-".$stars[1]." fa-star'></i>
-                <i class='fa-".$stars[2]." fa-star'></i>
-                <i class='fa-".$stars[3]." fa-star'></i>
-                <i class='fa-".$stars[4]." fa-star'></i>
-                </div>
-            <div id='section_2_supsec_2'>
-                <label id='price'>".$price."&nbsp€</label>
-                <button onclick=\"select_doctor(".$id.")\" class='pink_background'>Κλέισε&nbspΡαντεβού</button>
-            </div>
-            
+            <div id='price'>".$price."&nbsp€</div>
+            <button onclick=\"select_doctor(".$id.")\" class='pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
         </div>
     </div>
     ";
