@@ -17,19 +17,19 @@ foreach($doctor_towns_json as $t){
 
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
     $doctors = get_doctors("");
+    
 }
 else{
-    
-    if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
+    if($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού"){
         $doctors = get_doctors("");
     }
-    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] == "Υπηρεσία"){
+    else if($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού"){
         $doctors = get_doctors(" WHERE region=".$_GET['location']);
     }
-    else if($_GET['location'] == "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
+    else if($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού"){
         $doctors = get_doctors(" WHERE specialization=".$_GET['speciality']);
     }
-    else if($_GET['location'] != "Τοποθεσία" && $_GET['speciality'] != "Υπηρεσία"){
+    else if($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού"){
         $doctors = get_doctors(" WHERE specialization=".$_GET['speciality']." and region=".$_GET['location']);
     }
 }
@@ -95,10 +95,10 @@ foreach ($doctors as $doc) {
             console.log(data);
         });
 
-    document.getElementById("search_button").addEventListener("click", search_for_doctor);
+    document.getElementById("search_button").onclick  = search_for_doctor;
     
     function search_for_doctor(){
-        document.getElementById("search_button").href="searchingForDoctors.php?location="+document.getElementById("location").value+"&speciality="+document.getElementById("doctor").value;
+        window.location.href = "searchingForDoctors.php?location="+document.getElementById("location").value+"&speciality="+document.getElementById("doctor").value;
     }
     if(window.location.href.includes("location")){
           

@@ -12,7 +12,7 @@ echo "<div class='search'>
             <option value='2'>ΑΘΗΝΑ</option>
             <option value='3'>ΛΑΡΙΣΣΑ</option>
         </select>
-    <button href='' id='search_button' class='pink_background'>
+    <button id='search_button' class='pink_background'>
     <i class='fa-solid fa-magnifying-glass' style='color:white;'></i>
     </button>
     </div>"
