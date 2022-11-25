@@ -1,6 +1,12 @@
 <?php
 include "../db_services/db_functions.php";
-$doctor_specialities = array("","Παθολόγος", "Ψυχολόγος", "Γυναικολόγος", "Ενδοκρινολόγος");
+$doctor_specialities = array("");
+
+$doctor_specialities_json = file_get_contents("../js/doctor_types.json");
+$doctor_specialities_json = json_decode($doctor_specialities_json, true);
+foreach($doctor_specialities_json as $d){
+    array_push($doctor_specialities, $d["type"]);
+}
 
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
     $doctors = get_doctors("");
@@ -74,6 +80,14 @@ foreach ($doctors as $doc) {
 
 ?>
  <script >
+    fetch("../js/doctor_types.json")
+        .then(function(resp){
+            return resp.json();
+        })
+        .then(function(data){
+            console.log(data);
+        });
+
     document.getElementById("search_button").addEventListener("click", search_for_doctor);
     
     function search_for_doctor(){
@@ -85,6 +99,7 @@ foreach ($doctors as $doc) {
         document.getElementById("doctor").value = params.get('speciality');
         document.getElementById("location").value = params.get('location');
     }
+    
     
 
  </script>
