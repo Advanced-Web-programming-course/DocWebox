@@ -12,8 +12,8 @@ echo "<div class='search'>
             <option value='2'>ΑΘΗΝΑ</option>
             <option value='3'>ΛΑΡΙΣΣΑ</option>
         </select>
-    <a href='' id='search_button'>
+    <button href='' id='search_button' class='pink_background'>
     <i class='fa-solid fa-magnifying-glass' style='color:white;'></i>
-    </a>
+    </button>
     </div>"
     ?>

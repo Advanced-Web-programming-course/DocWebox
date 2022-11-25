@@ -12,12 +12,11 @@ select {
     width: 100%;
 }
 
-.search>a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.search>button {
     width: 66px;
     height: 48px;
     border-radius: 6px;
-    background-color: #E43F6F;
+    justify-content: center;
+    align-items: center;
+    border: none;
 }
