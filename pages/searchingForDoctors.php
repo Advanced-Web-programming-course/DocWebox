@@ -1,11 +1,18 @@
 <?php
 include "../db_services/db_functions.php";
 $doctor_specialities = array("");
+$doctor_towns = array("");
 
 $doctor_specialities_json = file_get_contents("../js/doctor_types.json");
 $doctor_specialities_json = json_decode($doctor_specialities_json, true);
 foreach($doctor_specialities_json as $d){
     array_push($doctor_specialities, $d["type"]);
+}
+
+$doctor_towns_json = file_get_contents("../js/towns.json");
+$doctor_towns_json = json_decode($doctor_towns_json, true);
+foreach($doctor_towns_json as $t){
+    array_push($doctor_towns, $t["type"]);
 }
 
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
@@ -32,7 +39,7 @@ else{
 
 
 
-function add_doctor($id,$name, $speciality,$address,$region,$price,$img_url){
+function add_doctor($id,$name, $speciality,$address,$region,$region_id,$price,$img_url){
     
     $doc_element ="
     <div class='doctor grey_font_color gray_borderline' id='doc_".$id."'>
@@ -45,8 +52,8 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$img_url){
                 <label style='display: block;' class='small_text_size'>".$speciality."</label>
             </div>
         </div>
-            <label id='address' class='small_text_size'>".$address."</label>
-            <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region."'>
+            <label id='address' class='small_text_size'>".$address.", ".$region."</label>
+            <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region_id."'>
         </div>
         <div id='section_2'>
             <button class='price big_text_size'>".$price."&nbsp€</button>
@@ -75,7 +82,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$price,$img_url){
 </div>
 <?php
 foreach ($doctors as $doc) {
-    echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doc[6],"50",$doc[9]);
+    echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doctor_towns[$doc[6]],$doc[6],"50",$doc[9]);
 }
 
 ?>
