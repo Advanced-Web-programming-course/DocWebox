@@ -56,7 +56,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$region_id,$price,$i
             <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region_id."'>
         </div>
         <div id='section_2'>
-            <button class='price big_text_size'>".$price."&nbsp€</button>
+            <div class='price big_text_size'>".$price."&nbsp€</div>
             <button onclick=\"select_doctor(".$id.")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
         </div>
     </div>
@@ -66,6 +66,7 @@ function add_doctor($id,$name, $speciality,$address,$region,$region_id,$price,$i
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="../css/searching_for_doctors.css">
     <link rel="stylesheet" href="../css/global.css">
@@ -77,38 +78,37 @@ function add_doctor($id,$name, $speciality,$address,$region,$region_id,$price,$i
 
 <body>
 
-<div style = "margin-bottom: 25px;">
+    <div style="margin-bottom: 25px;">
         <?php include "../components/search_bar.php";?>
-</div>
-<?php
+    </div>
+    <?php
 foreach ($doctors as $doc) {
     echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doctor_towns[$doc[6]],$doc[6],"50",$doc[9]);
 }
 
 ?>
- <script >
+    <script>
     fetch("../js/doctor_types.json")
-        .then(function(resp){
+        .then(function(resp) {
             return resp.json();
         })
-        .then(function(data){
+        .then(function(data) {
             console.log(data);
         });
 
-    document.getElementById("search_button").onclick  = search_for_doctor;
-    
-    function search_for_doctor(){
-        window.location.href = "searchingForDoctors.php?location="+document.getElementById("location").value+"&speciality="+document.getElementById("doctor").value;
+    document.getElementById("search_button").onclick = search_for_doctor;
+
+    function search_for_doctor() {
+        window.location.href = "searchingForDoctors.php?location=" + document.getElementById("location").value +
+            "&speciality=" + document.getElementById("doctor").value;
     }
-    if(window.location.href.includes("location")){
-          
+    if (window.location.href.includes("location")) {
+
         let params = (new URL(window.location.href)).searchParams;
         document.getElementById("doctor").value = params.get('speciality');
         document.getElementById("location").value = params.get('location');
     }
-    
-    
-
- </script>
+    </script>
 </body>
+
 </html>

@@ -27,12 +27,14 @@
     margin:10px 10px;
 }
 .price{
-    border: none;
+    display: flex;
     background-color: #E8F9F8;
     border-radius: 155px;
     padding: 15px 32px;
     text-align: center;
     margin:10px 10px;
+    justify-content: center;
+    align-items: center;
 }
 .circle{
     border-radius: 50%;
