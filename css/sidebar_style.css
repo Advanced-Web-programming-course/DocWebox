@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+#sidebar-component{
+    font-family: 'Roboto';
+    border-right:3px solid #00BFB4;
+    width: 214px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: white;
+}
+
+#navbuttons{
+    display: flex;
+    align-items: space-between;
+    flex-direction: column;
+}
+
+.sidebarbutton{
+    
+    font-size: 15px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#upcoming_apointments_button{
+    background-color: #00BFB4;
+}
+
+#all_apointments_button{
+    background-color: #E43F6F;
+}
+
+#user-div{
+    display: flex;
+    position: absolute;
+    background-color: #EDFBFA;
+    width: 214px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    bottom: 0;
+    
+}
+
+#user-name{
+    text-decoration: none;
+    color: #00BFB4;
+    margin-left: 20px;
+    margin-top: 8px;
+    margin-right: 11px;
+    font-size: 12px;
+}
+
+#navcheckbox{
+  font-family: 'Inter';
+  margin-left: 15%;
+  font-size: 12px;
+}
+
+
+.range_container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 35% auto;
+}
+
+#locheader, #priceheader{
+  font-family: 'Inter';
+  margin-top: 40px;
+  margin-left: 15%;
+  font-size: 18px;
+}
+
+.sliders_control {
+  position: relative;
+  min-height: 50px;
+  margin-left: 15%;
+  margin-bottom: -30px;
+}
+
+.form_control {
+  position: relative;
+  display: flex;
+  font-size: 10px;
+}
+
+#fromInput, #toInput{
+  font-family: 'Inter';
+  position: relative;
+  visibility: hidden;
+  margin: 0;
+  padding: 5px;
+  background-color: #404040;
+  border-radius: 2px;
+  color: white;
+}
+
+#fromInput{
+  z-index: 2;
+}
+
+#toInput{
+  z-index: 1;
+}
+
+input[type=checkbox]{
+  accent-color: #00BFB4;
+  margin-right: 18px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 18px;
+  height: 18px;
+  background-color: #00BFB4;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 18px;
+  height: 18px;
+  background-color: #00BFB4;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;  
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: #f7f7f7;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+  -webkit-box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+}
+
+
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 2px;
+  width: 148px;
+  position: absolute;
+  background-color: #C6C6C6;
+  pointer-events: none;
+}
+
+#fromSlider {
+    
+    height: 0;
+    z-index: 1;
+}
