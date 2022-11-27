@@ -11,17 +11,30 @@ body {
     flex-direction: column;
     font-family: 'Inter';
     font-style: normal;
+    flex-wrap: wrap;
     font-weight: 400;
     gap: 4px;
     background-color:#CBD2E0;
-    border: 2px solid #CBD2E0;
+    border: 2.5px solid #CBD2E0;
     border-radius: 6px;
+}
+
+.doctor {
+    flex: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 35px;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    flex-wrap: wrap;
 }
 
 .doctor .col{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 4px;
 }
 
@@ -32,6 +45,7 @@ body {
 .doctor .info{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 14px;
 }
 
@@ -45,6 +59,7 @@ body {
 .doctor .doctor-info{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .doctor .name{
@@ -61,21 +76,10 @@ body {
     font-size: 13px;
 }
 
-.doctor {
-    flex: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding:15px 30px;
-    background-color: #FFFFFF;
-    /* border: 2px solid #FFFFFF; */
-    border-radius: 4px;
-}
+
 
 .description{
-    padding: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 20px 30px;
     font-size: 13px;
     line-height: 150%;
     letter-spacing: -0.01em;
