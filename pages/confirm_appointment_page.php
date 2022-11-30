@@ -1,6 +1,9 @@
 <?php
 include "../controllers/auth_controller.php";
 ensure_auth();
+
+$logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +23,7 @@ ensure_auth();
     <?php
     echo "<div class='con'>";
     include "../components/header.php";
-    display_default_header("");
+    display_default_header($logged_user['full_name']);
     include "../components/doctor_selected.php";
     display_simple_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα");
     include "../components/booking_info.php";

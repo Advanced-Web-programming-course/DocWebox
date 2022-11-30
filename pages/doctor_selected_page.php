@@ -1,6 +1,10 @@
 <?php
 include "../controllers/auth_controller.php";
 ensure_auth();
+
+$logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ ensure_auth();
 <body>
     <?php
     include "../components/header.php";
-    display_default_header("");
+    display_default_header($logged_user['full_name']);
     include "../components/doctor_selected.php";
     display_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste reiciendis nemo rerum asperiores quam ipsa ab ea nesciunt obcaecati doloremque tempore, quisquam sequi eligendi ipsam sapiente non omnis tenetur itaque?");
     include "../components/all_services.php";

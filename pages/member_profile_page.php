@@ -9,7 +9,11 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 $profil_user = null;
 
 if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GET['patient_id'])) {
-    $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
+    if ($logged_user['id'] == $_GET['patient_id']) {
+        $profil_user = $logged_user;
+    } else {
+        $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
+    }
 } else {
     echo "<h1>Error 404 page</h1>";
     return;

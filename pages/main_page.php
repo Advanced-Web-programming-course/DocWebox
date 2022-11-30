@@ -1,6 +1,9 @@
 <?php
 include "../controllers/auth_controller.php";
 ensure_auth();
+$logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,7 @@ ensure_auth();
 <body>
     <?php
     include "../components/header.php";
-    display_default_header("");
+    display_default_header($logged_user['full_name']);
     echo " <div id='main-page-content'>";
     include "../components/search_bar.php";
     include "../components/upcoming_apointments.php";

@@ -1,8 +1,11 @@
 <?php
 include "../controllers/auth_controller.php";
 ensure_auth();
-
+include "../config/db_connection.php";
 include "../db_services/doctor_service.php";
+
+$logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+
 
 $doctor_specialities = array("");
 $doctor_towns = array("");
@@ -20,16 +23,16 @@ foreach ($doctor_towns_json as $town) {
 }
 
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
-    $doctors = select_doctors();
+    $doctors = select_doctors($conn);
 } else {
     if ($_GET['location'] == "Τοποθεσία" and $_GET['speciality'] == "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors();
+        $doctors = select_doctors($conn);
     } else if ($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors_by_region($_GET['location']);
+        $doctors = select_doctors_by_region($conn, $_GET['location']);
     } else if ($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors_by_specialization($_GET['speciality']);
+        $doctors = select_doctors_by_specialization($conn, $_GET['speciality']);
     } else if ($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors_by_specialization_region($_GET['speciality'], $_GET['location']);
+        $doctors = select_doctors_by_specialization_region($conn, $_GET['speciality'], $_GET['location']);
     }
 }
 
