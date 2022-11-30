@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "config.php";
 
 $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD);
@@ -8,9 +8,9 @@ if ($conn->connect_error) {
 }
 
 // Create database
-$sql = "CREATE DATABASE IF NOT EXISTS ".DB_DATABASE_NAME." CHARACTER SET utf8 COLLATE utf8_general_ci;";
+$sql = "CREATE DATABASE IF NOT EXISTS " . DB_DATABASE_NAME . " CHARACTER SET utf8 COLLATE utf8_general_ci;";
 if (mysqli_query($conn, $sql)) {
-  echo "Database ".DB_DATABASE_NAME." created successfully";
+  echo "Database " . DB_DATABASE_NAME . " created successfully";
 } else {
   echo "Error creating database: " . mysqli_error($conn);
 }
@@ -35,7 +35,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error creating table patient: " . mysqli_error($conn);
 }
-echo"<br>";
+echo "<br>";
 
 // Create Table doctor
 $sql = "CREATE TABLE IF NOT EXISTS doctor (
@@ -45,8 +45,8 @@ $sql = "CREATE TABLE IF NOT EXISTS doctor (
     email VARCHAR(150) UNIQUE NOT NULL,
     password VARCHAR(150) UNIQUE NOT NULL,
     address VARCHAR(150) UNIQUE NOT NULL,
-    region INT NOT NULL,
-    specialization INT NOT NULL,
+    region VARCHAR(150) NOT NULL,
+    specialization VARCHAR(150) NOT NULL,
     description VARCHAR(150) NOT NULL,
     img_url TEXT NOT NULL
     )";
@@ -55,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error creating table doctor: " . mysqli_error($conn);
 }
-echo"<br>";
+echo "<br>";
 
 // Create Table appointment
 $sql = "CREATE TABLE IF NOT EXISTS appointment (
@@ -70,7 +70,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error creating table appointment: " . mysqli_error($conn);
 }
-echo"<br>";
+echo "<br>";
 
 // Create Table service
 $sql = "CREATE TABLE IF NOT EXISTS service (
@@ -84,7 +84,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error creating table service: " . mysqli_error($conn);
 }
-echo"<br>";
+echo "<br>";
 
 // Create Table review
 $sql = "CREATE TABLE IF NOT EXISTS review (
@@ -96,11 +96,11 @@ $sql = "CREATE TABLE IF NOT EXISTS review (
   )";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Table review created successfully";
+  echo "Table review created successfully";
 } else {
-    echo "Error creating table review: " . mysqli_error($conn);
+  echo "Error creating table review: " . mysqli_error($conn);
 }
-echo"<br>";
+echo "<br>";
 
 // Create Table admin
 $sql = "CREATE TABLE IF NOT EXISTS admin (
@@ -110,11 +110,11 @@ $sql = "CREATE TABLE IF NOT EXISTS admin (
   )";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Table admin created successfully";
+  echo "Table admin created successfully";
 } else {
-    echo "Error admin table review: " . mysqli_error($conn);
+  echo "Error admin table review: " . mysqli_error($conn);
 }
-echo"<br>";
+echo "<br>";
 
 
 
@@ -122,4 +122,3 @@ echo"<br>";
 require_once "insert_initial_data.php";
 
 mysqli_close($conn);
-?>

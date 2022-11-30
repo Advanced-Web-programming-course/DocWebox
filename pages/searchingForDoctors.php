@@ -1,63 +1,58 @@
 <?php
-include "../db_services/db_functions.php";
+// include "../db_services/db_functions.php";
+include "../db_services/doctor_service.php";
+
 $doctor_specialities = array("");
 $doctor_towns = array("");
 
-$doctor_specialities_json = file_get_contents("../js/doctor_types.json");
+$doctor_specialities_json = file_get_contents("../data/doctor_types.json");
 $doctor_specialities_json = json_decode($doctor_specialities_json, true);
-foreach($doctor_specialities_json as $d){
-    array_push($doctor_specialities, $d["type"]);
+
+foreach ($doctor_specialities_json as $speciality) {
+    array_push($doctor_specialities, $speciality);
 }
 
-$doctor_towns_json = file_get_contents("../js/towns.json");
+$doctor_towns_json = file_get_contents("../data/towns.json");
 $doctor_towns_json = json_decode($doctor_towns_json, true);
-foreach($doctor_towns_json as $t){
-    array_push($doctor_towns, $t["type"]);
+
+foreach ($doctor_towns_json as $town) {
+    array_push($doctor_towns, $town);
 }
 
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searchingForDoctors.php')) {
-    $doctors = get_doctors("");
-    
-}
-else{
-    if($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού"){
-        $doctors = get_doctors("");
-    }
-    else if($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού"){
-        $doctors = get_doctors(" WHERE region=".$_GET['location']);
-    }
-    else if($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού"){
-        $doctors = get_doctors(" WHERE specialization=".$_GET['speciality']);
-    }
-    else if($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού"){
-        $doctors = get_doctors(" WHERE specialization=".$_GET['speciality']." and region=".$_GET['location']);
+    $doctors = select_doctors();
+} else {
+    if ($_GET['location'] == "Τοποθεσία" and $_GET['speciality'] == "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors();
+    } else if ($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors_by_region($_GET['location']);
+    } else if ($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors_by_specialization($_GET['speciality']);
+    } else if ($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors_by_specialization_region($_GET['speciality'], $_GET['location']);
     }
 }
 
+function add_doctor($id, $name, $speciality, $address, $region, $region_id, $price, $img_url)
+{
 
-
-
-
-
-function add_doctor($id,$name, $speciality,$address,$region,$region_id,$price,$img_url){
-    
-    $doc_element ="
-    <div class='doctor grey_font_color gray_borderline' id='doc_".$id."'>
+    $doc_element = "
+    <div class='doctor grey_font_color gray_borderline' id='doc_" . $id . "'>
         
         <div id='section_1'>
             <div style='display: flex;'>
             <img class='circle' src='$img_url' alt='doctor' height='48px' height='48px'>
             <div style = 'margin-left:14px;'>
-                <label style='display: block;' class='big_text_size'>".$name."</label>
-                <label style='display: block;' class='small_text_size'>".$speciality."</label>
+                <label style='display: block;' class='big_text_size'>" . $name . "</label>
+                <label style='display: block;' class='small_text_size'>" . $speciality . "</label>
             </div>
         </div>
-            <label id='address' class='small_text_size'>".$address.", ".$region."</label>
-            <input style='display:none;' id='doc_".$id."_region' type='text' value='".$region_id."'>
+            <label id='address' class='small_text_size'>" . $address . ", " . $region . "</label>
+            <input style='display:none;' id='doc_" . $id . "_region' type='text' value='" . $region_id . "'>
         </div>
         <div id='section_2'>
-            <div class='price big_text_size'>".$price."&nbsp€</div>
-            <button onclick=\"select_doctor(".$id.")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
+            <div class='price big_text_size'>" . $price . "&nbsp€</div>
+            <button onclick=\"select_doctor(" . $id . ")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
         </div>
     </div>
     ";
@@ -79,35 +74,37 @@ function add_doctor($id,$name, $speciality,$address,$region,$region_id,$price,$i
 <body>
 
     <div style="margin-bottom: 25px;">
-        <?php include "../components/search_bar.php";?>
+        <?php include "../components/search_bar.php"; ?>
     </div>
     <?php
-foreach ($doctors as $doc) {
-    echo add_doctor($doc[0],$doc[1],$doctor_specialities[$doc[7]],$doc[5],$doctor_towns[$doc[6]],$doc[6],"50",$doc[9]);
-}
+    if ($doctors != null) {
+        foreach ($doctors as $doc) {
+            echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
+        }
+    }
 
-?>
+    ?>
     <script>
-    fetch("../js/doctor_types.json")
-        .then(function(resp) {
-            return resp.json();
-        })
-        .then(function(data) {
-            console.log(data);
-        });
+        // fetch("../data/doctor_types.json")
+        //     .then(function(resp) {
+        //         return resp.json();
+        //     })
+        //     .then(function(data) {
+        //         console.log(data);
+        //     });
 
-    document.getElementById("search_button").onclick = search_for_doctor;
+        document.getElementById("search_button").onclick = search_for_doctor;
 
-    function search_for_doctor() {
-        window.location.href = "searchingForDoctors.php?location=" + document.getElementById("location").value +
-            "&speciality=" + document.getElementById("doctor").value;
-    }
-    if (window.location.href.includes("location")) {
+        function search_for_doctor() {
+            window.location.href = "searchingForDoctors.php?location=" + document.getElementById("location").value +
+                "&speciality=" + document.getElementById("doctor").value;
+        }
+        if (window.location.href.includes("location")) {
 
-        let params = (new URL(window.location.href)).searchParams;
-        document.getElementById("doctor").value = params.get('speciality');
-        document.getElementById("location").value = params.get('location');
-    }
+            let params = (new URL(window.location.href)).searchParams;
+            document.getElementById("doctor").value = params.get('speciality');
+            document.getElementById("location").value = params.get('location');
+        }
     </script>
 </body>
 

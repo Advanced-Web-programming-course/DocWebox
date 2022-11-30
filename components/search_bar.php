@@ -2,18 +2,17 @@
 echo "<div class='search'>
         <select name='doctor' id='doctor'>
             <option selected hidden>Ειδικότητα Ιατρού</option>
-            <option value='1'>ΠΑΘΟΛΟΓΟΣ</option>
-            <option value='2'>ΨΥΧΟΛΟΓΟΣ</option>
-            <option value='3'>ΓΥΝΑΙΚΟΛΟΓΟΣ</option>
+            <option value='Παθολόγος'>ΠΑΘΟΛΟΓΟΣ</option>
+            <option value='Ψυχολόγος'>ΨΥΧΟΛΟΓΟΣ</option>
+            <option value='Γυναικολόγος'>ΓΥΝΑΙΚΟΛΟΓΟΣ</option>
         </select>
         <select name='location' id='location'>
             <option selected hidden>Τοποθεσία</option>
-            <option value='1'>ΘΕΣΣΑΛΟΝΙΚΗ</option>
-            <option value='2'>ΑΘΗΝΑ</option>
-            <option value='3'>ΛΑΡΙΣΣΑ</option>
+            <option value='Θεσσαλονίκη'>ΘΕΣΣΑΛΟΝΙΚΗ</option>
+            <option value='Αθήνα'>ΑΘΗΝΑ</option>
+            <option value='Λάρισσα'>ΛΑΡΙΣΣΑ</option>
         </select>
     <button id='search_button' class='pink_background'>
     <i class='fa-solid fa-magnifying-glass' style='color:white;'></i>
     </button>
-    </div>"
-    ?>
+    </div>";
