@@ -2,6 +2,7 @@
 include "../controllers/auth_controller.php";
 ensure_auth();
 
+include "../config/db_connection.php";
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
 

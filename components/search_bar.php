@@ -1,13 +1,13 @@
 <?php
 echo "<div class='search'>
         <select name='doctor' id='doctor'>
-            <option selected hidden>Ειδικότητα Ιατρού</option>
+            <option selected default >Ειδικότητα Ιατρού</option>
             <option value='Παθολόγος'>ΠΑΘΟΛΟΓΟΣ</option>
             <option value='Ψυχολόγος'>ΨΥΧΟΛΟΓΟΣ</option>
             <option value='Γυναικολόγος'>ΓΥΝΑΙΚΟΛΟΓΟΣ</option>
         </select>
         <select name='location' id='location'>
-            <option selected hidden>Τοποθεσία</option>
+            <option selected default >Τοποθεσία</option>
             <option value='Θεσσαλονίκη'>ΘΕΣΣΑΛΟΝΙΚΗ</option>
             <option value='Αθήνα'>ΑΘΗΝΑ</option>
             <option value='Λάρισσα'>ΛΑΡΙΣΣΑ</option>

@@ -19,6 +19,8 @@ function select_doctors($conn)
 
 function select_doctor_by_id($conn, $id)
 {
+    $id = htmlspecialchars($id);
+
     $sql = "SELECT * FROM doctor WHERE id='$id'";
 
     $result = $conn->query($sql);
@@ -32,6 +34,7 @@ function select_doctor_by_id($conn, $id)
 
 function select_doctors_by_specialization($conn, $specialization)
 {
+    $specialization = htmlspecialchars($specialization);
 
     $doctors = array();
 
@@ -51,8 +54,9 @@ function select_doctors_by_specialization($conn, $specialization)
 
 function select_doctors_by_region($conn, $region)
 {
-    $doctors = array();
+    $region = htmlspecialchars($region);
 
+    $doctors = array();
     $sql = "SELECT * FROM doctor WHERE region='$region'";
     $result = $conn->query($sql);
 
@@ -68,7 +72,8 @@ function select_doctors_by_region($conn, $region)
 
 function select_doctors_by_specialization_region($conn, $specialization, $region)
 {
-
+    $region = htmlspecialchars($region);
+    $specialization = htmlspecialchars($specialization);
     $doctors = array();
 
     $sql = "SELECT * FROM doctor WHERE specialization='$specialization' AND region='$region'";

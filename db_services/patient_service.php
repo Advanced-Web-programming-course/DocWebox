@@ -19,6 +19,8 @@ function select_patients($conn)
 
 function select_patient_by_id($conn, $id)
 {
+    $id = htmlspecialchars($id);
+
     $sql = "SELECT * FROM patient WHERE id='$id'";
 
     $result = $conn->query($sql);
