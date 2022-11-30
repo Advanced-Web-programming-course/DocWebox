@@ -1,3 +1,8 @@
+<?php
+include "../controllers/auth_controller.php";
+ensure_auth();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -13,20 +18,20 @@
 
 <body>
     <?php
-        echo "<div class='con'>";
-        include "../components/header.php";
-        display_default_header("");
-        include "../components/doctor_selected.php";
-        display_simple_doctor_selected_section("Μαρία Παπαδοπούλου","Παθολόγος","Λαζαράκη 33","Γλυφάδα" );
-        include "../components/booking_info.php";
-        display_booking_info_section("Πέμπτη 10 Νοεμβρίου","15:00","Απλή Επίσκεψη","€30" );
-        display_member_info_section("Αναστασία Καμανά","ankamana@gmail.com","+30 6923758021");
-        echo "</div>";
+    echo "<div class='con'>";
+    include "../components/header.php";
+    display_default_header("");
+    include "../components/doctor_selected.php";
+    display_simple_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα");
+    include "../components/booking_info.php";
+    display_booking_info_section("Πέμπτη 10 Νοεμβρίου", "15:00", "Απλή Επίσκεψη", "€30");
+    display_member_info_section("Αναστασία Καμανά", "ankamana@gmail.com", "+30 6923758021");
+    echo "</div>";
 
-        // // When submits form it shows the 
-        // include "../components/booking_info.php";
-        // display_booking_confrimation();
-    ?> 
+    // // When submits form it shows the 
+    // include "../components/booking_info.php";
+    // display_booking_confrimation();
+    ?>
 </body>
 
 </html>

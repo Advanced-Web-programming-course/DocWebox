@@ -1,12 +1,7 @@
 <?php
-// Initialize the session
-session_start();
 
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: ../pages/main_page.php");
-    exit;
-}
+include "../controllers/auth_controller.php";
+if_auth_redirect_to_main();
 
 include "../shared/utils.php";
 $type = "p";
@@ -36,7 +31,7 @@ include "../controllers/register_controller.php";
             <button onclick='window.location.href = "login_page.php<?php echo "?type=$type"; ?>"' class='sign-in2'>Σύνδεση</button>
             <button class='register2'>Εγγραφή</button>
         </div>
-        
+
         <div>
             <div class='title'>Καλωσήρθατε</div>
             <div class='subtitle'>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</div>

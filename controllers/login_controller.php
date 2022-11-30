@@ -31,9 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Store data in session variables
                 $_SESSION["loggedin"] = true;
                 $_SESSION["id"] = $id;
-                $_SESSION["email"] = $email;
                 $_SESSION["type"] = $type;
-                $_SESSION["full_name"] = $full_name;
+
                 header("location: ../pages/main_page.php");
             } else {
                 $password_err = "Authentication failed";

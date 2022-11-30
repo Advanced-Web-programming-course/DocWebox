@@ -1,4 +1,7 @@
 <?php
+include "../controllers/auth_controller.php";
+ensure_auth();
+
 include "../db_services/doctor_service.php";
 
 $doctor_specialities = array("");

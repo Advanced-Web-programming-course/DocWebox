@@ -1,3 +1,8 @@
+<?php
+include "../controllers/auth_controller.php";
+ensure_auth();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,23 +20,23 @@
     display_default_header("");
     echo " <div id='profile-page-content'>";
     include "../components/profile_section.php";
-    display_profile_section("Αναστασία Καμανά ","ankamana@gmail.com","+30 6912894727");
+    display_profile_section("Αναστασία Καμανά ", "ankamana@gmail.com", "+30 6912894727");
     include "../components/edit_profile_section.php";
     echo "</div>";
 
     ?>
     <script>
-    document.getElementById('edit-button').addEventListener('click', function(e) {
-        openEditForm();
-    });
+        document.getElementById('edit-button').addEventListener('click', function(e) {
+            openEditForm();
+        });
 
-    function openEditForm() {
-        let profileForm = document.getElementById('edit-profile-section');
-        if (profileForm.style.visibility == 'visible') {
+        function openEditForm() {
+            let profileForm = document.getElementById('edit-profile-section');
+            if (profileForm.style.visibility == 'visible') {
 
-            profileForm.style.visibility = 'hidden';
-        } else profileForm.style.visibility = 'visible';
-    }
+                profileForm.style.visibility = 'hidden';
+            } else profileForm.style.visibility = 'visible';
+        }
     </script>
 </body>
 
