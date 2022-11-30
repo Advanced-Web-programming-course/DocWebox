@@ -14,8 +14,6 @@ function select_doctors()
         while ($row = $result->fetch_assoc()) {
             array_push($doctors, $row);
         }
-    } else {
-        return null;
     }
 
     $conn->close();
@@ -59,8 +57,6 @@ function select_doctors_by_region($region)
         while ($row = $result->fetch_assoc()) {
             array_push($doctors, $row);
         }
-    } else {
-        return null;
     }
 
     $conn->close();
@@ -82,8 +78,6 @@ function select_doctors_by_specialization_region($specialization, $region)
         while ($row = $result->fetch_assoc()) {
             array_push($doctors, $row);
         }
-    } else {
-        return null;
     }
 
     $conn->close();

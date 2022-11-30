@@ -1,19 +1,16 @@
 <?php
-// include "../db_services/db_functions.php";
 include "../db_services/doctor_service.php";
 
 $doctor_specialities = array("");
 $doctor_towns = array("");
 
-$doctor_specialities_json = file_get_contents("../data/doctor_types.json");
-$doctor_specialities_json = json_decode($doctor_specialities_json, true);
+$doctor_specialities_json = json_decode(file_get_contents("../data/doctor_types.json"), true);
 
 foreach ($doctor_specialities_json as $speciality) {
     array_push($doctor_specialities, $speciality);
 }
 
-$doctor_towns_json = file_get_contents("../data/towns.json");
-$doctor_towns_json = json_decode($doctor_towns_json, true);
+$doctor_towns_json = json_decode(file_get_contents("../data/towns.json"), true);
 
 foreach ($doctor_towns_json as $town) {
     array_push($doctor_towns, $town);
@@ -52,7 +49,7 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
         </div>
         <div id='section_2'>
             <div class='price big_text_size'>" . $price . "&nbsp€</div>
-            <button onclick=\"select_doctor(" . $id . ")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbspΡαντεβού</button>
+            <button onclick=\"select_doctor(" . $id . ")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
         </div>
     </div>
     ";
@@ -85,14 +82,6 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 
     ?>
     <script>
-        // fetch("../data/doctor_types.json")
-        //     .then(function(resp) {
-        //         return resp.json();
-        //     })
-        //     .then(function(data) {
-        //         console.log(data);
-        //     });
-
         document.getElementById("search_button").onclick = search_for_doctor;
 
         function search_for_doctor() {
