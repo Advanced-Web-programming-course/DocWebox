@@ -43,7 +43,7 @@ function display_default_header($name)
             <p id='logotext'>DOCWEBOX</p></a>
         </div>
         <div id='lowerheader'>
-            <p id='lowertext'>Καλωσήρθες *ΟΝΟΜΑ*$name</p> <!-- Will change using login page buttons -->
+            <p id='lowertext'>Καλωσήρθες $name</p> <!-- Will change using login page buttons -->
         </div>
     </header>
     <br/>

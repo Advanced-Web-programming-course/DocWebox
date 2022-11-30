@@ -1,9 +1,7 @@
 <?php
 
-function select_doctors()
+function select_doctors($conn)
 {
-    require_once "../config/db_connection.php";
-
     $doctors = array();
 
     $sql = "SELECT * FROM doctor WHERE 1";
@@ -16,14 +14,24 @@ function select_doctors()
         }
     }
 
-    $conn->close();
-
     return $doctors;
 }
 
-function select_doctors_by_specialization($specialization)
+function select_doctor_by_id($conn, $id)
 {
-    require_once "../config/db_connection.php";
+    $sql = "SELECT * FROM doctor WHERE id='$id'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        return $row = $result->fetch_assoc();
+    }
+    return null;
+}
+
+function select_doctors_by_specialization($conn, $specialization)
+{
 
     $doctors = array();
 
@@ -38,15 +46,11 @@ function select_doctors_by_specialization($specialization)
         }
     }
 
-    $conn->close();
-
     return $doctors;
 }
 
-function select_doctors_by_region($region)
+function select_doctors_by_region($conn, $region)
 {
-    require_once "../config/db_connection.php";
-
     $doctors = array();
 
     $sql = "SELECT * FROM doctor WHERE region='$region'";
@@ -59,14 +63,11 @@ function select_doctors_by_region($region)
         }
     }
 
-    $conn->close();
-
     return $doctors;
 }
 
-function select_doctors_by_specialization_region($specialization, $region)
+function select_doctors_by_specialization_region($conn, $specialization, $region)
 {
-    require_once "../config/db_connection.php";
 
     $doctors = array();
 
@@ -79,8 +80,6 @@ function select_doctors_by_specialization_region($specialization, $region)
             array_push($doctors, $row);
         }
     }
-
-    $conn->close();
 
     return $doctors;
 }
