@@ -1,6 +1,20 @@
 <?php
 include "../controllers/auth_controller.php";
 ensure_auth();
+
+include "../config/db_connection.php";
+include "../db_services/patient_service.php";
+
+$logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+$profil_user = null;
+
+if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GET['patient_id'])) {
+    $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
+} else {
+    echo "<h1>Error 404 page</h1>";
+    return;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +31,10 @@ ensure_auth();
 <body>
     <?php
     include "../components/header.php";
-    display_default_header("");
+    display_default_header($logged_user['full_name']);
     echo " <div id='profile-page-content'>";
     include "../components/profile_section.php";
-    display_profile_section("Αναστασία Καμανά ", "ankamana@gmail.com", "+30 6912894727");
+    display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     include "../components/edit_profile_section.php";
     echo "</div>";
 
