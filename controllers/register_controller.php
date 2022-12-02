@@ -24,6 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_err = "Invalid email format";
     } else {
+        # check if admin with that email exists
+        $sql = "SELECT id FROM admin WHERE email = '$email'";
+        if ($result = $conn->query($sql)) {
+            if ($result->num_rows >= 1) {
+                $email_err = "Email already exists";
+            }
+        }
+
         $sql = "SELECT id FROM $table WHERE email = '$email'";
         if ($result = $conn->query($sql)) {
             if ($result->num_rows >= 1) {
