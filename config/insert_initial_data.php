@@ -85,4 +85,4 @@ echo "<br>";
 echo "<br>";
 echo "Table : admin<br>";
 echo "------------------<br>";
-create_admin("admin", "admin");
+create_admin("admin@admin.com", "admin", "admin");

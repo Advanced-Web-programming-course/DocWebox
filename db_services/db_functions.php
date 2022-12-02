@@ -126,13 +126,13 @@ function create_review($patient_id, $doctor_id, $rating, $comment)
     $conn->close();
 }
 
-function create_admin($email, $pword)
+function create_admin($email, $fullname, $pword)
 {
     include "../config/db_connection.php";
     $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO admin (email, password )
-    VALUES ('$email', '$hashed_password')";
+    $sql = "INSERT INTO admin (email, full_name,password )
+    VALUES ('$email', '$fullname','$hashed_password')";
 
     try {
         if ($conn->query($sql) === TRUE) {

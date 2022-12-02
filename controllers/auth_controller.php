@@ -23,6 +23,9 @@ function get_loggedin_user($conn, $type, $id)
     } else if ($type === 'p') {
         require_once "../db_services/patient_service.php";
         return select_patient_by_id($conn, $id);
+    } else if ($type === 'a') {
+        require_once "../db_services/admin_service.php";
+        return select_admin_by_id($conn, $id);
     }
     return null;
 }

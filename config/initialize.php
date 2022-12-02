@@ -105,6 +105,7 @@ echo "<br>";
 // Create Table admin
 $sql = "CREATE TABLE IF NOT EXISTS admin (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  full_name VARCHAR(150) NOT NULL,
   email VARCHAR(150) UNIQUE NOT NULL,
   password VARCHAR(150) UNIQUE NOT NULL
   )";
