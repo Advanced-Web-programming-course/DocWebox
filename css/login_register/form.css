@@ -104,7 +104,7 @@ button, .loginbtn, .registerbtn {
   flex: 50%;
   width: 270px; 
 }
-  
+
 @media screen and (max-width: 600px) {
   .box {
     display: flex;

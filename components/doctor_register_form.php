@@ -36,9 +36,21 @@
             </div>
 
             <div class="row">
+                <?php
+                $json_towns = json_decode(file_get_contents("../data/towns.json"), true);
+                ?>
                 <label for="dregister-region">Περιοχή</label><br>
-                <input name="region" id="dregister-region" type="text" placeholder="Πανόραμα" required>
+                <select required name="region" id="dregister-region">
+                    <option default disabled selected value="">Διάλεξε περιοχή</option>
+                    <?php
+                    foreach ($json_towns as $town) {
+                        echo '<option value="' . $town . '">' . $town . '</option>';
+                    } ?>
+                </select>
                 <p style="color: red;"><?php echo $region_err; ?> </p>
+                <!-- <input name="region" id="dregister-region" type="text" placeholder="Πανόραμα" required>
+                <p style="color: red;"><?php echo $region_err; ?> </p> -->
+
             </div>
 
         </div>
