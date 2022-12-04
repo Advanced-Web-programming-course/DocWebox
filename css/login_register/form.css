@@ -78,6 +78,12 @@ button, .loginbtn, .registerbtn {
     width: 105%;  
 }
 
+#togglePassword {
+  margin-left: -30px; 
+  cursor: pointer;
+  color:#545454;
+}
+
 #dregister-region {
   border: 0.7px solid #AAAAAA;
   border-radius: 5px;

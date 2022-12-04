@@ -17,6 +17,7 @@
             <div class="row">
                 <label for="dregister-pass">Κωδικός</label><br>
                 <input name="password" id="dregister-pass" type="password" required>
+                <i class="far fa-eye" id="togglePassword"></i>
                 <p style="color: red;"><?php echo $password_err; ?> </p>
             </div>
 

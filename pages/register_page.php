@@ -18,6 +18,7 @@ include "../controllers/register_controller.php";
     <link rel="stylesheet" href="../css/login_register/form.css">
     <link rel="stylesheet" href="../css/login_register/upbtns.css">
     <link rel="stylesheet" href="../css/login_register/downbtns.css">
+    <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -47,5 +48,6 @@ include "../controllers/register_controller.php";
         <!-- όταν εγγαρφη ως γιατρός doctor_register_form.php -->
     </div>
 </body>
+<script  src="../js/password.js"></script>
 
 </html>
