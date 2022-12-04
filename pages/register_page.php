@@ -48,6 +48,6 @@ include "../controllers/register_controller.php";
         <!-- όταν εγγαρφη ως γιατρός doctor_register_form.php -->
     </div>
 </body>
-<script  src="../js/password.js"></script>
+<script  src="../js/toggle_password.js"></script>
 
 </html>

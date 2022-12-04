@@ -51,5 +51,5 @@ include "../controllers/login_controller.php";
     </div>
 
 </body>
-<script  src="../js/password.js"></script>
+<script  src="../js/toggle_password.js"></script>
 </html>
