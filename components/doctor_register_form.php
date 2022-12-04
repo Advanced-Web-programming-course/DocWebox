@@ -41,7 +41,7 @@
                 ?>
                 <label for="dregister-region">Περιοχή</label><br>
                 <select required name="region" id="dregister-region">
-                    <option default disabled selected value="">Διάλεξε περιοχή</option>
+                    <option default disabled selected value="">Διαλέξτε Περιοχή</option>
                     <?php
                     foreach ($json_towns as $town) {
                         echo '<option value="' . $town . '">' . $town . '</option>';

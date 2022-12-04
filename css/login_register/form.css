@@ -66,7 +66,8 @@ button, .loginbtn, .registerbtn {
   color: #AAAAAA;
 }
 
-.row input {
+
+.row input, #dregister-region {
     box-sizing: border-box;
     border: none;
     outline: none;
@@ -75,6 +76,15 @@ button, .loginbtn, .registerbtn {
     padding: 5px;
     margin: 8px 0;
     width: 105%;  
+}
+
+#dregister-region {
+  border: 0.7px solid #AAAAAA;
+  border-radius: 5px;
+}
+
+#choose-region {
+  color: #eecccc;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
