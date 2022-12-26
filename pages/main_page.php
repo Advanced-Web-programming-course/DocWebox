@@ -1,8 +1,18 @@
+<?php
+include "../controllers/auth_controller.php";
+ensure_auth();
+include "../config/db_connection.php";
+
+$logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Page Title</title>
+    <link rel="stylesheet" href="../css/main_page.css">
     <link rel="stylesheet" href="../css/all_apointments.css">
     <link rel="stylesheet" href="../css/search_bar.css">
     <link rel="stylesheet" href="../css/upcoming_apointments.css">
@@ -10,13 +20,15 @@
 </head>
 
 <body>
-    <div class="con">
-        <?php
-        include "../components/search_bar.php";
-        include "../components/upcoming_apointments.php";
-        include "../components/all_apointments.php";
+    <?php
+    include "../components/header.php";
+    display_default_header($logged_user['full_name']);
+    echo " <div id='main-page-content'>";
+    include "../components/search_bar.php";
+    include "../components/upcoming_apointments.php";
+    include "../components/all_apointments.php";
+    echo "</div>";
     ?>
-    </div>
 </body>
 
 </html>

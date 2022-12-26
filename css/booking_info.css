@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap');
+
+.con
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.booking_info_section,.member_info_section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-style: normal;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.title {    
+    font-weight: 600;
+    font-size: 16px;
+    padding: 5px 20px;
+}
+
+.booking ,.member {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    justify-content: space-between;
+    padding: 15px 35px;
+    background-color: #FFFFFF;
+    border: 2.5px solid #CBD2E0;
+    border-radius: 6px; 
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+.booking .info-booking{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.booking .price {
+    color: #E43F6F;
+}
+
+.info-member{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; 
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.details-field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+}
+
+.button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button .confirm{
+    background: #E43F6F;
+    border-radius: 36px;
+    border: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+    width: 188px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #000000;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 100px;
+}
+.confirmation .text{
+    font-size: 20px;
+    line-height: 24px;
+    width: 318px;
+    height: 24px;
+}
+
+.confirmation .subtext{
+    font-size: 16px;
+    line-height: 19px;
+    width: 432px;
+    height: 38px;
+}
+
+
+
+

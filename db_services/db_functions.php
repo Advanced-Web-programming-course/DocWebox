@@ -17,21 +17,23 @@ function create_patient($fullname, $phone_num, $email, $pword, $img_url)
             echo "Password : " . $pword . "<br>";
             echo "Img url : " . $img_url . "<br>";
         }
+        return TRUE;
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
+        return FALSE;
     }
     echo "<br>";
 
     $conn->close();
 }
 
-function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation_id, $doctor_description, $img_url)
+function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation, $doctor_description, $img_url)
 {
     include "../config/db_connection.php";
     $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO doctor (full_name, phone, email, password, address, region, specialization, description, img_url)
-    VALUES ('$fullname', '$phone_num', '$email', '$hashed_password','$address', '$rigion', '$specialisation_id', '$doctor_description', '$img_url')";
+    VALUES ('$fullname', '$phone_num', '$email', '$hashed_password','$address', '$rigion', '$specialisation', '$doctor_description', '$img_url')";
 
     try {
         if ($conn->query($sql) === TRUE) {
@@ -42,31 +44,33 @@ function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion,
             echo "Password : " . $pword . "<br>";
             echo "Address : " . $address . "<br>";
             echo "Rigion : " . $rigion . "<br>";
-            echo "Specialisation id : " . $specialisation_id . "<br>";
+            echo "Specialisation id : " . $specialisation . "<br>";
             echo "Description : " . $doctor_description . "<br>";
             echo "Img url : " . $img_url . "<br>";
         }
+        return TRUE;
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
+        return FALSE;
     }
     echo "<br>";
 
     $conn->close();
 }
 
-function create_doctor_service($title, $price, $specialisation_id)
+function create_doctor_service($title, $price, $specialisation)
 {
     include "../config/db_connection.php";
 
     $sql = "INSERT INTO service (title, price , specialization)
-    VALUES ('$title', '$price', '$specialisation_id')";
+    VALUES ('$title', '$price', '$specialisation')";
 
     try {
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully<br>";
             echo "Title : " . $title . "<br>";
             echo "Price : " . $price . "<br>";
-            echo "Specialisation_id : " . $specialisation_id . "<br>";
+            echo "Specialisation : " . $specialisation . "<br>";
         }
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
@@ -122,13 +126,13 @@ function create_review($patient_id, $doctor_id, $rating, $comment)
     $conn->close();
 }
 
-function create_admin($email, $pword)
+function create_admin($email, $fullname, $pword)
 {
     include "../config/db_connection.php";
     $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO admin (email, password )
-    VALUES ('$email', '$hashed_password')";
+    $sql = "INSERT INTO admin (email, full_name,password )
+    VALUES ('$email', '$fullname','$hashed_password')";
 
     try {
         if ($conn->query($sql) === TRUE) {

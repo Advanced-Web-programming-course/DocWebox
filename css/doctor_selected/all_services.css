@@ -1,26 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-    .all-apointments {
+
+    .all-services {
+        margin-top: 0;
+        font-style: normal;
+        font-family: 'Inter';
     }
 
     .title {
         background: #E43F6F;
         border-radius: 15px;
         padding: 14px 30px;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto';
         font-size: 20px;
         color: #fff;
     }
 
-    .all-apointments header,
+    section{
+        padding: 30px 50px;
+
+    }
+
     .row {
         display: flex;
-        padding: 12px 21px;
-        font-family: 'Poppins', sans-serif;
+        padding: 15px 22px;
         font-weight: 600;
         font-size: 14px;
-        text-align: center;
         /* aligns all child elements (flex items) in a row */
+    }
+
+    .price {
+        text-align:end;
     }
 
     .col {
@@ -35,14 +46,15 @@
         /* distributes space on the line equally among items */
     }
 
-    .all-apointments header {
-        margin-top: 19px;
-        background: #F3F6F9;
-        border-radius: 6px;
-        font-size: 12px;
+    
+    hr {
+        border: 1px solid #CBD2E0;
+        /* background:#CBD2E0 ; */
+        background-color: #CBD2E0;
     }
+
 
     a:hover, a:visited, a:link, a:active{
         text-decoration: none;
-        color: #464E5F;
     }
+ 

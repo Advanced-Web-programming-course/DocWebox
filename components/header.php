@@ -1,11 +1,53 @@
-<?php    
-echo "<header>
+<?php
+
+function display_login_register_header($action, $type)
+{
+    if ($type == "d") {
+        $type = "Γιατρού";
+    } else if ($type == "p") {
+        $type = "Μέλους";
+    }
+
+    if ($action == "login") {
+        $action = "Σύνδεση";
+    } else if ($action == "register") {
+        $action = "Εγγραφή";
+    }
+
+    $logo = file_get_contents("../images/logo.svg");
+    echo "<header id='header-component'>
         <div id='upperheader'>
             <link rel='stylesheet' href='../css/header_style.css'>
-            <a id='wholelogo' href='#top'><img id='logoicon' src='https://s3-alpha-sig.figma.com/img/66ed/ef90/42fe6eb96be4b1d2b0eb804bc9b1d562?Expires=1668384000&Signature=UPnPl33UyruOJdZhuF1unEHyqhvlvzkBquget53Oz8SRYjoWrxHmf5uJJDZPurdLn5kq6VeIulwBjdtsPMtMMVPiYQ8Hm6qzYHCcxCNdCVLmHvYGfzCZvVn41LCRegvv42zUpbVRGg9zh7~iH9lXPIb6NbE-BLFX7qCxQgLF2jnrfbdwN-qhfdOJZz5k~KKX6ybQgHGsADXZHnVvV9a3SYONOUbaUGy1YD3rXb7G-HAxNMpMnmDQoTjiVpsm0UlPiO8qE2R9-ArW0lLiE1BkmPp7PCfFTzXgm2vA0JesT2uU8mVgjiropjJEojFYcfv9ECNr9T51646tR~Mg9rheqQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'/><p id='logotext'>DOCWEBOX</p></a>
+            <a id='wholelogo' href='#top'>
+                $logo
+            <p id='logotext'>DOCWEBOX</p></a>
         </div>
         <div id='lowerheader'>
-            <p id='lowertext'>Συνδεση/Εγγραφη Μέλους/Γιατρού</p> <!-- Will change using login page buttons -->
+            <p id='lowertext'>$action $type</p> <!-- Will change using login page buttons -->
         </div>
-    </header>";
-?>
+    </header>
+    <br/>
+    <br/>
+    <br/>
+    <br/>";
+}
+
+function display_default_header($name)
+{
+    $logo = file_get_contents("../images/logo.svg");
+    echo "<header id='header-component'>
+        <div id='upperheader'>
+            <link rel='stylesheet' href='../css/header_style.css'>
+            <a id='wholelogo' href='#top'>
+                $logo
+            <p id='logotext'>DOCWEBOX</p></a>
+        </div>
+        <div id='lowerheader'>
+            <p id='lowertext'>Καλωσήρθες $name</p> <!-- Will change using login page buttons -->
+        </div>
+    </header>
+    <br/>
+    <br/>
+    <br/>
+    <br/>";
+}

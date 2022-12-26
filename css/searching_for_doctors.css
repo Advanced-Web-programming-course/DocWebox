@@ -14,36 +14,27 @@
     width: 70%;
 }
 #section_2{
-    width: 30%;        
+    display:flex;
+    width: 30%;       
 }
-#section_2_supsec_2{
-    float:right;
-}
-#section_2_supsec_2>button{
+.book_appointment{
     border-radius: 15px;
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     cursor: pointer;
-    font-family: 'Inter';
+    margin:10px 10px;
 }
-#stars{
-    width: 100%;
-    display: block;
-    text-align: right;
-    margin-bottom: 16px;
-}
-#price{
-    background: #E8F9F8;
+.price{
+    display: flex;
+    background-color: #E8F9F8;
     border-radius: 155px;
-    border: none;
-    padding: 16px 23px;
+    padding: 15px 32px;
     text-align: center;
-    font-style: normal;
-    margin-right: 20px;
+    margin:10px 10px;
+    justify-content: center;
+    align-items: center;
 }
 .circle{
     border-radius: 50%;

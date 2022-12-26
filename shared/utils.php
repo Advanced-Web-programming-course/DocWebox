@@ -1,23 +1,39 @@
 <?php
 
-function get_user_table_based_on_type($user_type)
+// clean data for safety
+function clean_input($data)
 {
-    if ($user_type == "p") {
-        return "patient";
-    } else if ($user_type == "a") {
-        return "admin";
-    } else if ($user_type == "d") {
-        return "doctor";
-    }
-    return null;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
-function get_user_type()
+// returns an error message if variable is empty
+function check_empty($var, $error)
 {
-    // user_type
-    $user_type = "p"; // p for patient
-    if (isset($_GET["user_type"]) && $_GET["user_type"] != "") {
-        $user_type = $_GET["user_type"];
+    if (empty($var)) {
+        return $error;
     }
-    return $user_type;
+    return "";
+}
+
+function validate_type($type)
+{
+    $type = clean_input($type);
+
+    if ($type != "p" && $type != "d") {
+        $type = "p";
+    }
+
+    return $type;
+}
+
+function get_table_name($type)
+{
+    if ($type == "d") {
+        return "doctor";
+    } else if ($type == "p") {
+        return "patient";
+    }
 }

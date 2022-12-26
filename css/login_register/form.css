@@ -1,0 +1,137 @@
+/*style for upcomming apointments*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 110px;
+}
+
+.container {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  align-items: center; 
+  /* οταν flex-direction:column align-items-> τον άξονα x , justify-content ->  τον άξονα y, με row το ανάποδο */
+  /* box-shadow: 0 0 20px 6px #090b6f85;  */
+}
+
+button, .loginbtn, .registerbtn {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #545454;
+  border: none;
+  height: 40px;
+  width: 120px;
+  border-radius: 36px;
+  background: none;
+}
+
+/* form title-> h1, form subtitle-> p */
+
+.title { 
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 47px;
+  color: #000000;
+  overflow-wrap: break-word;
+  transition: all 2s ease;
+
+  margin-bottom: 10px;
+  }
+
+.subtitle {
+  font-weight: 400;
+  line-height: 14px;
+  color: #545454;
+  overflow-wrap: break-word;
+
+  margin-bottom: 30px;
+}
+
+/* inputs */
+.row
+{
+  margin-bottom: 50px; 
+}
+
+.row label {
+  font-weight: 400;
+  line-height: 14px;
+  color: #AAAAAA;
+}
+
+
+.row input, #dregister-region {
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    border-bottom: 0.7px solid #AAAAAA;
+    background-color: none;
+    padding: 5px;
+    margin: 8px 0;
+    width: 105%;  
+}
+
+#togglePassword {
+  margin-left: -30px; 
+  cursor: pointer;
+  color:#545454;
+}
+
+#dregister-region {
+  border: 0.7px solid #AAAAAA;
+  border-radius: 5px;
+}
+
+#choose-region {
+  color: #eecccc;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #eecccc;
+  opacity: 1; /* Firefox */
+}
+
+@media screen and (max-width: 300px) {
+  .title{
+    font-size: 20px;
+    transition: all 2s ease;
+  }
+}
+
+/* register form when 2 columns */
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  transition: all 2s ease;
+
+}
+
+.column {
+  flex: 50%;
+  width: 270px; 
+}
+
+@media screen and (max-width: 600px) {
+  .box {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    transition: all 2s ease;
+  }
+}
+
+
+
+
+

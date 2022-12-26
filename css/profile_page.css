@@ -1,0 +1,11 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 130px;
+}
+
+#profile-page-content{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

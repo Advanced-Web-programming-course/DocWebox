@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+#edit-profile-section{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-weight: 400;
+    gap: 4px;
+    visibility: hidden;
+}
+
+#edit-profile-section .title{
+    font-size: 20px;
+    line-height: 150%;
+    color: #00BFB4;
+}
+#edit-profile-section form{
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+#edit-profile-section .row1,#edit-profile-section .row2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 34px;
+
+}
+
+#edit-profile-section #name,#edit-profile-section #email{
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 2px solid #CBD2E0;
+    flex: 1.5;
+}
+
+#edit-profile-section #tel{
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    border: 2px solid #CBD2E0;
+    flex: 1;
+}
+
+#edit-profile-section #profile-picture{
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 700;
+    background: #404040;
+    color: #fff;
+    border-radius: 6px;
+    flex: 1;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+#edit-profile-section #save{
+    padding: 12px 20px;
+    font-weight: 700;
+    text-align: center;
+    background: #00BFB4;
+    border: 2px solid #00BFB4;
+    color: #fff;
+    border-radius: 6px;
+    flex: 1;
+    cursor: pointer;
+}
+
+
+
+
+   
