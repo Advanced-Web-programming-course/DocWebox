@@ -1,5 +1,9 @@
 body{
     display: flex;
     flex-direction: column;
-    gap: 130px;
+    overflow-x: hidden;
+}
+
+#content{
+    margin-top: 110px;
 }
