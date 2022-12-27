@@ -18,6 +18,10 @@
 #lowertext{
     align-self: center;
     color: white;
+    text-align: center;
+    margin-top:16px;
+    margin-bottom:16px;
+    font-size: 20px;
 }
 
 #wholelogo{

@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-
-p {
+.upcoming-apointments{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.upcoming-apointments p {
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     color: #00BFB4;
-
+    text-align: start;
 }
 
 .upcoming-box {
@@ -19,6 +22,7 @@ p {
     background: #E8F9F8;
     border-radius: 15px;
     color:#404040;
+    text-align: start;
 }
 
 .box {

@@ -1,33 +1,24 @@
 <div class='all-apointments'>
-    <div class=' title'>Ολοκληρωμένες Επισκέψεις</div>
+    <div class='title-custom'>Ολοκληρωμένες Επισκέψεις</div>
     <section>
         <header>
-            <div class="col">Ονοματεπώνυμο Γιατρού</div>
-            <div class="col">Υπηρεσία</div>
-            <div class="col">Τιμή</div>
-            <div class="col">Ημερομηνία</div>
-            <div class="col">Βαθμολογία</div>
-            <div class="col col-sm"></div>
+            <div class="column">Ονοματεπώνυμο Γιατρού</div>
+            <div class="column">Υπηρεσία</div>
+            <div class="column">Τιμή</div>
+            <div class="column">Ημερομηνία</div>
+            <div class="column column-sm"></div>
         </header>
         <div class="row">
-            <div class="col">Δρ. Παπαιωάννου</div>
-            <div class="col">Απλή Επίσκεψη</div>
-            <div class="col">€25</div>
-            <div class="col">27/10/2022 09:30</div>
-            <div class="col">
-                <div id="stars">
-                    <i class="fa-sharp fa-solid fa-star"></i>
-                    <i class="fa-sharp fa-solid fa-star"></i>
-                    <i class="fa-sharp fa-solid fa-star"></i>
-                    <i class="fa-sharp fa-solid fa-star"></i>
-                    <i class="fa-sharp fa-solid fa-star"></i>
-                </div>
-            </div>
-            <div class="col col-sm">
+            <div class="column">Δρ. Παπαιωάννου</div>
+            <div class="column">Απλή Επίσκεψη</div>
+            <div class="column">€25</div>
+            <div class="column">27/10/2022 09:30</div>
+            <div class="column column-sm">
                 <a href="">
                     <img src="../images/call.png" alt="" width="20" height="20">
                 </a>
             </div>
         </div>
+
     </section>
 </div>

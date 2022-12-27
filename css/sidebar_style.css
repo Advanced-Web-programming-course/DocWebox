@@ -5,11 +5,10 @@
     font-family: 'Roboto';
     border-right:3px solid #00BFB4;
     width: 214px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #navbuttons{
@@ -19,7 +18,6 @@
 }
 
 .sidebarbutton{
-    
     font-size: 15px;
     color: white;
     border: none;
@@ -40,12 +38,12 @@
 
 #user-div{
     display: flex;
-    position: absolute;
+    align-self: center;
+    justify-content: center; 
     background-color: #EDFBFA;
-    width: 214px;
+    width: 100%;
     padding-top: 30px;
     padding-bottom: 30px;
-    bottom: 0;
     
 }
 
@@ -80,7 +78,6 @@
 }
 
 .sliders_control {
-  position: relative;
   min-height: 50px;
   margin-left: 15%;
   margin-bottom: -30px;
