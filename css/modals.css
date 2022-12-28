@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal-footer {
+    border-top: 0 none;
+}
+
+.modalCenter {
+    top: 30%;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+button {
+    font-size: 12px;
+}
+
+.cancel {
+    background: #404040;
+    border-radius: 36px;
+    border: none;
+    height: 40px;
+    width: 120px;
+    color:#FFFFFF;
+}
+
+.confirm {
+    background: #00BFB4;
+}

@@ -25,6 +25,7 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
 <html>
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Title</title>
     <link rel="stylesheet" href="../css/profile_page.css">
     <link rel="stylesheet" href="../css/profile_section.css">
