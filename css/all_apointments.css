@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
 
-    .all-apointments {
+    .all-apointments{
+      overflow-x: hidden;
     }
-
-    .title {
+    .title-custom {
         background: #E43F6F;
         border-radius: 15px;
         padding: 14px 30px;
         font-family: 'Roboto', sans-serif;
         font-size: 20px;
         color: #fff;
+        text-align: start;
     }
 
     .all-apointments header,
@@ -23,13 +24,13 @@
         /* aligns all child elements (flex items) in a row */
     }
 
-    .col {
+    .column {
         flex: 1;
         color: #464E5F;
         /* distributes space on the line equally among items */
     }
 
-    .col-sm {
+    .column-sm {
         flex: 0.3;
 
         /* distributes space on the line equally among items */

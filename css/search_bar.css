@@ -20,4 +20,5 @@ select {
     align-items: center;
     border: none;
     cursor: pointer;
+    background-color: #E43F6F;
 }

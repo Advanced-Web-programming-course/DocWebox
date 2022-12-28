@@ -25,6 +25,8 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     <link rel="stylesheet" href="../css/profile_section.css">
     <link rel="stylesheet" href="../css/edit_doctor_profile_section.css">
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
@@ -39,17 +41,17 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
 
     ?>
     <script>
-        document.getElementById('edit-button').addEventListener('click', function(e) {
-            openEditForm();
-        });
+    document.getElementById('edit-button').addEventListener('click', function(e) {
+        openEditForm();
+    });
 
-        function openEditForm() {
-            let profileForm = document.getElementById('edit-doctor-profile-section');
-            if (profileForm.style.visibility == 'visible') {
+    function openEditForm() {
+        let profileForm = document.getElementById('edit-doctor-profile-section');
+        if (profileForm.style.visibility == 'visible') {
 
-                profileForm.style.visibility = 'hidden';
-            } else profileForm.style.visibility = 'visible';
-        }
+            profileForm.style.visibility = 'hidden';
+        } else profileForm.style.visibility = 'visible';
+    }
     </script>
 </body>
 

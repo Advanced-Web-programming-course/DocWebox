@@ -1,9 +1,9 @@
 <?php
 
-    function button_sidebar(){
+    function button_sidebar($name){
 
         echo "<link rel='stylesheet' href='../css/sidebar_style.css'>
-    <nav id='sidebar-component'>
+    <nav id='sidebar-component' class='col'>
 
         <div id='navbuttons'>
             <button class='sidebarbutton' id='upcoming_apointments_button'>Επερχόμενα<br>Ραντεβού</button>
@@ -11,7 +11,7 @@
         </div>
         
         <div id='user-div'>
-            <a id='user-name' href='#'>Ονοματεπώνημο Μέλους</a>
+            <a id='user-name' href='#'>$name</a>
             <img id='user-image' src='../images/user_image.png' alt=''>
         </div>
     </nav>";

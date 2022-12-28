@@ -2,16 +2,13 @@
 
 footer{
     width:100%;
-    position:absolute;
     font-family: 'Roboto';
-    bottom:0;
-    left:0;
     background-color: #00BFB4;
 }
 
 #footertext{
-    margin-top: 35px;
-    margin-bottom: 35px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     margin-left: 77px;
     color: white;
     font-size: 12px;
