@@ -1,6 +1,5 @@
 <!-- review popUp form -->
 <script src="https://kit.fontawesome.com/5f72dfafa5.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../css/pop_up.css">
 
 <div class='popUp'>
     <form class='review-form' action='' method='post'>  

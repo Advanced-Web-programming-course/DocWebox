@@ -8,10 +8,15 @@
     border-top: 0 none;
 }
 
-.modalCenter {
-    top: 30%;
+.modal-body {
+    font-size: 14px;
+    font-weight: 600;
     font-family: 'Inter';
     font-style: normal;
+}
+
+.modalCenter {
+    top: 30%;
     text-align: start;
 }
 
@@ -24,11 +29,8 @@
     border-radius: 10px;
 }
 
-button {
+.cancel, .confirm, .continue, .change, .save {
     font-size: 12px;
-}
-
-.cancel, .confirm, .continue {
     background: #404040;
     border-radius: 36px;
     border: none;
@@ -37,7 +39,12 @@ button {
     color:#FFFFFF;
 }
 
-.confirm {
+a:hover, a:visited, a:link, a:active {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.confirm, .save {
     background: #00BFB4;
 }
 
@@ -45,24 +52,25 @@ button {
     background: #E43F6F;
 }
 
+textarea {
+    height: 157px;
+    resize: none;
+}
 
 
-/* BOOK APPOINTMENT MODAL */
+/* ---------------------------- BOOK APPOINTMENT MODAL ---------------------------- */
 .modal-lg {
     max-width: 80%;
 }
 
 .btitle {
     padding: 5px;
-    font-weight: 600;
-    font-size: 14px;
     font-style: normal;
 }
 
 .bsubtitle {
     padding: 5px;
     font-weight: 400;
-    font-size: 14px;
     font-style: normal;
 }
 

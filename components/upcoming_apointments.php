@@ -1,3 +1,10 @@
+<?php 
+    include "../components/modals/phone_modal.php";
+    include "../components/modals/book_appointment_modal.php"; 
+    include "../components/modals/cancel_modal.php"; 
+?>
+
+
 <div class='upcoming-apointments'>
     <p>Επερχόμενα Ραντεβού</p>
     <div class='upcoming-box'>
@@ -6,7 +13,7 @@
                 <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#phoneModal">
                     <img src="../images/call.png" alt="" width="20" height="20">
                 </a>
-                <a href="" class="icon">
+                <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#bookAppointmentModal">
                     <img src="../images/edit.png" alt="" width="23" height="23">
                 </a>
                 <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#cancelModal">
@@ -25,30 +32,3 @@
     </div>
 </div>
 
-<!-- phone modal -->
-<div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
-  <div class="modal-dialog modalCenter">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">+30 69 4222 3421 </div><br />
-    </div>
-  </div>
-</div>
-
-<!-- cancel modal -->
-<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
-  <div class="modal-dialog modalCenter">
-    <div class="modal-content">
-        <form class='cancel-form' action='' method='post'>
-            <div class="modal-body">Επιθυμείς να ακυρώσεις το ραντεβού σου; <br />
-            </div>
-            <div class="modal-footer">
-                <button type="button" id='ccancelbtn' class="cancel" data-bs-dismiss="modal" >Άκυρο</button>
-                <button type="submit" id='confirmbtn' class="confirm">Επιβεβαίωση</button>
-            </div>
-        </form>
-    </div>
-  </div>
-</div>

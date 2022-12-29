@@ -24,6 +24,7 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 </head>
 
 <body>
+    
     <?php
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
