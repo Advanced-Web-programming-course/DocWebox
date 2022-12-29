@@ -17,30 +17,30 @@
         color: #fff;
     }
 
-    section{
+    section {
         padding: 30px 50px;
 
     }
 
-    .row {
+    .service {
         display: flex;
         padding: 15px 22px;
         font-weight: 600;
         font-size: 14px;
-        /* aligns all child elements (flex items) in a row */
+        /* aligns all child elements (flex items) in a service */
     }
 
-    .price {
+    .colprice {
         text-align:end;
     }
 
-    .col {
+    .el {
         flex: 1;
         color: #464E5F;
         /* distributes space on the line equally among items */
     }
 
-    .col-sm {
+    .el-sm {
         flex: 0.3;
 
         /* distributes space on the line equally among items */

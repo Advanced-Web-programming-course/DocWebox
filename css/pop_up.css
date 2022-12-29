@@ -22,7 +22,7 @@ form {
     flex-direction: column;
 }
 
-.title {
+.btitle {
     padding: 5px;
     font-weight: 600;
     font-size: 14px;
@@ -117,7 +117,7 @@ button {
 
 
 /*----------- BOOK APPOINTMENT POP UP ---------- */
-.subtitle {
+.bsubtitle {
     padding: 5px;
     font-weight: 400;
     font-size: 14px;

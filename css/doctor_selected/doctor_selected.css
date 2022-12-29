@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+html{
+    margin-top: 100px;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -30,7 +35,7 @@ body {
     flex-wrap: wrap;
 }
 
-.doctor .col{
+.doctor .col-info{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -38,11 +43,11 @@ body {
     gap: 4px;
 }
 
-.doctor .info-wrapper{
+.doctor .wrapper{
     gap: 18px;
 }
 
-.doctor .info{
+.doctor .information{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -75,8 +80,6 @@ body {
 .doctor .info2{
     font-size: 13px;
 }
-
-
 
 .description{
     padding: 20px 30px;

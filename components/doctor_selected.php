@@ -3,8 +3,8 @@ function display_doctor_selected_section($fullname,$specializaton,$address,$regi
 {
     echo "<div class='doctor_selected_section'>
                 <div class='doctor'>
-                    <div class='col info-wrapper'>
-                        <div class='info'>
+                    <div class='col-info wrapper'>
+                        <div class='information'>
                             <div class='photo'></div>
                             <div class='doctor-info'>
                                 <div class='name'>$fullname</div>
@@ -22,8 +22,8 @@ function display_simple_doctor_selected_section($fullname,$specializaton,$addres
 {
     echo "<div class='doctor_selected_section'>
                 <div class='doctor'>
-                    <div class='col info-wrapper'>
-                        <div class='info'>
+                    <div class='col-info wrapper'>
+                        <div class='information'>
                             <div class='photo'></div>
                             <div class='doctor-info'>
                                 <div class='name'>$fullname</div>
