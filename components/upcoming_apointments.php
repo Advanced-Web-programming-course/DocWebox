@@ -1,6 +1,6 @@
 <?php 
     include "../components/modals/phone_modal.php";
-    include "../components/modals/book_appointment_modal.php"; 
+    include "../components/modals/edit_appointment_modal.php"; 
     include "../components/modals/cancel_modal.php"; 
 ?>
 
@@ -13,7 +13,7 @@
                 <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#phoneModal">
                     <img src="../images/call.png" alt="" width="20" height="20">
                 </a>
-                <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#bookAppointmentModal">
+                <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#editAppointmentModal">
                     <img src="../images/edit.png" alt="" width="23" height="23">
                 </a>
                 <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#cancelModal">

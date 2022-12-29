@@ -39,7 +39,7 @@
     color:#FFFFFF;
 }
 
-a:hover, a:visited, a:link, a:active {
+#editDesc:hover, #editDesc:visited, #editDesc:link, #editDesc:active {
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -56,6 +56,11 @@ textarea {
     height: 157px;
     resize: none;
 }
+
+#phoneNumber {
+    color: #2369cf;
+}
+
 
 
 /* ---------------------------- BOOK APPOINTMENT MODAL ---------------------------- */

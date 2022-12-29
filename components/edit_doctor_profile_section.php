@@ -20,7 +20,7 @@
             </select>
             <input type='file' name='profile-pic' id='profile-pic' accept='.jpg, .jpeg, .png' style='display:none;' />
             <label id='profile-picture' for='profile-pic'>Ανέβασμα Εικόνας</label>
-            <label id='description'><a href='#' role="button" data-bs-toggle="modal" data-bs-target="#editDescriptionModal">Επεξεργασία Περιγραφής</a></label>
+            <label id='description'><a href='#' id="editDesc" role="button" data-bs-toggle="modal" data-bs-target="#editDescriptionModal">Επεξεργασία Περιγραφής</a></label>
         </div>
         <div class="row">
             <div class='title'>Επεξεργασία Στοιχείων Ιατρείου</div>
