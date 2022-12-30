@@ -37,8 +37,9 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     display_default_header($logged_user['full_name']);
     echo " <div id='profile-page-content'>";
     include "../components/profile_section.php";
-    display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address']);
+    display_doctor_profile_section($doctor['full_name'],$doctor['specialization'], $doctor['region'], $doctor['address']);
     include "../components/edit_doctor_profile_section.php";
+    display_doctor_edit_profile_section($doctor['full_name'],$doctor['email'],$doctor['phone'],$doctor['specialization'], $doctor['region'], $doctor['address']);
     echo "</div>";
 
     ?>
@@ -56,7 +57,9 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 </body>
 
