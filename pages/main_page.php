@@ -26,7 +26,7 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
 <body>
     <?php
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
      display_default_header($logged_user['full_name']);
     echo "<div class='container-fluid row' id='content'>";
     include "../components/sidebar.php";

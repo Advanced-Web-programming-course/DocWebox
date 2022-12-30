@@ -4,7 +4,8 @@
 body {
   display: flex;
   flex-direction: column;
-  gap: 110px;
+  margin: 0;
+  /* gap: 110px; */
 }
 
 .container {

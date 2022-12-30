@@ -26,11 +26,13 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 <body>
     
     <?php
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
     display_default_header($logged_user['full_name']);
     include "../components/doctor_selected.php";
+    echo "<div class='cont'>";
     display_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste reiciendis nemo rerum asperiores quam ipsa ab ea nesciunt obcaecati doloremque tempore, quisquam sequi eligendi ipsam sapiente non omnis tenetur itaque?");
     include "../components/all_services.php";
+    echo "</div>"
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

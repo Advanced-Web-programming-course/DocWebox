@@ -22,14 +22,14 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
 <body>
     <?php
-    echo "<div class='con'>";
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
     display_default_header($logged_user['full_name']);
-    include "../components/doctor_selected.php";
-    display_simple_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα");
-    include "../components/booking_info.php";
-    display_booking_info_section("Πέμπτη 10 Νοεμβρίου", "15:00", "Απλή Επίσκεψη", "€30");
-    display_member_info_section("Αναστασία Καμανά", "ankamana@gmail.com", "+30 6923758021");
+    echo "<div class='cont'>";
+        include "../components/doctor_selected.php";
+        display_simple_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα");
+        include "../components/booking_info.php";
+        display_booking_info_section("Πέμπτη 10 Νοεμβρίου", "15:00", "Απλή Επίσκεψη", "€30");
+        display_member_info_section("Αναστασία Καμανά", "ankamana@gmail.com", "+30 6923758021");
     echo "</div>";
 
     // // When submits form it shows the 

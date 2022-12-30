@@ -36,7 +36,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
 
 <body>
     <?php
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
     display_default_header($logged_user['full_name']);
     echo " <div id='profile-page-content'>";
     include "../components/profile_section.php";

@@ -25,7 +25,7 @@ include "../controllers/login_controller.php";
 <body>
 
     <?php
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
     display_login_register_header("login", $type);
     ?>
 

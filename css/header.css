@@ -19,7 +19,6 @@
     font-family: 'Lexend';
     font-size: 22px;
     color: #404040;
-    
     margin-bottom: 5px;
 } 
 
@@ -27,4 +26,5 @@ a.nav-link {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    text-decoration: none;
 }

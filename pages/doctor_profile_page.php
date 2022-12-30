@@ -33,7 +33,7 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
 
 <body>
     <?php
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
     display_default_header($logged_user['full_name']);
     echo " <div id='profile-page-content'>";
     include "../components/profile_section.php";

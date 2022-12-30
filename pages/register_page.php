@@ -23,7 +23,7 @@ include "../controllers/register_controller.php";
 
 <body>
     <?php
-    include "../components/header.php";
+    include "../components/bootstrapHeader.php";
     display_login_register_header("register", $type);
     ?>
     <div class='container'>
