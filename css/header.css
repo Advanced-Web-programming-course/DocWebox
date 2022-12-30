@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Lexend');
+
+#lowerheader{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #00BFB4;
+}
+
+#lowertext{
+    align-self: center;
+    color: white;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#logotext{
+    word-wrap: break-word ;
+    font-family: 'Lexend';
+    font-size: 22px;
+    color: #404040;
+    
+    margin-bottom: 5px;
+} 
+
+a.nav-link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
