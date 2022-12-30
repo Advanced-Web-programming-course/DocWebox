@@ -2,7 +2,7 @@
     include "../components/modals/phone_modal.php";
 ?>
 
-<div class='all-apointments'>
+<div class='all-apointments' id='all_apointments'>
     <div class='title-custom'>Ολοκληρωμένες Επισκέψεις</div>
     <section>
         <header>
@@ -19,7 +19,7 @@
             <div class="column">27/10/2022 09:30</div>
             <div class="column column-sm">
                 <a href="#" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#phoneModal">
-                    <img src="../images/call.png" alt="" width="20" height="20" >
+                    <img src="../images/call.png" alt="" width="20" height="20">
                 </a>
             </div>
         </div>

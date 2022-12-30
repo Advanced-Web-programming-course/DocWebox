@@ -5,9 +5,9 @@
 ?>
 
 
-<div class='upcoming-apointments'>
+<div class='upcoming-apointments' id='upcoming_apointments'>
     <p>Επερχόμενα Ραντεβού</p>
-    <div class='upcoming-box'>
+    <div class=' upcoming-box'>
         <div class='box'>
             <div class='icons'>
                 <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#phoneModal">
@@ -18,7 +18,7 @@
                 </a>
                 <a href="" class="icon" role="button" data-bs-toggle="modal" data-bs-target="#cancelModal">
                     <img src="../images/delete.png" alt="" width="20" height="20">
-                </a>        
+                </a>
             </div>
             <div class='date'>
                 <div class='time'> 9:30 </div>
@@ -31,4 +31,3 @@
         </div>
     </div>
 </div>
-

@@ -3,16 +3,18 @@
     function button_sidebar($name){
 
         echo "<link rel='stylesheet' href='../css/sidebar_style.css'>
-    <nav id='sidebar-component' class='col'>
+    <nav id='sidebar-component' class='col-lg-2 col-md-4'>
 
         <div id='navbuttons'>
-            <button class='sidebarbutton' id='upcoming_apointments_button'>Επερχόμενα<br>Ραντεβού</button>
-            <button class='sidebarbutton' id='all_apointments_button'>Όλα τα Ραντεβού</button>
+            <a class='sidebarbutton' id='upcoming_apointments_button' href='#upcoming_apointments'>Επερχόμενα<br>Ραντεβού</a>
+            <a class='sidebarbutton' id='all_apointments_button' href='#all_apointments'>Όλα τα Ραντεβού</a>
         </div>
         
         <div id='user-div'>
             <a id='user-name' href='#'>$name</a>
-            <img id='user-image' src='../images/user_image.png' alt=''>
+            <div id='image-wrapper'>
+            <img id='user-image' width=30 height=30 src='../images/user_image.png' alt='profile image'>
+            </div>
         </div>
     </nav>";
 
