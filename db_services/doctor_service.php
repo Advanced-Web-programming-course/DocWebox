@@ -88,3 +88,18 @@ function select_doctors_by_specialization_region($conn, $specialization, $region
 
     return $doctors;
 }
+
+function select_doctor_service_by_id($conn, $id)
+{
+    $id = htmlspecialchars($id);
+
+    $sql = "SELECT * FROM service WHERE id='$id'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        return $row = $result->fetch_assoc();
+    }
+    return null;
+}
