@@ -103,6 +103,7 @@ function create_appointment($patient_id, $doctor_id, $appointment_date, $service
     $conn->close();
 }
 
+
 function create_review($patient_id, $doctor_id, $rating, $comment)
 {
     include "../config/db_connection.php";
