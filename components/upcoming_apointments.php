@@ -13,15 +13,17 @@
     <div class=' upcoming-box'>
 
         <?php
-        for ($i = 0; $i < count($appointments); $i++) {
+         $today = time();
+         for ($i = 0; $i < count($appointments); $i++) {
+             $date = strtotime($appointments[$i]['appointment_date']);
+            if($date > $today){
             $doctor = select_doctor_by_id($conn, $appointments[$i]['doctor_id']);
-            $date = explode(" ",$appointments[$i]['appointment_date']);
+            $service = select_doctor_service_by_id($conn, $appointments[$i]['service_id']);
             $app_id = $appointments[$i]['id'];
-            $imerominia = explode("-",$date[0]); 
-            $ora = explode(":",$date[1]); 
-    
+            $imerominia = date("d/m/Y", $date);
+            $ora = date("H:m", $date);
+        
           phone_modal($app_id, $doctor['phone']);
-    
           echo"<div class='box'>
           <div class='icons'>
               <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#phoneModal-$app_id'>
@@ -35,15 +37,15 @@
               </a>
           </div>
           <div class='date'>
-              <div class='time'> $ora[0]:$ora[1] </div>
-              <div class='day'>  $imerominia[2]/$imerominia[1]/$imerominia[0] </div>
+              <div class='time'>$ora</div>
+              <div class='day'>$imerominia</div>
           </div>
           <div class='info'>
               <div class='name'> ".$doctor['full_name']." </div>
-              <div class='service'>Απλή Επίσκεψη</div>
+              <div class='service'>  ".$service['title']."</div>
           </div>
       </div>";
-        }
+        }}
         ?>
 
     </div>
