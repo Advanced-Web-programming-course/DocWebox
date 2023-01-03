@@ -1,9 +1,15 @@
 <!-- phone modal -->
-<div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
-  <div class="modal-dialog modalCenter">
-    <div class="modal-content">
-        <div class="modal-header"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
-        <div class="modal-body">Κάλεσε στο <a id="phoneNumber" href="tel:+4733378901">+69 333 78 901</a></div><br />
+<?php
+function phone_modal($id, $phone){
+    echo"
+<div class='modal fade' id='phoneModal-$id' tabindex='-1' aria-labelledby='phoneModalLabel' aria-hidden='true'>
+    <div class='modal-dialog modalCenter'>
+        <div class='modal-content'>
+            <div class='modal-header'><button type='button' class='btn-close' data-bs-dismiss='modal'
+                    aria-label='Close'></button></div>
+            <div class='modal-body'>Κάλεσε στο <a id='phoneNumber' href='tel:+$phone'>$phone</a></div><br />
+        </div>
     </div>
-  </div>
-</div>
+</div>";
+}
+?>

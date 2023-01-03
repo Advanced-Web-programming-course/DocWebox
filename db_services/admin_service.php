@@ -15,3 +15,4 @@ function select_admin_by_id($conn, $id)
 
     return null;
 }
+?>
