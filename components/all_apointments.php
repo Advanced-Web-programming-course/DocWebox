@@ -1,5 +1,5 @@
 <?php 
-    include "../components/modals/phone_modal.php";
+    require_once "../components/modals/phone_modal.php";
 ?>
 
 <div class='all-apointments' id='all_apointments'>
