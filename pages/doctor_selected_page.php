@@ -5,6 +5,7 @@ ensure_auth();
 include "../config/db_connection.php";
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
+echo $_GET['doc_id'];
 
 ?>
 

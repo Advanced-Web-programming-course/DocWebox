@@ -103,30 +103,6 @@ function create_appointment($patient_id, $doctor_id, $appointment_date, $service
     $conn->close();
 }
 
-
-function create_review($patient_id, $doctor_id, $rating, $comment)
-{
-    include "../config/db_connection.php";
-
-    $sql = "INSERT INTO review (patient_id, doctor_id , rating, comment)
-    VALUES ('$patient_id', '$doctor_id', '$rating', '$comment')";
-
-    try {
-        if ($conn->query($sql) === TRUE) {
-            echo "New review created successfully<br>";
-            echo "Patient id : " . $patient_id . "<br>";
-            echo "Doctor id : " . $doctor_id . "<br>";
-            echo "Rating : " . $rating . "<br>";
-            echo "Comment : " . $comment . "<br>";
-        }
-    } catch (Throwable $e) {
-        echo "Error: " . $conn->error . "<br>";
-    }
-    echo "<br>";
-
-    $conn->close();
-}
-
 function create_admin($email, $fullname, $pword)
 {
     include "../config/db_connection.php";
