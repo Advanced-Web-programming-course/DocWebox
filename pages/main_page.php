@@ -2,8 +2,18 @@
 include "../controllers/auth_controller.php";
 ensure_auth();
 include "../config/db_connection.php";
+include "../db_services/appointment_service.php";
 
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['appointmentId'])) {
+
+        $id = $_POST['appointmentId'];
+        delete_appointment($conn, $id);
+    }
+}
+
 
 ?>
 
@@ -27,12 +37,12 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 <body>
     <?php
     include "../components/header.php";
-     display_default_header($logged_user['full_name']);
+    display_default_header($logged_user['full_name']);
     echo "<div class='container-fluid row' id='content'>";
     include "../components/sidebar.php";
     button_sidebar($logged_user['full_name']);
     echo " <div id='main-page-content' class='col'>";
-    include "../components/search_bar.php"; 
+    include "../components/search_bar.php";
     include "../components/upcoming_apointments.php";
     include "../components/all_apointments.php";
     echo "</div>";
@@ -42,7 +52,7 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 
 </body>
 

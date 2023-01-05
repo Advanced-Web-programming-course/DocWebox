@@ -30,16 +30,6 @@ function delete_appointment($conn, $id)
     }
 }
 
-function delete_appointment_ajax($conn, $deleteId)
-{
-
-    if (isset($_GET['deleteId'])) {
-
-        $id = $_GET['deleteId'];
-        delete_appointment($conn, $id);
-
-    }
-}
 
 // function select_appointments_by_doctor_id($conn, $doctor_id)
 // {
