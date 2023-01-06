@@ -24,6 +24,7 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
                 $ora = date("H:m", $date);
 
                 phone_modal($app_id, $doctor['phone']);
+                //edit_appointment_modal($app_id);
                 cancel_appointment_modal($app_id);
                 echo "<div class='box'>
           <div class='icons'>
