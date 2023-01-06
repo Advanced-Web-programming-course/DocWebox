@@ -24,14 +24,14 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
                 $ora = date("H:m", $date);
 
                 phone_modal($app_id, $doctor['phone']);
-                //edit_appointment_modal($app_id);
+                edit_appointment_modal($app_id, $service);
                 cancel_appointment_modal($app_id);
                 echo "<div class='box'>
           <div class='icons'>
               <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#phoneModal-$app_id'>
                   <img src='../images/call.png' alt='' width='20' height='20'>
               </a>
-              <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#editAppointmentModal'>
+              <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#editAppointmentModal-$app_id'>
                   <img src='../images/edit.png' alt='' width='23' height='23'>
               </a>
               <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#cancelModal-$app_id'>
