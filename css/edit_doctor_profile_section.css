@@ -7,6 +7,7 @@
     font-weight: 400;
     gap: 4px;
     visibility: hidden;
+    margin: 30px 12px;
 }
 
 #edit-doctor-profile-section .title{
@@ -58,10 +59,21 @@
     cursor: pointer; 
     align-self: flex-end;
     justify-self: flex-end;
-    width: 25%;
 }
 
 
-
+@media screen and (max-width:630px) {
+    #edit-doctor-profile-section form{
+        gap: 5px;
+    }
+    #edit-doctor-profile-section .row{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 5px;
+    
+    }
+    
+}
 
    

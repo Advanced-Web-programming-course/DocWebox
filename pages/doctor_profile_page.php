@@ -21,6 +21,7 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
 
 <head>
     <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profile_page.css">
     <link rel="stylesheet" href="../css/profile_section.css">
     <link rel="stylesheet" href="../css/edit_doctor_profile_section.css">
@@ -35,13 +36,17 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     <?php
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
-    echo " <div id='profile-page-content'>";
+    echo " <div class='container-fluid row' id='profile-page-content'>";
+    include "../components/sidebar.php";
+    button_sidebar($logged_user['full_name']);
+    echo " <div class='col'>";
     include "../components/profile_section.php";
     display_doctor_profile_section($doctor['full_name'],$doctor['specialization'], $doctor['region'], $doctor['address']);
     include "../components/edit_doctor_profile_section.php";
     display_doctor_edit_profile_section($doctor['full_name'],$doctor['email'],$doctor['phone'],$doctor['specialization'], $doctor['region'], $doctor['address']);
     echo "</div>";
-
+    echo "</div>";
+    include "../components/footer.php";
     ?>
     <script>
     document.getElementById('edit-button').addEventListener('click', function(e) {
