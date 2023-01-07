@@ -26,6 +26,7 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
 
 <head>
     <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/profile_page.css">
     <link rel="stylesheet" href="../css/profile_section.css">
     <link rel="stylesheet" href="../css/edit_profile_section.css">
@@ -38,11 +39,16 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
     <?php
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
-    echo " <div id='profile-page-content'>";
+    echo " <div class='container-fluid row' id='profile-page-content'>";
+    include "../components/sidebar.php";
+    button_sidebar($logged_user['full_name']);
+    echo " <div class='col'>";
     include "../components/profile_section.php";
     display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     include "../components/edit_profile_section.php";
     echo "</div>";
+    echo "</div>";
+    include "../components/footer.php";
 
     ?>
     <script>

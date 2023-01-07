@@ -1,11 +1,10 @@
 body{
     display: flex;
     flex-direction: column;
-    gap: 130px;
+    overflow-x: hidden;
 }
 
 #profile-page-content{
+    margin-top: 110px;
     display: flex;
-    flex-direction: column;
-    gap: 30px;
 }

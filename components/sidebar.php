@@ -6,11 +6,11 @@
     <nav id='sidebar-component' class='col-lg-2 col-md-4'>
 
         <div id='navbuttons'>
-            <a class='sidebarbutton' id='upcoming_apointments_button' href='#upcoming_apointments'>Επερχόμενα<br>Ραντεβού</a>
-            <a class='sidebarbutton' id='all_apointments_button' href='#all_apointments'>Όλα τα Ραντεβού</a>
+            <a class='sidebarbutton' id='upcoming_apointments_button' href='main_page.php#upcoming_apointments'>Επερχόμενα<br>Ραντεβού</a>
+            <a class='sidebarbutton' id='all_apointments_button' href='main_page.php#all_apointments'>Όλα τα Ραντεβού</a>
         </div>
         
-        <div id='user-div'>
+        <div id='user-div' onclick=location.href='member_profile_page.php?patient_id=$_SESSION[id]'>
             <a id='user-name' href='#'>$name</a>
             <div id='image-wrapper'>
             <img id='user-image' width=30 height=30 src='../images/user_image.png' alt='profile image'>
