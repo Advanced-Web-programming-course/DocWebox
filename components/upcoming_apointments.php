@@ -10,13 +10,14 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
 ?>
 <div class='upcoming-apointments' id='upcoming_apointments'>
     <p>Επερχόμενα Ραντεβού</p>
-    <div class=' upcoming-box'>
-
+    <div class='upcoming-box'>
         <?php
+        $upcomming=0;
         $today = time();
         for ($i = 0; $i < count($appointments); $i++) {
             $date = strtotime($appointments[$i]['appointment_date']);
             if ($date > $today) {
+                $upcomming++;
                 $doctor = select_doctor_by_id($conn, $appointments[$i]['doctor_id']);
                 $service = select_doctor_service_by_id($conn, $appointments[$i]['service_id']);
                 $app_id = $appointments[$i]['id'];
@@ -48,6 +49,10 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
           </div>
       </div>";
             }
+        }
+        if ($upcomming == 0){
+            echo "<span id='not-upcomming'> Δεν έχεις κλήσει κάποιο ραντεβού. Ξεκίνησε την αναζήτηση επιλέγοντας τη ειδικότητα που ψάχνεις και την τοποθεσία σου!</span>";
+
         }
         ?>
 

@@ -62,3 +62,10 @@ font-size: 12px;
 font-weight: 400;
 
 }
+
+#not-upcomming{
+    color: #464E5F;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}

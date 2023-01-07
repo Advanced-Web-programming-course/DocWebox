@@ -47,3 +47,21 @@
         text-decoration: none;
         color: #464E5F;
     }
+
+    .not-completed-box{
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 20px 30px;
+        background: #E8F9F8;
+        border-radius: 15px;
+        color: #464E5F;
+        text-align: start;
+    }
+
+    #not-completed{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+    }
