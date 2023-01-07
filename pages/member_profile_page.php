@@ -46,6 +46,7 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
     include "../components/profile_section.php";
     display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     include "../components/edit_profile_section.php";
+    display_edit_profile_section($profil_user['full_name'],$profil_user['email'],$profil_user['phone']);
     echo "</div>";
     echo "</div>";
     include "../components/footer.php";

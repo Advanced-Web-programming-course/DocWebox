@@ -8,9 +8,9 @@ function display_doctor_edit_profile_section($name,$email,$phone, $specializatio
     <div class='title'>Επεξεργασία Προσωπικών Στοιχείων</div>
     <form action=''>
         <div class='row'>
-            <input type='text' id='name' name='name' placeholder='Ονοματεπώνυμο' value= $name>
-            <input type='email' id='email' name='email' placeholder='Email' value= $email>
-            <input type='tel' id='tel' name='tel' placeholder='Τηλέφωνο'  value= $phone>
+            <input type='text' id='name' name='name' placeholder='Ονοματεπώνυμο' value= '".$name."'>
+            <input type='email' id='email' name='email' placeholder='Email' value='".$email."'>
+            <input type='tel' id='tel' name='tel' placeholder='Τηλέφωνο'  value='".$phone."'>
 
         </div>
         <div class='row'>
@@ -29,8 +29,8 @@ function display_doctor_edit_profile_section($name,$email,$phone, $specializatio
             <div class='title'>Επεξεργασία Στοιχείων Ιατρείου</div>
         </div>
         <div class='row'>
-            <input type='text' id='address' name='address' placeholder='Οδός' value=$address>
-            <input type='text' id='region' name='region' placeholder='Περιοχή' value=$region>
+            <input type='text' id='address' name='address' placeholder='Οδός' value='".$address."'>
+            <input type='text' id='region' name='region' placeholder='Περιοχή' value='".$region."'>
         </div>
         <input type='submit' id='submit' style='display:none;'>
         <label id='save' for='submit'>Αποθήκευση</label>
