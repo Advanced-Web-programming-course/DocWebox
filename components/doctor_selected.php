@@ -1,11 +1,11 @@
 <?php
-function display_doctor_selected_section($fullname,$specializaton,$address,$region,$description)
+function display_doctor_selected_section($fullname, $specializaton, $address, $region, $description, $img_url)
 {
     echo "<div class='doctor_selected_section'>
                 <div class='doctor'>
                     <div class='col-info wrapper'>
                         <div class='information'>
-                            <div class='photo'></div>
+                            <div><img class='photo' src=$img_url alt='doctor profile'></div>
                             <div class='doctor-info'>
                                 <div class='name'>$fullname</div>
                                 <div class='info1'>$specializaton</div>
@@ -18,13 +18,13 @@ function display_doctor_selected_section($fullname,$specializaton,$address,$regi
            </div> ";
 }
 
-function display_simple_doctor_selected_section($fullname,$specializaton,$address,$region)
+function display_simple_doctor_selected_section($fullname, $specializaton, $address, $region, $img_url)
 {
     echo "<div class='doctor_selected_section'>
                 <div class='doctor'>
                     <div class='col-info wrapper'>
                         <div class='information'>
-                            <div class='photo'></div>
+                            <div><img class='photo' src=$img_url alt='doctor profile'></div>
                             <div class='doctor-info'>
                                 <div class='name'>$fullname</div>
                                 <div class='info1'>$specializaton</div>

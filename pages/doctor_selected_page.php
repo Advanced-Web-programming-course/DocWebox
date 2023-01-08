@@ -1,11 +1,16 @@
 <?php
 include "../controllers/auth_controller.php";
+include "../db_services/doctor_service.php";
 ensure_auth();
 
 include "../config/db_connection.php";
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
-echo $_GET['doc_id'];
+
+//get doctor's id from serachingForDoctors.php
+$doc_id = $_GET['doc_id'];
+$doc = select_doctor_by_id($conn, $doc_id);
+
 
 ?>
 
@@ -42,7 +47,7 @@ echo $_GET['doc_id'];
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
     include "../components/doctor_selected.php";
-    display_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα", "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste reiciendis nemo rerum asperiores quam ipsa ab ea nesciunt obcaecati doloremque tempore, quisquam sequi eligendi ipsam sapiente non omnis tenetur itaque?");
+    display_doctor_selected_section($doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['description'], $doc['img_url']);
     include "../components/all_services.php";
     ?>
 
