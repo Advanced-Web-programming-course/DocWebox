@@ -4,7 +4,8 @@
 {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin: 5px;
+    margin-top: 90px;
     gap: 20px;
 }
 
@@ -25,7 +26,7 @@
     padding: 5px 20px;
 }
 
-.booking ,.member {
+.booking, .member {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row; 
@@ -64,12 +65,12 @@
     gap: 7px;
 }
 
-.button{
+.confirmB {
     display: flex;
     justify-content: flex-end;
 }
 
-.button .confirm{
+.confirmB button{
     background: #E43F6F;
     border-radius: 36px;
     border: none;
@@ -81,7 +82,6 @@
     color: #FFFFFF;
     width: 188px;
     height: 40px;
-    cursor: pointer;
 }
 
 .confirmation {
@@ -89,26 +89,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     color: #000000;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     text-align: center;
-    margin-top: 100px;
 }
+
 .confirmation .text{
     font-size: 20px;
-    line-height: 24px;
-    width: 318px;
-    height: 24px;
+    word-wrap: break-word;
 }
 
 .confirmation .subtext{
     font-size: 16px;
-    line-height: 19px;
-    width: 432px;
-    height: 38px;
+    word-wrap: break-word;
 }
 
 

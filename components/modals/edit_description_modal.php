@@ -1,5 +1,5 @@
 <!-- edit description modal -->
-<div class="modal fade" id="editDescriptionModal" tabindex="-1" aria-labelledby="editDescriptionModalLabel" aria-hidden="true">
+<div class="modal fade" id="editDescriptionModal" tabindex="-1" aria-labelledby="editDescriptionModalLabel" aria-hidden="true" data-backdrop='static' data-keyboard='false'>
   <div class="modal-dialog modalCenter">
     <div class="modal-content">
         <form class='cancel-form' action='' method='post'>

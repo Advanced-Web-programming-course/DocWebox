@@ -78,7 +78,6 @@ textarea {
     font-weight: 400;
     font-style: normal;
 }
-
 .calendararea {
     text-align:left;
     height: 165px;
@@ -100,3 +99,8 @@ textarea {
         font-size: 1em;
     }
 }
+
+/* ---------------------------- BOOKING CONFIRMATION MODAL ---------------------------- */
+
+
+

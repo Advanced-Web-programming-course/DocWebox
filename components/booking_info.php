@@ -1,3 +1,4 @@
+
 <?php
 function display_booking_info_section($date,$hour,$visitType,$price)
 {
@@ -16,7 +17,8 @@ function display_booking_info_section($date,$hour,$visitType,$price)
     ";
 }
 
-function display_member_info_section($fullname,$email,$phone)
+
+function display_member_info_section($fullname, $email, $phone)
 {
     echo "  
     <div class='member_info_section'>
@@ -33,27 +35,18 @@ function display_member_info_section($fullname,$email,$phone)
                 </div>
                     <div class='details-field'>
                     <i class='fa-solid fa-mobile-screen'></i>
-                <div class='phone'>$phone</div>    
+                <div class='phone'><a style='text-decoration: none;' href='tel:+$phone'>$phone</a></div>    
                 </div>  
             </div>
         </div>
-    </div> 
-    <form class='button'>
-        <input type='submit' class='confirm' id='confirm-button' value='Επιβεβαίωση'>
-    </form>
-    ";
+    </div>
+    <div class='confirmB'> 
+        <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#confirmationModal'>
+        Επιβεβαίωση</button>
+    </div>";
 }
 
-function display_booking_confrimation()
-{
-    echo "
-    <div class='confirmation'>
-        <img src='../images/Checkmark.png' alt='Checkmark'>
-        <div class='text'>Το ραντεβού σου επιβεβαιώθηκε!</div>
-        <div class='subtext'>Μπορείς να βρείς περισσότερες πληροφορίες για την επίσκεψη σου στα Επερχόμενα Ραντεβού </div>       
-    </div> 
-    ";
-}
-
-
+include "../components/modals/booking_confirmation_modal.php"
 ?>
+
+
