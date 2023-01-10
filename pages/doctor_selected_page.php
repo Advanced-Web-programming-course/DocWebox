@@ -7,9 +7,9 @@ include "../config/db_connection.php";
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
 
-//get doctor's id from serachingForDoctors.php
-$doc_id = $_GET['doc_id'];
-$doc = select_doctor_by_id($conn, $doc_id);
+//get doctor's id from seraching_for_doctors.php
+$doctor_id = $_GET['doctor_id'];
+$doctor = select_doctor_by_id($conn, $doctor_id);
 
 
 ?>
@@ -47,7 +47,7 @@ $doc = select_doctor_by_id($conn, $doc_id);
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
     include "../components/doctor_selected.php";
-    display_doctor_selected_section($doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['description'], $doc['img_url']);
+    display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
     include "../components/all_services.php";
     ?>
 

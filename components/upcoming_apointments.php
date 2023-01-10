@@ -12,7 +12,7 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
     <p>Επερχόμενα Ραντεβού</p>
     <div class='upcoming-box'>
         <?php
-        $upcomming=0;
+        $upcomming = 0;
         $today = time();
         for ($i = 0; $i < count($appointments); $i++) {
             $date = strtotime($appointments[$i]['appointment_date']);
@@ -50,8 +50,8 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
       </div>";
             }
         }
-        if ($upcomming == 0){
-            echo "<span id='not-upcomming'> Δεν έχεις κλήσει κάποιο ραντεβού. Ξεκίνησε την αναζήτηση επιλέγοντας τη ειδικότητα που ψάχνεις και την τοποθεσία σου!</span>";
+        if ($upcomming == 0) {
+            echo "<span id='not-upcomming'> Δεν έχεις κλείσει κάποιο ραντεβού. Ξεκίνησε την αναζήτηση επιλέγοντας τη ειδικότητα που ψάχνεις και την τοποθεσία σου!</span>";
 
         }
         ?>
