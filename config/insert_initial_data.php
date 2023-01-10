@@ -35,17 +35,23 @@ echo "<br>";
 echo "Table : Doctor Service<br>";
 echo "------------------<br>";
 
-create_doctor_service("Ράματα", 50.5, 1);
-create_doctor_service("Εξέταση", 23.8, 2);
-create_doctor_service("Αφαίρεση γύψου", 50.0, 3);
-create_doctor_service("Καθαρισμός", 30.58, 4);
+create_doctor_service("Ράματα", 50.5, "Παθολόγος");
+create_doctor_service("Εξέταση", 23.8, "Ψυχολόγος");
+create_doctor_service("Αφαίρεση γύψου", 50.0, "Ορθοπαιδικός");
+create_doctor_service("Καθαρισμός", 30.58, "Οδοντίατρος");
 create_doctor_service("Αιμοληψία", 9.4, 5);
-create_doctor_service("Σφράγισμα", 25.53, 6);
-create_doctor_service("Συνταγογράφηση", 10.5, 7);
-create_doctor_service("Ψυχανάληση", 23.8, 8);
-create_doctor_service("Εξαγωγή Δοντιού", 67.74, 9);
-create_doctor_service("Ανάγνωση εξετάσεων", 50.5, 10);
-create_doctor_service("Γενική εξέταση", 30.55, 11);
+create_doctor_service("Σφράγισμα", 25.53, "Οδοντίατρος");
+create_doctor_service("Συνταγογράφηση", 10.5, "Παθολόγος");
+create_doctor_service("Ψυχανάληση", 23.8, "Ψυχολόγος");
+create_doctor_service("Εξαγωγή Δοντιού", 67.74, "Οδοντίατρος");
+create_doctor_service("Ανάγνωση εξετάσεων", 50.5, "Παθολόγος");
+create_doctor_service("Γενική εξέταση", 30.55, "Παθολόγος");
+create_doctor_service("Γενική εξέταση", 30.55, "Ψυχολόγος");
+create_doctor_service("Γενική εξέταση", 30.55, "Ενδοκρινολόγος");
+create_doctor_service("Γενική εξέταση", 30.55, "Ουρολόγος");
+create_doctor_service("Γενική εξέταση", 30.55, "Ανδρολόγος");
+
+
 
 echo "<br>";
 echo "<br>";
@@ -63,23 +69,23 @@ create_appointment(5, 8, '2021-08-18 10:23:54', 8);
 create_appointment(4, 9, '2022-09-17 22:43:04', 9);
 create_appointment(2, 2, '2022-11-11 23:23:44', 10);
 
-echo "<br>";
-echo "<br>";
-echo "Table : review<br>";
-echo "------------------<br>";
+// echo "<br>";
+// echo "<br>";
+// echo "Table : review<br>";
+// echo "------------------<br>";
 
-create_review(1, 1, 4, "");
-create_review(2, 1, 4, "Good");
-create_review(1, 2, 3, "Average");
-create_review(3, 4, 1, "bad");
-create_review(1, 3, 4, "");
-create_review(3, 1, 5, "Very Good");
-create_review(4, 2, 2, "Average");
-create_review(5, 3, 1, "EW");
-create_review(6, 4, 5, "");
-create_review(4, 5, 4, "");
-create_review(5, 2, 2, "");
-create_review(3, 1, 4, "");
+// create_review(1, 1, 4, "");
+// create_review(2, 1, 4, "Good");
+// create_review(1, 2, 3, "Average");
+// create_review(3, 4, 1, "bad");
+// create_review(1, 3, 4, "");
+// create_review(3, 1, 5, "Very Good");
+// create_review(4, 2, 2, "Average");
+// create_review(5, 3, 1, "EW");
+// create_review(6, 4, 5, "");
+// create_review(4, 5, 4, "");
+// create_review(5, 2, 2, "");
+// create_review(3, 1, 4, "");
 
 echo "<br>";
 echo "<br>";
