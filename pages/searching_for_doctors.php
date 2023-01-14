@@ -112,21 +112,31 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
 
     $(document).ready(function(){
 
-        load_data();
+        $('#showdata').html("");
 
         function load_data(input)
         {
+            // id_numbers = new Array();
             $.ajax({
                 url:"../controllers/live_search.php",
                 method:"POST",
-                data:{input},
+                data: {input},
+                dataType:"json",
                 success:function(data)
-                {
-                    $('#showdata').html(data);
+                {   
+                    $.each(data, function(index, element) {  
+                        alert(element.id+ element.full_name)
+                        
+                    
+                        //  //echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], 
+                        //   //  $doc['region'], "50", $doc['img_url']);    
+                            
+                    });
+                    
+                    // $('#showdata').html(id_numbers);            
                 }
             });
         }
-        
         
         $('#mysearch').keyup(function(){
             var search = $(this).val();
@@ -134,8 +144,8 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
             if(search != ''){
                 load_data(search);
             } else {
-                load_data();
-                $('#showdata').css('display', 'none');
+                $('#showdata').html("");
+                // load_data();
             }
         });
     });
