@@ -1,5 +1,4 @@
-<?php
-echo "<div class='search'>
+<div class='search'>
         <select name='doctor' id='doctor'>
             <option selected default >Ειδικότητα Ιατρού</option>
             <option value='Παθολόγος'>ΠΑΘΟΛΟΓΟΣ</option>
@@ -15,4 +14,11 @@ echo "<div class='search'>
     <button id='search_button' class='pink_background'>
     <i class='fa-solid fa-magnifying-glass' style='color:white;'></i>
     </button>
-    </div>";
+    <div class='livesearch'>
+        <div class="form-group">
+            <div class="input-group"><input type="text" name="mysearch" 
+                id="mysearch" placeholder="Αναζήτησε..." class="form-control" /></div>
+        </div>
+    </div>
+    <div id="showdata"></div>
+</div>

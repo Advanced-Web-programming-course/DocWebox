@@ -1,8 +1,15 @@
-select {
+select{
     width: 40%;
     padding: 12px;
     border-radius: 6px;
     font-size: 16px;
+}
+
+#mysearch {
+    height: 48px;
+    overflow-x: scroll;
+    white-space:nowrap;
+
 }
 
 .search {
