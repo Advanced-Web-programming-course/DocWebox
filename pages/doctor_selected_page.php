@@ -46,9 +46,11 @@ $doctor = select_doctor_by_id($conn, $doctor_id);
     <?php
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
+    echo "<div class='con'>";
     include "../components/doctor_selected.php";
     display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
     include "../components/all_services.php";
+    echo "</div>";
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

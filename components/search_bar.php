@@ -20,5 +20,4 @@
                 id="mysearch" placeholder="Αναζήτησε..." class="form-control" /></div>
         </div>
     </div>
-    <div id="showdata"></div>
 </div>

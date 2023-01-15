@@ -61,7 +61,9 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
     ";
     return $doc_element;
 }
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -69,6 +71,8 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
     <link rel="stylesheet" href="../css/searching_for_doctors.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/search_bar.css">
+    <link rel="stylesheet" href="../css/data_not_found.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
     <script src="../js/searchig_for_doctor.js"></script>
@@ -82,14 +86,15 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
     <div style="margin-bottom: 25px;">
         <?php include "../components/search_bar.php"; ?>
     </div>
-    <?php
-    if ($doctors != null) {
-        foreach ($doctors as $doc) {
-            echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
-        }
-    }
-
-    ?>
+    <div id="search-results"> 
+        <?php
+            if ($doctors != null) {
+                foreach ($doctors as $doc) {
+                    echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
+                }
+            }
+        ?>
+    </div>
     <script>
     document.getElementById("search_button").onclick = search_for_doctor;
 
@@ -112,11 +117,8 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
 
     $(document).ready(function(){
 
-        $('#showdata').html("");
-
         function load_data(input)
         {
-            // id_numbers = new Array();
             $.ajax({
                 url:"../controllers/live_search.php",
                 method:"POST",
@@ -124,28 +126,67 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
                 dataType:"json",
                 success:function(data)
                 {   
-                    $.each(data, function(index, element) {  
-                        alert(element.id+ element.full_name)
-                        
-                    
-                        //  //echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], 
-                        //   //  $doc['region'], "50", $doc['img_url']);    
-                            
-                    });
-                    
-                    // $('#showdata').html(id_numbers);            
+                    let results = document.getElementById("search-results");
+                    results.innerHTML= " ";
+                    if (data.length > 0)
+                    {
+                        $.each(data, function(index, element) {  
+                            doctorAdd(element); 
+                        });
+                    }
+                    else { // in case the serach does not match to a doctor specialization then show Data Not Found
+                        dataNotFound(results);           
+                    }
                 }
             });
         }
-        
+
+        function dataNotFound(results){
+            let div = document.createElement("div");
+            div.classList.add('no-data');
+            div.innerHTML= 
+            `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
+            results.appendChild(div);
+        }
+
+        // 
+        function doctorAdd(doctor){     
+
+            let results = document.getElementById("search-results");
+            let div = document.createElement("div");
+            div.classList.add('doctor');
+            div.classList.add('grey_font_color');
+            div.classList.add('gray_borderline');
+            div.setAttribute('id',doctor.id);
+
+            div.innerHTML= 
+            `<div id='section_1'>
+                    <div style='display: flex;'>
+                    <img class='circle' src='${doctor.img_url}' alt='doctor' height='48px' height='48px'>
+                    <div style = 'margin-left:14px;'>
+                        <label style='display: block;' class='big_text_size'>${doctor.full_name}</label>
+                        <label style='display: block;' class='small_text_size'>${doctor.spec}</label>
+                    </div>
+                </div>
+                    <label id='address' class='small_text_size'>${doctor.address}, ${doctor.region}</label>
+                    <input style='display:none;' id='1' type='text' value='2'>
+                </div>
+                <div id='section_2'>
+                    <div class='price big_text_size'>50&nbsp€</div>
+                    <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
+            </div>`
+   
+            results.appendChild(div);
+    
+        }
+
         $('#mysearch').keyup(function(){
             var search = $(this).val();
 
             if(search != ''){
                 load_data(search);
             } else {
-                $('#showdata').html("");
-                // load_data();
+                load_data();
             }
         });
     });

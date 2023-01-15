@@ -20,11 +20,11 @@ if(isset($_POST["input"])) {
 $result = mysqli_query($connect, $query);
 
 if(mysqli_num_rows($result) <= 0) {
-    echo '<span class="text-danger">Data Not Found</span>';
+    echo json_encode($data);
 } 
 else {
     while($row = mysqli_fetch_array($result)) {
-        array_push($data, array('id'=>$row['id'],'full_name'=>$row['full_name']));
+        array_push($data, array('id'=>$row['id'], 'full_name'=>$row['full_name'], 'spec'=>$row['specialization'], 'img_url'=>$row['img_url'],'address'=>$row['address'], 'region'=>$row['region']));
     }
     echo json_encode($data);   
     exit();

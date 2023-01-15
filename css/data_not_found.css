@@ -1,0 +1,13 @@
+.no-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.no-data p {
+    font-size: 2em;
+    font-style: normal;
+    color: red;
+    text-align: center;
+    font-weight: 100;
+}
