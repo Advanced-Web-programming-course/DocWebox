@@ -75,7 +75,7 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
-    <script src="../js/searchig_for_doctor.js"></script>
+    <script src="../js/searching_for_doctor.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
 EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -83,31 +83,33 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
 
 <body>
 
-    <div style="margin-bottom: 25px;">
-        <?php include "../components/search_bar.php"; ?>
-    </div>
-    <div id="search-results"> 
-        <?php
-            if ($doctors != null) {
-                foreach ($doctors as $doc) {
-                    echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
+    <div style="margin: 5px;">
+        <div style="margin-bottom: 25px;">
+            <?php include "../components/search_bar.php"; ?>
+        </div>
+        <div id="search-results"> 
+            <?php
+                if ($doctors != null) {
+                    foreach ($doctors as $doc) {
+                        echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
+                    }
                 }
-            }
-        ?>
+            ?>
+        </div>
     </div>
     <script>
-    document.getElementById("search_button").onclick = search_for_doctor;
+        document.getElementById("search_button").onclick = search_for_doctor;
 
-    function search_for_doctor() {
-        window.location.href = "searching_for_doctors.php?location=" + document.getElementById("location").value +
-            "&speciality=" + document.getElementById("doctor").value;
-    }
-    if (window.location.href.includes("location")) {
+        function search_for_doctor() {
+            window.location.href = "searching_for_doctors.php?location=" + document.getElementById("location").value +
+                "&speciality=" + document.getElementById("doctor").value;
+        }
+        if (window.location.href.includes("location")) {
 
-        let params = (new URL(window.location.href)).searchParams;
-        document.getElementById("doctor").value = params.get('speciality');
-        document.getElementById("location").value = params.get('location');
-    }
+            let params = (new URL(window.location.href)).searchParams;
+            document.getElementById("doctor").value = params.get('speciality');
+            document.getElementById("location").value = params.get('location');
+        }
     </script>
 </body>
 
