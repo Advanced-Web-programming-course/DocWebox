@@ -2,6 +2,7 @@
 
     .all-apointments{
       overflow-x: hidden;
+      margin-bottom: 2rem;
     }
     .title-custom {
         background: #E43F6F;

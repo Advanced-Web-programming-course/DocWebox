@@ -9,12 +9,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0;
 }
 
 #navbuttons{
     display: flex;
     align-items: space-between;
     flex-direction: column;
+    margin-left: 1rem;
 }
 
 .sidebarbutton{
@@ -53,6 +55,7 @@
     background-color: #EDFBFA;
     width: 100%;
     padding: 30px 10px;
+    cursor: pointer;
     
 }
 
@@ -79,10 +82,11 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
+    margin-left: 1rem;
   }
 
   #user-div{
-    max-width: 250px;
+    padding: 1rem 10rem;
   }
 } 
 
@@ -99,10 +103,11 @@
 
   #navbuttons{
     flex-direction: row;
+    margin-left: 1rem;
   }
 
   #user-div{
-    max-width: 250px;
+    padding: 1rem 10rem;
   }
 } 
 /* #navcheckbox{

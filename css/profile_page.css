@@ -7,4 +7,5 @@ body{
 #profile-page-content{
     margin-top: 110px;
     display: flex;
+    padding-left: 0;
 }
