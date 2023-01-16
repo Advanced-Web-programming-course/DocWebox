@@ -104,10 +104,8 @@ function select_doctor_service_by_id($conn, $id)
     return null;
 }
 
-function select_services_by_doctor_id($conn, $specialization)
+function select_services_by_specialization($conn, $specialization)
 {
-    $specialization = htmlspecialchars($specialization);
-
     $services = array();
     $sql = "SELECT * FROM service WHERE specialization = '$specialization'";
     $result = $conn->query($sql);

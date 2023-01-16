@@ -44,11 +44,11 @@ $doctor = select_doctor_by_id($conn, $doctor_id);
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
     echo "<div class='con'>";
-        include "../components/doctor_selected.php";
-        display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
-        include "../components/all_services.php";
-        $services = select_services_by_doctor_id($conn, $doctor["specialization"]);
-        display_all_services($services);
+    include "../components/doctor_selected.php";
+    display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
+    include "../components/all_services.php";
+    $services = select_services_by_specialization($conn, $doctor["specialization"]);
+    display_all_services($services);
     echo "</div>";
     ?>
 
