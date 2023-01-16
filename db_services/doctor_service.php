@@ -103,3 +103,21 @@ function select_doctor_service_by_id($conn, $id)
     }
     return null;
 }
+
+function select_services_by_doctor_id($conn, $specialization)
+{
+    $specialization = htmlspecialchars($specialization);
+
+    $services = array();
+    $sql = "SELECT * FROM service WHERE specialization = '$specialization'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = $result->fetch_assoc()) {
+            array_push($services, $row);
+        }
+    }
+
+    return $services;
+}

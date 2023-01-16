@@ -1,8 +1,8 @@
 <!-- book appointment modal -->
 <?php
-function book_appointment_modal($id, $serviceid)
+function book_appointment_modal($id, $service)
 {
-    echo "<div class='modal fade' id='bookAppointmentModal' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
+    echo "<div class='modal fade' id='bookAppointmentModal-$id' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
     aria-hidden='true' data-backdrop='static' data-keyboard='false'>
     <div class='modal-dialog modalCenter modal-lg'>
         <div class='modal-content'>
@@ -11,7 +11,7 @@ function book_appointment_modal($id, $serviceid)
                     <div class='btitle'>Υπηρεσία</div>
 
                     <!-- PREPEI NA ALLAZEI H YPHRESIA ANALOGWS TI DIALEGEI O XRISTIS-->
-                    <div class='bsubtitle' id='simple-visit'>Απλή Επίσκεψη €30</div>
+                    <div class='bsubtitle' id='simple-visit'>" . $service["title"] . " " . $service["price"] . "</div>
                     <div class='btitle'>Επιλέξτε ημέρα και ώρα του ραντεβού</div> <br />
                     <div class='comment'>
                         <div class='calendararea'>
