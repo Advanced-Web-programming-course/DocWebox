@@ -1,7 +1,7 @@
 <?php
 function cancel_appointment_modal($id)
 {
-  echo "<div class='modal fade' id='cancelModal-$id' tabindex='-1' aria-labelledby='cancelModalLabel' aria-hidden='true' data-backdrop='static' data-keyboard='false'>
+  echo "<div class='modal fade' id='cancelModal-$id' tabindex='-1' aria-labelledby='cancelModalLabel' aria-hidden='true' data-bs-backdrop='static' data-bs-keyboard='false'>
   <div class='modal-dialog modalCenter'>
     <div class='modal-content'>
       <form class='cancel-form' action='' method='post'>

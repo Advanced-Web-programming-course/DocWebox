@@ -23,13 +23,12 @@ $doctor = select_doctor_by_id($conn, $doctor_id);
     <link rel="stylesheet" href="../css/doctor_selected/doctor_selected.css">
     <link rel="stylesheet" href="../css/doctor_selected/all_services.css">
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap, Ajax -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Bootstrap Datepicker -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
@@ -38,21 +37,18 @@ $doctor = select_doctor_by_id($conn, $doctor_id);
 
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/modals.css">
-
 </head>
 
 <body>
-
     <?php
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
     echo "<div class='con'>";
-    include "../components/doctor_selected.php";
-    display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
-    include "../components/all_services.php";
-    $services = select_services_by_doctor_id($conn, $doctor["specialization"]);
-    display_all_services($services);
-
+        include "../components/doctor_selected.php";
+        display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
+        include "../components/all_services.php";
+        $services = select_services_by_doctor_id($conn, $doctor["specialization"]);
+        display_all_services($services);
     echo "</div>";
     ?>
 

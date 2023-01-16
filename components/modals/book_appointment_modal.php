@@ -3,7 +3,7 @@
 function book_appointment_modal($id, $service)
 {
     echo "<div class='modal fade' id='bookAppointmentModal-$id' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
-    aria-hidden='true' data-backdrop='static' data-keyboard='false'>
+    aria-hidden='true' data-bs-backdrop='static' data-bs-keyboard='false'>
     <div class='modal-dialog modalCenter modal-lg'>
         <div class='modal-content'>
             <form class='book-appointment-form' action='' method='post'>
