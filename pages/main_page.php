@@ -48,19 +48,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <?php
-    include "../components/header.php";
-    display_default_header($logged_user['full_name']);
-    echo "<div class='container-fluid row' id='content'>";
-    include "../components/sidebar.php";
-    button_sidebar($logged_user['full_name']);
-    echo " <div id='main-page-content' class='col'>";
-    include "../components/search_bar.php";
-    include "../components/upcoming_apointments.php";
-    include "../components/all_apointments.php";
-    echo "</div>";
-    echo "</div>";
-    include "../components/footer.php";
+        include "../components/header.php";
+        display_default_header($logged_user['full_name']);
+        echo "<div class='container-fluid row' id='content'>";
+        include "../components/sidebar.php";
+        button_sidebar($logged_user['full_name']);
+        echo " <div id='main-page-content' class='col'>";
+        include "../components/search_bar.php";
+        include "../components/upcoming_apointments.php";
+        include "../components/all_apointments.php";
+        echo "</div>";
+        echo "</div>";
+        include "../components/footer.php";
     ?>
+
+    <!-- onclick search_button redirect to searching_for_doctors page -->
+    <script>
+        document.getElementById("search_button").onclick = search_for_doctor;
+
+        function search_for_doctor() {
+            window.location.href = "searching_for_doctors.php?location=" + document.getElementById("location").value +
+                "&speciality=" + document.getElementById("doctor").value;
+        }
+        if (window.location.href.includes("location")) {
+            let params = (new URL(window.location.href)).searchParams;
+            document.getElementById("doctor").value = params.get('speciality');
+            document.getElementById("location").value = params.get('location');
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>

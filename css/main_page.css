@@ -8,3 +8,7 @@ body{
     margin-top: 6.5rem;
     padding: 0;
 }
+
+.livesearch {
+    display: none;
+}
