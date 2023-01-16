@@ -57,6 +57,22 @@ if (mysqli_query($conn, $sql)) {
 }
 echo "<br>";
 
+$sql = "CREATE TABLE IF NOT EXISTS `docwebox`.`availability` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `doctor_id` INT NOT NULL,
+  `day` INT NOT NULL,
+  `month` INT NOT NULL,
+  `year` INT NOT NULL, 
+   PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Table doctor created successfully";
+} else {
+  echo "Error creating table availability: " . mysqli_error($conn);
+}
+echo "<br>";
+
+
 // Create Table appointment
 $sql = "CREATE TABLE IF NOT EXISTS appointment (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
