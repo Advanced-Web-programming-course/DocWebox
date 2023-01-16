@@ -52,23 +52,7 @@ function book_appointment_modal($id, $service)
                             </section>
                         </div>
                     </div>
-
-                    <script type='text/javascript'>
-                        $(function () {
-                            $('#datepicker').datepicker({
-                                todayHighlight: 'true',
-                                daysOfWeekDisabled: '0,6',
-                                startDate: '+1d',
-                                endDate: '+14d'
-                            });
-                        });
-                    </script>
-
-                    <script type='text/javascript'>
-                        $(function () {
-                            $('#timepicker').Timepicker(pickerInline, { format12: true, inline: true });
-                        });
-                    </script>
+                    <script src = '../js/datePicker.js'> </script>
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='cancel' id='dcancelbtn' data-bs-dismiss='modal'>Ακύρωση</button>

@@ -30,6 +30,8 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     <link rel="stylesheet" href="../css/profile_page.css">
     <link rel="stylesheet" href="../css/profile_section.css">
     <link rel="stylesheet" href="../css/edit_profile_section.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-
 EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
@@ -46,24 +48,24 @@ EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="a
     include "../components/profile_section.php";
     display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     include "../components/edit_profile_section.php";
-    display_edit_profile_section($profil_user['full_name'],$profil_user['email'],$profil_user['phone']);
+    display_edit_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     echo "</div>";
     echo "</div>";
     include "../components/footer.php";
 
     ?>
     <script>
-    document.getElementById('edit-button').addEventListener('click', function(e) {
-        openEditForm();
-    });
+        document.getElementById('edit-button').addEventListener('click', function(e) {
+            openEditForm();
+        });
 
-    function openEditForm() {
-        let profileForm = document.getElementById('edit-profile-section');
-        if (profileForm.style.visibility == 'visible') {
+        function openEditForm() {
+            let profileForm = document.getElementById('edit-profile-section');
+            if (profileForm.style.visibility == 'visible') {
 
-            profileForm.style.visibility = 'hidden';
-        } else profileForm.style.visibility = 'visible';
-    }
+                profileForm.style.visibility = 'hidden';
+            } else profileForm.style.visibility = 'visible';
+        }
     </script>
 </body>
 

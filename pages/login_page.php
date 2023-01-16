@@ -20,6 +20,8 @@ include "../controllers/login_controller.php";
     <link rel="stylesheet" href="../css/login_register/upbtns.css">
     <link rel="stylesheet" href="../css/login_register/downbtns.css">
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -51,5 +53,6 @@ include "../controllers/login_controller.php";
     </div>
 
 </body>
-<script  src="../js/toggle_password.js"></script>
+<script src="../js/toggle_password.js"></script>
+
 </html>
