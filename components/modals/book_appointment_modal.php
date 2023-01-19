@@ -20,7 +20,31 @@ function book_appointment_modal($id, $service)
                                     <div class='row form-group'>
                                         <label for='date' class='col-sm-1 col-form-label'>Ημέρα</label>
                                         <div class='col-sm-4'>
-                                            <input  required  type='datetime-local' class='app-date' name='app-date'>
+                                            <div class='input-group date' id='datepicker'>
+                                                <input type='text' class='form-control'>
+                                                <span class='input-group-append'>
+                                                    <span class='input-group-text bg-white d-block'>
+                                                        <i class='fa fa-calendar'></i>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                            <section class='container'>
+                                <form>
+                                    <div class='row form-group'>
+                                        <label for='date' class='col-sm-1 col-form-label'>Ώρα</label>
+                                        <div class='col-sm-4'>
+                                            <div class='input-group date' id='timepicker'>
+                                                <input type='text' class='form-control'>
+                                                <span class='input-group-append'>
+                                                    <span class='input-group-text bg-white d-block'>
+                                                        <i class='fa-regular fa-clock'></i>
+                                                    </span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
