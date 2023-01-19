@@ -6,3 +6,15 @@ $(function () {
     endDate: "+14d",
   });
 });
+
+$(".timepicker").timepicker({
+  timeFormat: "h:i A",
+  step: 60,
+  startTime: "09:00",
+  minTime: "09:00",
+  maxTime: "17:00",
+  disableTimeRanges: [],
+  dropdown: true,
+  scrollbar: true,
+  zindex: 99999,
+});

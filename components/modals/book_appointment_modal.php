@@ -38,7 +38,7 @@ function book_appointment_modal($id, $service)
                                         <label for='date' class='col-sm-1 col-form-label'>Ώρα</label>
                                         <div class='col-sm-4'>
                                             <div class='input-group date' id='timepicker'>
-                                                <input type='text' class='form-control'>
+                                                <input type='text' class='timepicker form-control'>
                                                 <span class='input-group-append'>
                                                     <span class='input-group-text bg-white d-block'>
                                                         <i class='fa-regular fa-clock'></i>
