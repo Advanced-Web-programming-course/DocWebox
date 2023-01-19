@@ -7,6 +7,7 @@ function book_appointment_modal($id, $service)
     <div class='modal-dialog modalCenter modal-lg'>
         <div class='modal-content'>
             <form class='book-appointment-form' action='' method='post'>
+            <input type='text' name='service-id' value='$id' hidden>
                 <div class='modal-body'>
                     <div class='btitle'>Υπηρεσία</div>
                     <div class='bsubtitle' id='simple-visit'>" . $service["title"] . " " . $service["price"] . "</div>
@@ -18,7 +19,7 @@ function book_appointment_modal($id, $service)
                                         <label for='date' class='col-sm-1 col-form-label'>Ημέρα</label>
                                         <div class='col-sm-4'>
                                             <div class='input-group date' id='datepicker$id'>
-                                                <input name='date' id='datepicker$id' type='text' class='form-control'>
+                                                <input required name='date' id='datepicker$id' type='text' class='form-control'>
                                                 <span class='input-group-append'>
                                                     <span class='input-group-text bg-white d-block'>
                                                         <i class='fa fa-calendar'></i>
@@ -33,7 +34,7 @@ function book_appointment_modal($id, $service)
                                         <label for='date' class='col-sm-1 col-form-label'>Ώρα</label>
                                         <div class='col-sm-4'>
                                             <div class='input-group date' id='timepicker$id'>
-                                                <input name='time' type='text' class='timepicker$id form-control'>
+                                                <input required name='time' type='text' class='timepicker$id form-control'>
                                                 <span class='input-group-append'>
                                                     <span class='input-group-text bg-white d-block'>
                                                         <i class='fa-regular fa-clock'></i>

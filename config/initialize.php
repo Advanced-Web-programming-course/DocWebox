@@ -62,7 +62,8 @@ $sql = "CREATE TABLE IF NOT EXISTS `docwebox`.`availability` (
   `doctor_id` INT NOT NULL,
   `day` INT NOT NULL,
   `month` INT NOT NULL,
-  `year` INT NOT NULL, 
+  `year` INT NOT NULL,
+  `hour` INT NOT NULL,
    PRIMARY KEY (`id`)) ENGINE = InnoDB;";
 
 if (mysqli_query($conn, $sql)) {

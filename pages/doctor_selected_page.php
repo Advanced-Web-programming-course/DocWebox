@@ -19,7 +19,31 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 
     $patient_id = $logged_user['id'];
-    print_r($_POST);
+    $serviceId = $_POST["service-id"];
+    $date = $_POST["date"];
+
+    $dateArray = explode("/", $date);
+    $day = $dateArray[0];
+    $month = $dateArray[1];
+    $year = $dateArray[2];
+
+    $time = $_POST["time"];
+    $temp = explode(" ", $time);
+    $hour = (int)explode(":", $temp[0])[0];
+
+    if ($temp[1] === "PM") {
+        if ($hour === 1) {
+            $hour = 13;
+        } else if ($hour === 2) {
+            $hour = 14;
+        } else if ($hour === 3) {
+            $hour = 15;
+        } else if ($hour === 4) {
+            $hour = 16;
+        } else if ($hour === 5) {
+            $hour = 17;
+        }
+    }
 }
 
 
