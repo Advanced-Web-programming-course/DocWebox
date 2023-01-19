@@ -12,6 +12,18 @@ $doctor_id = $_GET['doctor_id'];
 $doctor = select_doctor_by_id($conn, $doctor_id);
 
 
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+    if ($_SESSION['type'] == "d") {
+        echo "alert('Doctor cannot book an appointment');";
+    }
+
+    $patient_id = $logged_user['id'];
+    print_r($_POST);
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +49,7 @@ $doctor = select_doctor_by_id($conn, $doctor_id);
 
     <!-- expiriement time picker -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.14.0/jquery.timepicker.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/timepicker@1.14.0/jquery.timepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timepicker@1.14.0/jquery.timepicker.min.js"></script>
 
 
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
