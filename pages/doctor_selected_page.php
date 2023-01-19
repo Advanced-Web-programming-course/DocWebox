@@ -44,6 +44,15 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $hour = 17;
         }
     }
+    require_once "../db_services/availability_service.php";
+
+    add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
+
+    require_once "../db_services/appointment_service.php";
+    $complete_date = $date . " " . $hour . ":00:00";
+    $new_date = date('Y-m-d H', strtotime($complete_date));
+    create_appointment($conn, $patient_id, $doctor_id, $new_date, $serviceId);
+    header("location: main_page.php");
 }
 
 
