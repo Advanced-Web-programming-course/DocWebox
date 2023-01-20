@@ -39,7 +39,6 @@ if (str_ends_with($_SERVER["REQUEST_URI"], '/searching_for_doctors.php')) {
 
 function add_doctor($id, $name, $speciality, $address, $region, $region_id, $price, $img_url)
 {
-
     $doc_element = "
     <div class='doctor grey_font_color gray_borderline' id='doc_" . $id . "'>
         
@@ -80,9 +79,7 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
-
     <script src="../js/searching_for_doctor.js"></script>
 
 </head>
@@ -107,7 +104,7 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
                     echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
                 }
             }
-            ?>
+        ?>
     </div>
     <?php 
      echo "</div>";
@@ -190,15 +187,16 @@ $(document).ready(function() {
                 <div id='section_2'>
                     <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
             </div>`
-
         results.appendChild(div);
-
     }
 
     $('#mysearch').keyup(function() {
         var search = $(this).val();
 
         if (search != '') {
+            // sets default values in selectors when typing in live-search bar
+            $('#doctor').prop('selectedIndex',0);
+            $('#location').prop('selectedIndex', 0);
             load_data(search);
         } else {
             load_data();
