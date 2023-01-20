@@ -12,7 +12,7 @@ function book_appointment_modal($id, $service, $doctor_id, $conn)
 
     echo "<div class='modal fade' id='bookAppointmentModal-$id' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
     aria-hidden='true' data-bs-backdrop='static' data-bs-keyboard='false'>
-    <div class='modal-dialog modalCenter modal-lg'>
+    <div class='modal-dialog modalCenter'>
         <div class='modal-content'>
             <form class='book-appointment-form' action='' method='post'>
             <input type='text' name='service-id' value='$id' hidden>
@@ -24,8 +24,8 @@ function book_appointment_modal($id, $service, $doctor_id, $conn)
                         <div class='calendararea'>
                             <section class='container'>
                                     <div class='row form-group'>
-                                        <label for='date' class='col-sm-1 col-form-label'>Ημέρα</label>
-                                        <div class='col-sm-4'>
+                                    <div class='col-md-12'>
+                                    <label for='date' class='col-md col-form-label'>Ημέρα</label>
                                             <div class='input-group date' id='datepicker$id'>
                                                 <input required name='date' id='datepicker$id' type='text' class='form-control'>
                                                 <span class='input-group-append'>
@@ -39,8 +39,8 @@ function book_appointment_modal($id, $service, $doctor_id, $conn)
                             </section>
                             <section class='container'>
                                     <div class='row form-group'>
-                                        <label for='date' class='col-sm-1 col-form-label'>Ώρα</label>
-                                        <div class='col-sm-4'>
+                                    <div class='col-md-12'>
+                                    <label for='date' class='col-md col-form-label'>Ώρα</label>
                                             <div class='input-group date' id='timepicker$id'>
                                                 <input required name='time' type='text' class='timepicker$id form-control'>
                                                 <span class='input-group-append'>
