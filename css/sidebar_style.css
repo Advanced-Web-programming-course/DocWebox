@@ -17,6 +17,7 @@
     align-items: space-between;
     flex-direction: column;
     margin-left: 1rem;
+    text-align: center;
 }
 
 .sidebarbutton{
@@ -79,6 +80,7 @@
   }
 
   #navbuttons{
+    text-align: center;
     flex-direction: row;
     width: 100%;
     justify-content: center;
