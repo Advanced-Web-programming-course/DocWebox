@@ -1,7 +1,8 @@
 <?php
 include "../controllers/auth_controller.php";
-include "../db_services/doctor_service.php";
 ensure_auth();
+
+include "../db_services/doctor_service.php";
 
 include "../config/db_connection.php";
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     display_default_header($logged_user['full_name']);
     echo "<div class='con'>";
     include "../components/doctor_selected.php";
-    display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
+    display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url'], $doctor_id);
     include "../components/all_services.php";
     $services = select_services_by_specialization($conn, $doctor["specialization"]);
     display_all_services($services, $doctor_id, $conn);

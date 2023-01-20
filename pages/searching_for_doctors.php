@@ -1,6 +1,7 @@
 <?php
 include "../controllers/auth_controller.php";
 ensure_auth();
+
 include "../config/db_connection.php";
 include "../db_services/doctor_service.php";
 
@@ -80,25 +81,24 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 
 
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
-    
+
     <script src="../js/searching_for_doctor.js"></script>
 
 </head>
 <title>Search For Doctor</title>
 
 <body>
-
     <div style="margin: 5px;">
         <div style="margin-bottom: 25px;">
             <?php include "../components/search_bar.php"; ?>
         </div>
-        <div id="search-results"> 
+        <div id="search-results">
             <?php
-                if ($doctors != null) {
-                    foreach ($doctors as $doc) {
-                        echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
-                    }
+            if ($doctors != null) {
+                foreach ($doctors as $doc) {
+                    echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
                 }
+            }
             ?>
         </div>
     </div>
@@ -121,53 +121,50 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 </html>
 
 <script>
+    $(document).ready(function() {
 
-    $(document).ready(function(){
-
-        function load_data(input)
-        {
+        function load_data(input) {
             $.ajax({
-                url:"../controllers/live_search.php",
-                method:"POST",
-                data: {input},
-                dataType:"json",
-                success:function(data)
-                {   
+                url: "../controllers/live_search.php",
+                method: "POST",
+                data: {
+                    input
+                },
+                dataType: "json",
+                success: function(data) {
                     let results = document.getElementById("search-results");
-                    results.innerHTML= " ";
-                    if (data.length > 0)
-                    {
-                        $.each(data, function(index, element) {  
-                            doctorAdd(element); 
+                    results.innerHTML = " ";
+                    if (data.length > 0) {
+                        $.each(data, function(index, element) {
+                            doctorAdd(element);
                         });
-                    }
-                    else { // in case the serach does not match to a doctor specialization then show Data Not Found
-                        dataNotFound(results);           
+                    } else { // in case the serach does not match to a doctor specialization then show Data Not Found
+                        dataNotFound(results);
                     }
                 }
             });
         }
 
-        function dataNotFound(results){
+        function dataNotFound(results) {
             let div = document.createElement("div");
             div.classList.add('no-data');
-            div.innerHTML= 
-            `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
+            div.innerHTML =
+                `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
             results.appendChild(div);
         }
 
         // 
-        function doctorAdd(doctor){     
+        function doctorAdd(doctor) {
 
             let results = document.getElementById("search-results");
             let div = document.createElement("div");
             div.classList.add('doctor');
             div.classList.add('grey_font_color');
             div.classList.add('gray_borderline');
-            div.setAttribute('id',doctor.id);
+            div.setAttribute('id', doctor.id);
 
-            div.innerHTML= 
-            `<div id='section_1'>
+            div.innerHTML =
+                `<div id='section_1'>
                     <div style='display: flex;'>
                     <img class='circle' src='${doctor.img_url}' alt='doctor' height='48px' height='48px'>
                     <div style = 'margin-left:14px;'>
@@ -182,20 +179,19 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
                     <div class='price big_text_size'>50&nbsp€</div>
                     <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
             </div>`
-   
+
             results.appendChild(div);
-    
+
         }
 
-        $('#mysearch').keyup(function(){
+        $('#mysearch').keyup(function() {
             var search = $(this).val();
 
-            if(search != ''){
+            if (search != '') {
                 load_data(search);
             } else {
                 load_data();
             }
         });
     });
-
 </script>

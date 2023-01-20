@@ -12,7 +12,9 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     if ($logged_user['id'] == $_GET['patient_id']) {
         $profil_user = $logged_user;
     } else {
-        $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
+        // $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
+        echo "<h1>Error 404 page</h1>";
+        return;
     }
 } else {
     echo "<h1>Error 404 page</h1>";
@@ -36,7 +38,7 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    
+
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
 </head>
 
