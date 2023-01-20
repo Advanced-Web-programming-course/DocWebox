@@ -5,7 +5,6 @@ function handleDateTime(id, doctor_id, json_hours) {
       let plus_one_hour = Number(el.hour) + 1;
       return [el.hour + ":00", plus_one_hour + ":00"];
     });
-    console.log(nonAvailableHourse);
   } catch (error) {
     console.log(error);
   }
