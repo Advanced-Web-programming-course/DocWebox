@@ -2,7 +2,8 @@
     include "../components/modals/edit_description_modal.php"; 
 
 
-function display_doctor_edit_profile_section($name,$email,$phone, $specialization,$region,$address){
+function display_doctor_edit_profile_section($name, $email, $phone, $specialization, $region, $address, $id){
+    edit_doctor_description_modal($id);   
     echo "
 <div id='edit-doctor-profile-section'>
     <div class='title'>Επεξεργασία Προσωπικών Στοιχείων</div>

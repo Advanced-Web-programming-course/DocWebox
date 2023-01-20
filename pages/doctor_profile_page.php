@@ -47,7 +47,7 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     include "../components/profile_section.php";
     display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url']);
     include "../components/edit_doctor_profile_section.php";
-    display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address']);
+    display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['id']);
     echo "</div>";
     echo "</div>";
     include "../components/footer.php";
@@ -72,3 +72,39 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function() {
+    
+        $(document).on('click', '#saveBtn', function() {
+            
+
+            var id = $('#docId').val();
+            var desc = $('textarea#desc-text').val();
+            alert(id+' '+desc);
+            $.ajax({
+                url: "../controllers/update.php",
+                method: "POST",
+                catch: false,
+                data: {
+                    update: 1,
+                    id: id,
+                    description:desc
+                },
+                success: function(dataResult) {
+                    var dataResult = JSON.parse(dataResult);
+                    
+                    if (dataResult.statusCode == 1) {
+                        $('#editDescriptionModal').modal().hide();
+                        location.reload();
+                        // swal("Data Updated!", {
+                        //     icon: "success",
+                        // }).then((result) => {
+                            
+                        // });    
+                    }
+                }
+            });
+        });
+    });
+</script>

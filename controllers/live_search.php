@@ -9,7 +9,7 @@ if(isset($_POST["input"])) {
 	$input=$_POST["input"];
     $query = "
     SELECT * FROM doctor 
-    WHERE specialization  LIKE '".$input."%'  
+    WHERE full_name  LIKE '".$input."%'  
     ";
 } else {
     $query = "
