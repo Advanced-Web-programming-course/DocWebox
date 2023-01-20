@@ -13,6 +13,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         delete_appointment($conn, $id);
     }
 }
+
+
+$doctor_specialities = array("");
+$doctor_towns = array("");
+
+$doctor_specialities_json = json_decode(file_get_contents("../data/doctor_types.json"), true);
+
+foreach ($doctor_specialities_json as $speciality) {
+    array_push($doctor_specialities, $speciality);
+}
+
+$doctor_towns_json = json_decode(file_get_contents("../data/towns.json"), true);
+
+foreach ($doctor_towns_json as $town) {
+    array_push($doctor_towns, $town);
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -49,18 +67,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <?php
-        include "../components/header.php";
-        display_default_header($logged_user['full_name']);
-        echo "<div class='container-fluid row' id='content'>";
-        include "../components/sidebar.php";
-        button_sidebar($logged_user['full_name']);
-        echo " <div id='main-page-content' class='col'>";
-        include "../components/search_bar.php";
-        include "../components/upcoming_apointments.php";
-        include "../components/all_apointments.php";
-        echo "</div>";
-        echo "</div>";
-        include "../components/footer.php";
+    include "../components/header.php";
+    display_default_header($logged_user['full_name']);
+    echo "<div class='container-fluid row' id='content'>";
+    include "../components/sidebar.php";
+    button_sidebar($logged_user['full_name']);
+    echo " <div id='main-page-content' class='col'>";
+    include "../components/search_bar.php";
+    show_search_bar($doctor_towns, $doctor_specialities);
+
+    include "../components/upcoming_apointments.php";
+    include "../components/all_apointments.php";
+    echo "</div>";
+    echo "</div>";
+    include "../components/footer.php";
     ?>
 
     <!-- onclick search_button redirect to searching_for_doctors page -->
