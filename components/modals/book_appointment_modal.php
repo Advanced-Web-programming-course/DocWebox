@@ -1,7 +1,15 @@
 <!-- book appointment modal -->
 <?php
-function book_appointment_modal($id, $service)
+function book_appointment_modal($id, $service, $doctor_id, $conn)
 {
+    require_once "../db_services/availability_service.php";
+
+    $month = date('m');
+    $day = date('d');
+    $year = date('Y');
+
+    $json_availability_array = json_encode(get_non_available_hours($conn, $doctor_id, $day, $month, $year));
+
     echo "<div class='modal fade' id='bookAppointmentModal-$id' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
     aria-hidden='true' data-bs-backdrop='static' data-bs-keyboard='false'>
     <div class='modal-dialog modalCenter modal-lg'>
@@ -48,7 +56,7 @@ function book_appointment_modal($id, $service)
                     </div>
                     <script src = '../js/datePicker.js'> </script>
                     <script>
-                        handleDateTime($id);
+                        handleDateTime($id, $doctor_id, $json_availability_array);
                     </script>
                 </div>
                 <div class='modal-footer'>

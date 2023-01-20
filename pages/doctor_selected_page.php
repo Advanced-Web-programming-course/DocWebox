@@ -10,7 +10,8 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 //get doctor's id from seraching_for_doctors.php
 $doctor_id = $_GET['doctor_id'];
 $doctor = select_doctor_by_id($conn, $doctor_id);
-
+require_once "../db_services/appointment_service.php";
+require_once "../db_services/availability_service.php";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
@@ -23,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $date = $_POST["date"];
 
     $dateArray = explode("/", $date);
-    $day = $dateArray[0];
-    $month = $dateArray[1];
+    $month = $dateArray[0];
+    $day = $dateArray[1];
     $year = $dateArray[2];
 
     $time = $_POST["time"];
@@ -44,19 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $hour = 17;
         }
     }
-    require_once "../db_services/availability_service.php";
-
     add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
 
-    require_once "../db_services/appointment_service.php";
-    $complete_date = $date . " " . $hour . ":00:00";
+    $complete_date = $date . " " . $hour . ":00:00.0";
     $new_date = date('Y-m-d H', strtotime($complete_date));
     create_appointment($conn, $patient_id, $doctor_id, $new_date, $serviceId);
     header("location: main_page.php");
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url']);
     include "../components/all_services.php";
     $services = select_services_by_specialization($conn, $doctor["specialization"]);
-    display_all_services($services);
+    display_all_services($services, $doctor_id, $conn);
     echo "</div>";
     ?>
 

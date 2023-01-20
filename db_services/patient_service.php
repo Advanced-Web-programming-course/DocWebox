@@ -2,7 +2,7 @@
 
 function select_patients($conn)
 {
-    $doctors = array();
+    $patients = array();
 
     $sql = "SELECT * FROM patient WHERE 1";
     $result = $conn->query($sql);
@@ -10,11 +10,11 @@ function select_patients($conn)
     if ($result->num_rows > 0) {
         // output data of each row
         while ($row = $result->fetch_assoc()) {
-            array_push($doctors, $row);
+            array_push($patients, $row);
         }
     }
 
-    return $doctors;
+    return $patients;
 }
 
 function select_patient_by_id($conn, $id)

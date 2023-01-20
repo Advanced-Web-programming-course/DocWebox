@@ -1,7 +1,7 @@
 <?php
 include "../components/modals/book_appointment_modal.php";
 
-function display_all_services($services)
+function display_all_services($services, $doctor_id, $conn)
 {
 
     echo '
@@ -9,7 +9,7 @@ function display_all_services($services)
             <div class="title">Όλες οι Yπηρεσίες</div>
             <section>';
     for ($i = 0; $i < count($services); $i++) {
-        book_appointment_modal($services[$i]["id"], $services[$i]);
+        book_appointment_modal($services[$i]["id"], $services[$i], $doctor_id, $conn);
         echo "<a href='#' class='service' role='button' data-bs-toggle='modal' data-bs-target='#bookAppointmentModal-" . $services[$i]["id"] . "'" . ">
                     <div class='el colservice'>" . $services[$i]["title"] . "</div>
                     <div class='el colprice'>€" . $services[$i]["price"] . "</div>
