@@ -4,7 +4,7 @@ include "../components/modals/edit_appointment_modal.php";
 include "../components/modals/cancel_modal.php";
 // include "../db_services/appointment_service.php";
 //include "../db_services/patient_service.php";
-include "../db_services/doctor_service.php";
+require_once "../db_services/doctor_service.php";
 
 $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
 ?>
@@ -52,7 +52,6 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
         }
         if ($upcomming == 0) {
             echo "<span id='not-upcomming'> Δεν έχεις κλείσει κάποιο ραντεβού. Ξεκίνησε την αναζήτηση επιλέγοντας τη ειδικότητα που ψάχνεις και την τοποθεσία σου!</span>";
-
         }
         ?>
 

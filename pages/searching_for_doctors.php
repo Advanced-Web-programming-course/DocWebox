@@ -90,7 +90,9 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 <body>
     <div style="margin: 5px;">
         <div style="margin-bottom: 25px;">
-            <?php include "../components/search_bar.php"; ?>
+            <?php include "../components/search_bar.php";
+            show_search_bar($doctor_towns, $doctor_specialities);
+            ?>
         </div>
         <div id="search-results">
             <?php
