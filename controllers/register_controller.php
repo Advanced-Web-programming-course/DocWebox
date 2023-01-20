@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else if ($type == "p") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err)) {
-            $ok = create_patient($name, $phone, $email, $password, "");
+            $ok = create_patient($name, $phone, $email, $password, "http://localhost/DocWebox/images/user_image.png");
             if ($ok) {
                 header("location: ../pages/login_page.php?type=p");
             }

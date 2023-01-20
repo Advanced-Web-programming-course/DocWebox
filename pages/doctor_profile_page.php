@@ -45,7 +45,7 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     button_sidebar($logged_user['full_name']);
     echo " <div class='col'>";
     include "../components/profile_section.php";
-    display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address']);
+    display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url']);
     include "../components/edit_doctor_profile_section.php";
     display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address']);
     echo "</div>";

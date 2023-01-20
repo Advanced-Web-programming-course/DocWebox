@@ -51,7 +51,7 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     button_sidebar($logged_user['full_name']);
     echo " <div class='col'>";
     include "../components/profile_section.php";
-    display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
+    display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone'], $profil_user["img_url"]);
     include "../components/edit_profile_section.php";
     display_edit_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     echo "</div>";
