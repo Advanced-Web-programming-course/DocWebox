@@ -55,7 +55,6 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
             <input style='display:none;' id='doc_" . $id . "_region' type='text' value='" . $region_id . "'>
         </div>
         <div id='section_2'>
-            <div class='price big_text_size'>" . $price . "&nbsp€</div>
             <button onclick=\"select_doctor(" . $id . ")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
         </div>
     </div>
@@ -189,7 +188,6 @@ $(document).ready(function() {
                     <input style='display:none;' id='1' type='text' value='2'>
             </div>
                 <div id='section_2'>
-                    <div class='price big_text_size'>50&nbsp€</div>
                     <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
             </div>`
 
