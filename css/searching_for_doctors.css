@@ -1,21 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+body{
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#content{
+    margin-top: 6.5rem;
+    padding: 0;
+}
+
+#searching-for-doctor-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
 .doctor{
     padding: 23px 31px;
     background-color: #FFFFFF;
     display:flex;
+    flex-direction: row;
     font-family: 'Inter';
     margin-bottom: 20px;
+    width: 100%;
+    justify-content: space-between;
 }
 .doctor>div>label{
     display: block;
 }
-#section_1{
-    width: 70%;
-}
 #section_2{
     display:flex;
-    width: 30%;       
+    flex-direction: row;
 }
 .book_appointment{
     border-radius: 15px;
@@ -42,3 +60,13 @@
 #address{
     margin-top: 18px;
 }
+
+@media all and (max-width: 767px) {
+    .doctor {
+        flex-direction: column;
+    }
+    #section_2{
+        align-self: flex-end;
+    }
+}
+

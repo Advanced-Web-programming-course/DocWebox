@@ -69,13 +69,15 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/searching_for_doctors.css">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/search_bar.css">
     <link rel="stylesheet" href="../css/data_not_found.css">
 
     <!-- Bootstrap, Ajax -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -88,85 +90,94 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
 <title>Search For Doctor</title>
 
 <body>
-    <div style="margin: 5px;">
-        <div style="margin-bottom: 25px;">
-            <?php include "../components/search_bar.php";
+    <?php 
+             include "../components/header.php";
+             display_default_header($logged_user['full_name']);
+             echo "<div class='container-fluid row' id='content'>";
+             include "../components/sidebar.php";
+             button_sidebar($logged_user['full_name']);
+             echo " <div id='searching-for-doctor-content' class='col'>";
+             
+            include "../components/search_bar.php";
             show_search_bar($doctor_towns, $doctor_specialities);
-            ?>
-        </div>
-        <div id="search-results">
-            <?php
+    ?>
+    <div id="search-results">
+        <?php
             if ($doctors != null) {
                 foreach ($doctors as $doc) {
                     echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
                 }
             }
             ?>
-        </div>
     </div>
+    <?php 
+     echo "</div>";
+     echo "</div>";
+     include "../components/footer.php";
+     ?>
     <script>
-        document.getElementById("search_button").onclick = search_for_doctor;
+    document.getElementById("search_button").onclick = search_for_doctor;
 
-        function search_for_doctor() {
-            window.location.href = "searching_for_doctors.php?location=" + document.getElementById("location").value +
-                "&speciality=" + document.getElementById("doctor").value;
-        }
-        if (window.location.href.includes("location")) {
+    function search_for_doctor() {
+        window.location.href = "searching_for_doctors.php?location=" + document.getElementById("location").value +
+            "&speciality=" + document.getElementById("doctor").value;
+    }
+    if (window.location.href.includes("location")) {
 
-            let params = (new URL(window.location.href)).searchParams;
-            document.getElementById("doctor").value = params.get('speciality');
-            document.getElementById("location").value = params.get('location');
-        }
+        let params = (new URL(window.location.href)).searchParams;
+        document.getElementById("doctor").value = params.get('speciality');
+        document.getElementById("location").value = params.get('location');
+    }
     </script>
 </body>
 
 </html>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        function load_data(input) {
-            $.ajax({
-                url: "../controllers/live_search.php",
-                method: "POST",
-                data: {
-                    input
-                },
-                dataType: "json",
-                success: function(data) {
-                    let results = document.getElementById("search-results");
-                    results.innerHTML = " ";
-                    if (data.length > 0) {
-                        $.each(data, function(index, element) {
-                            doctorAdd(element);
-                        });
-                    } else { // in case the serach does not match to a doctor specialization then show Data Not Found
-                        dataNotFound(results);
-                    }
+    function load_data(input) {
+        $.ajax({
+            url: "../controllers/live_search.php",
+            method: "POST",
+            data: {
+                input
+            },
+            dataType: "json",
+            success: function(data) {
+                let results = document.getElementById("search-results");
+                results.innerHTML = " ";
+                if (data.length > 0) {
+                    $.each(data, function(index, element) {
+                        doctorAdd(element);
+                    });
+                } else { // in case the serach does not match to a doctor specialization then show Data Not Found
+                    dataNotFound(results);
                 }
-            });
-        }
+            }
+        });
+    }
 
-        function dataNotFound(results) {
-            let div = document.createElement("div");
-            div.classList.add('no-data');
-            div.innerHTML =
-                `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
-            results.appendChild(div);
-        }
+    function dataNotFound(results) {
+        let div = document.createElement("div");
+        div.classList.add('no-data');
+        div.innerHTML =
+            `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
+        results.appendChild(div);
+    }
 
-        // 
-        function doctorAdd(doctor) {
+    // 
+    function doctorAdd(doctor) {
 
-            let results = document.getElementById("search-results");
-            let div = document.createElement("div");
-            div.classList.add('doctor');
-            div.classList.add('grey_font_color');
-            div.classList.add('gray_borderline');
-            div.setAttribute('id', doctor.id);
+        let results = document.getElementById("search-results");
+        let div = document.createElement("div");
+        div.classList.add('doctor');
+        div.classList.add('grey_font_color');
+        div.classList.add('gray_borderline');
+        div.setAttribute('id', doctor.id);
 
-            div.innerHTML =
-                `<div id='section_1'>
+        div.innerHTML =
+            `<div id='section_1'>
                     <div style='display: flex;'>
                     <img class='circle' src='${doctor.img_url}' alt='doctor' height='48px' height='48px'>
                     <div style = 'margin-left:14px;'>
@@ -176,24 +187,24 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
                 </div>
                     <label id='address' class='small_text_size'>${doctor.address}, ${doctor.region}</label>
                     <input style='display:none;' id='1' type='text' value='2'>
-                </div>
+            </div>
                 <div id='section_2'>
                     <div class='price big_text_size'>50&nbsp€</div>
                     <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
             </div>`
 
-            results.appendChild(div);
+        results.appendChild(div);
 
+    }
+
+    $('#mysearch').keyup(function() {
+        var search = $(this).val();
+
+        if (search != '') {
+            load_data(search);
+        } else {
+            load_data();
         }
-
-        $('#mysearch').keyup(function() {
-            var search = $(this).val();
-
-            if (search != '') {
-                load_data(search);
-            } else {
-                load_data();
-            }
-        });
     });
+});
 </script>
