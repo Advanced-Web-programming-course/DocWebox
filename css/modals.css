@@ -64,9 +64,6 @@ textarea {
 
 
 /* ---------------------------- BOOK & EDIT APPOINTMENT MODAL ---------------------------- */
-.modal-lg {
-    max-width: 80%;
-}
 
 .btitle {
     padding: 5px;
@@ -89,7 +86,7 @@ textarea {
     justify-content: space-evenly;
 }
 
-@media all and (max-width: 767px) {
+/* @media all and (max-width: 767px) {
     .calendararea {
       font-size: 2em;
     }
@@ -98,7 +95,7 @@ textarea {
     .calendararea {
         font-size: 1em;
     }
-}
+} */
 
 /* ---------------------------- BOOKING CONFIRMATION MODAL ---------------------------- */
 
