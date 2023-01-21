@@ -32,3 +32,18 @@ function select_patient_by_id($conn, $id)
 
     return null;
 }
+
+function delete_patient_by_id($conn, $id)
+{
+    $sql = "DELETE FROM patient WHERE id='$id'";
+
+    try {
+        if ($conn->query($sql) === TRUE) {
+            return true;
+        }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
+        return false;
+    }
+
+}

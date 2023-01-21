@@ -21,6 +21,35 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     return;
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['account_id'])) {
+
+        $id = $_POST['account_id'];
+        if ($logged_user["id"] != $id) {
+            // error
+            echo "kati phge lathosssss";
+        } else {
+            // ecw diagrafoume
+            $ok = delete_patient_by_id($conn, $id);
+            echo "ok bro? " . $ok;
+            if ($ok) {
+                // Initialize the session
+                session_start();
+
+                // Unset all of the session variables
+                $_SESSION = array();
+
+                // Destroy the session.
+                session_destroy();
+
+                header("location: login_page.php");
+            }
+        }
+
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +66,8 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
@@ -48,15 +79,22 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
     echo " <div class='container-fluid row' id='profile-page-content'>";
+
     include "../components/sidebar.php";
     button_sidebar($logged_user['full_name']);
     echo " <div class='col'>";
+
     include "../components/profile_section.php";
-    display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone'], $profil_user["img_url"]);
+    include("../components/modals/delete_account_modal.php");
+    delete_account_modal($profil_user['id']);
+
+    display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone'], $profil_user["img_url"], $profil_user['id']);
+
     include "../components/edit_profile_section.php";
     display_edit_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone']);
     echo "</div>";
     echo "</div>";
+
     include "../components/footer.php";
 
     ?>

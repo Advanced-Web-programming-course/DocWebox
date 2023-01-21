@@ -30,11 +30,6 @@ function delete_appointment($conn, $id)
     }
 }
 
-// patient_id INT NOT NULL,
-// doctor_id INT NOT NULL,
-// appointment_date DATETIME NOT NULL ,
-// service_id INT NOT NULL
-
 function create_appointment($conn, $patient_id, $doctor_id, $date, $service_id)
 {
     $sql = "INSERT INTO appointment (patient_id, doctor_id, appointment_date, service_id)

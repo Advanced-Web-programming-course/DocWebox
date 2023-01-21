@@ -1,8 +1,18 @@
 <?php
 
-    function button_sidebar($name){
+function button_sidebar($name)
+{
 
-        echo "<link rel='stylesheet' href='../css/sidebar_style.css'>
+    $type = $_SESSION["type"];
+
+    $url = "";
+    if ($type === "p") {
+        $url = 'member_profile_page.php?patient_id=' . $_SESSION["id"];
+    } else if ($type === "d") {
+        $url = 'doctor_profile_page.php?doctor_id=' . $_SESSION["id"];
+    }
+
+    echo "<link rel='stylesheet' href='../css/sidebar_style.css'>
     <nav id='sidebar-component' class='col-lg-2 col-md-4'>
 
         <div id='navbuttons'>
@@ -10,7 +20,7 @@
             <a class='sidebarbutton' id='all_apointments_button' href='main_page.php#all_apointments'>Όλα τα Ραντεβού</a>
         </div>
         
-        <div id='user-div' onclick=location.href='member_profile_page.php?patient_id=$_SESSION[id]'>
+        <div id='user-div' onclick=location.href='$url'>
             <a id='user-name' href='#'>$name</a>
             <div id='image-wrapper'>
             <img id='user-image' width=30 height=30 src='../images/user_image.png' alt='profile image'>
@@ -18,12 +28,13 @@
         </div>
     </nav>";
 
-    }
+}
 
-    function checklist_sidebar(){
+function checklist_sidebar()
+{
 
 
-        echo "<link rel='stylesheet' href='../css/sidebar_style.css'>
+    echo "<link rel='stylesheet' href='../css/sidebar_style.css'>
         <nav id='sidebar-component'>
     
             <h1 id='locheader'>Τοποθεσία</h1>
@@ -62,7 +73,7 @@
             </div>
             <script src='../js/sidebar_price_functions.js'></script>
         </nav>";
-    
-    }
+
+}
 
 ?>
