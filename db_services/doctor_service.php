@@ -119,3 +119,34 @@ function select_services_by_specialization($conn, $specialization)
 
     return $services;
 }
+
+function edit_doctor_data($conn, $id, $name, $phone, $email, $address, $region, $spec_number, $img_path)
+{
+    $row = select_doctor_by_id($conn, $_SESSION['id']);
+    $specialization = $row['specialization'];
+
+    if($spec_number == 1)
+    {
+        $specialization = 'Παθολόγος';
+    }
+    elseif($spec_number == 2)
+    {
+        $specialization = 'Ψυχολόγος';
+    }
+    elseif($spec_number == 3)
+    {
+        $specialization = 'Γυναικολόγος';
+    }
+
+    if($img_path == "../images/")
+    {
+        $row = select_doctor_by_id($conn, $_SESSION['id']);
+        $img_path = $row['img_url'];
+    }
+
+    mysqli_query($conn, "UPDATE doctor set full_name='$name', phone='$phone', email='$email', address= '$address', region='$region', specialization='$specialization', img_url='$img_path' WHERE id = '$id'") or
+    die("Query error: " . mysqli_error($conn));
+    header("Refresh:0");
+
+
+}

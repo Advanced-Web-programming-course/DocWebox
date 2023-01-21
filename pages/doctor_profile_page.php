@@ -14,6 +14,14 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     return;
 }
 
+if(isset($_POST['submit']))
+{
+    $filename = $_FILES["profile-pic"]["name"];
+    $from = $_FILES["profile-pic"]["tmp_name"];
+    $upload = move_uploaded_file($from, "../images/".$filename);
+    edit_doctor_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], $_POST['address'], $_POST['region'], $_POST['doctor'], "../images/".$filename);
+}
+
 ?>
 
 <!DOCTYPE html>
