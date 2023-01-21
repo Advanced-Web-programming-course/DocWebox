@@ -1,6 +1,6 @@
 
 <?php
-function display_booking_info_section($date,$hour,$visitType,$price)
+function display_booking_info_section($date, $hour, $visitType, $price)
 {
     echo "  
     <div class='booking_info_section'>
@@ -18,7 +18,7 @@ function display_booking_info_section($date,$hour,$visitType,$price)
 }
 
 
-function display_member_info_section($fullname, $email, $phone)
+function display_member_info_section($fullname, $email, $phone, $doctor_id, $service_id, $date, $time)
 {
     echo "  
     <div class='member_info_section'>
@@ -41,12 +41,18 @@ function display_member_info_section($fullname, $email, $phone)
         </div>
     </div>
     <div class='confirmB'> 
-        <button type='button' class='btn btn-secondary' data-toggle='modal' data-target='#confirmationModal'>
+    <form action='' method='post'>
+        <input type='text' hidden name='date' value='$date'>
+        <input type='text' hidden name='time' value='$time'>
+        <input type='text' hidden name='doctor_id' value='$doctor_id'>
+        <input type='text' hidden name='service_id' value='$service_id'>
+        <button type='submit' name='confirm' class='btn btn-secondary' data-toggle='modal' data-target='#confirmationModal'>
         Επιβεβαίωση</button>
+    </form>
     </div>";
 }
 
-include "../components/modals/booking_confirmation_modal.php"
+include "../components/modals/booking_confirmation_modal.php";
 ?>
 
 

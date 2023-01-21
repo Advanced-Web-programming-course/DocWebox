@@ -1,22 +1,16 @@
 <!-- book appointment modal -->
 <?php
-function book_appointment_modal($id, $service, $doctor_id, $conn)
+function book_appointment_modal($id, $service, $doctor_id)
 {
-    require_once "../db_services/availability_service.php";
-
-    $month = date('m');
-    $day = date('d');
-    $year = date('Y');
-
-    $json_availability_array = json_encode(get_non_available_hours($conn, $doctor_id, $day, $month, $year));
-
     echo "<div class='modal fade' id='bookAppointmentModal-$id' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
     aria-hidden='true' data-bs-backdrop='static' data-bs-keyboard='false'>
     <div class='modal-dialog modalCenter'>
         <div class='modal-content'>
-            <form class='book-appointment-form' action='' method='post'>
-            <input type='text' name='service-id' value='$id' hidden>
-                <div class='modal-body'>
+            <form class='book-appointment-form' action='./confirm_appointment_page.php' method='post'>
+            <input type='text' name='service_id' value='$id' hidden>
+            <input type='text' name='doctor_id' value='$doctor_id' hidden>
+                
+            <div class='modal-body'>
                     <div class='btitle'>Υπηρεσία</div>
                     <div class='bsubtitle' id='simple-visit'>" . $service["title"] . " " . $service["price"] . "</div>
                     <div class='btitle'>Επιλέξτε ημέρα και ώρα του ραντεβού</div> <br />
@@ -56,12 +50,12 @@ function book_appointment_modal($id, $service, $doctor_id, $conn)
                     </div>
                     <script src = '../js/datePicker.js'> </script>
                     <script>
-                        handleDateTime($id, $doctor_id, $json_availability_array);
+                        handleDateTime($id, $doctor_id);
                     </script>
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='cancel' id='dcancelbtn' data-bs-dismiss='modal'>Ακύρωση</button>
-                    <button type='submit' class='continue' id='continue'>Συνέχεια</button>
+                    <button type='submit' name='continue' value='Συνέχεια' class='continue' id='continue'>Συνέχεια</button>
                 </div>
             </form>
         </div>

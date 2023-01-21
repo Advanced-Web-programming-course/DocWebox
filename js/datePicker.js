@@ -1,4 +1,4 @@
-async function handleDateTime(id, doctor_id, json_hours) {
+async function handleDateTime(id, doctor_id) {
   $(function () {
     $(`#datepicker${id}`).datepicker({
       todayHighlight: "true",

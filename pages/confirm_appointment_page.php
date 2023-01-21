@@ -5,6 +5,84 @@ ensure_auth();
 include "../config/db_connection.php";
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['continue'])) {
+        if ($_SESSION['type'] == "d") {
+            echo "alert('Doctor cannot book an appointment');";
+        }
+
+        require_once "../db_services/doctor_service.php";
+        $doctor_id = $_POST["doctor_id"];
+        $doctor = select_doctor_by_id($conn, $doctor_id);
+
+        $service_id = $_POST["service_id"];
+        $service = select_doctor_service_by_id($conn, $service_id);
+
+        $patient_id = $logged_user['id'];
+        $date = $_POST["date"];
+
+        $time = $_POST["time"];
+
+        // add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
+
+        // $complete_date = $date . " " . $hour . ":00:00.0";
+        // $new_date = date('Y-m-d H', strtotime($complete_date));
+        // create_appointment($conn, $patient_id, $doctor_id, $new_date, $serviceId);
+        // header("location: main_page.php");
+    }
+
+    if (isset($_POST["confirm"])) {
+        if ($_SESSION['type'] == "d") {
+            echo "alert('Doctor cannot book an appointment');";
+        }
+
+        require_once "../db_services/doctor_service.php";
+        $doctor_id = $_POST["doctor_id"];
+        $doctor = select_doctor_by_id($conn, $doctor_id);
+
+        $service_id = $_POST["service_id"];
+        $service = select_doctor_service_by_id($conn, $service_id);
+
+        $patient_id = $logged_user['id'];
+        $date = $_POST["date"];
+
+        $dateArray = explode("/", $date);
+        $month = $dateArray[0];
+        $day = $dateArray[1];
+        $year = $dateArray[2];
+
+        $time = $_POST["time"];
+        $temp = explode(" ", $time);
+        $hour = (int)explode(":", $temp[0])[0];
+
+        if ($temp[1] === "PM") {
+            if ($hour === 1) {
+                $hour = 13;
+            } else if ($hour === 2) {
+                $hour = 14;
+            } else if ($hour === 3) {
+                $hour = 15;
+            } else if ($hour === 4) {
+                $hour = 16;
+            } else if ($hour === 5) {
+                $hour = 17;
+            }
+        }
+
+        require_once "../db_services/availability_service.php";
+        require_once "../db_services/appointment_service.php";
+
+        add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
+
+        $complete_date = $date . " " . $hour . ":00:00.0";
+        $new_date = date('Y-m-d H', strtotime($complete_date));
+        create_appointment($conn, $patient_id, $doctor_id, $new_date, $service_id);
+        header("location: main_page.php");
+    }
+} else {
+    header(("location: main_page.php"));
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +117,10 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
     display_default_header($logged_user['full_name']);
     echo "<div class='con'>";
     include "../components/doctor_selected.php";
-    display_simple_doctor_selected_section("Μαρία Παπαδοπούλου", "Παθολόγος", "Λαζαράκη 33", "Γλυφάδα", "https://img.freepik.com/free-vector/doctor-character-background_1270-84.jpg?w=2000");
+    display_simple_doctor_selected_section($doctor["full_name"], $doctor["specialization"], $doctor["address"], $doctor["region"], $doctor["img_url"]);
     include "../components/booking_info.php";
-    display_booking_info_section("Πέμπτη 10 Νοεμβρίου", "15:00", "Απλή Επίσκεψη", "€30");
-    display_member_info_section("Αναστασία Καμανά", "ankamana@gmail.com", "+30 6923758021");
+    display_booking_info_section($date, $time, $service["title"], "€" . $service["price"]);
+    display_member_info_section($logged_user["full_name"], $logged_user["email"], $logged_user["phone"], $doctor_id, $service_id, $date, $time);
     echo "</div>";
 
     // // When submits form it shows the 

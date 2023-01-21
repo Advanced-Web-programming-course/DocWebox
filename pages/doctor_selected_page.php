@@ -14,45 +14,45 @@ $doctor = select_doctor_by_id($conn, $doctor_id);
 require_once "../db_services/appointment_service.php";
 require_once "../db_services/availability_service.php";
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+// if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
-    if ($_SESSION['type'] == "d") {
-        echo "alert('Doctor cannot book an appointment');";
-    }
+//     if ($_SESSION['type'] == "d") {
+//         echo "alert('Doctor cannot book an appointment');";
+//     }
 
-    $patient_id = $logged_user['id'];
-    $serviceId = $_POST["service-id"];
-    $date = $_POST["date"];
+//     $patient_id = $logged_user['id'];
+//     $serviceId = $_POST["service-id"];
+//     $date = $_POST["date"];
 
-    $dateArray = explode("/", $date);
-    $month = $dateArray[0];
-    $day = $dateArray[1];
-    $year = $dateArray[2];
+//     $dateArray = explode("/", $date);
+//     $month = $dateArray[0];
+//     $day = $dateArray[1];
+//     $year = $dateArray[2];
 
-    $time = $_POST["time"];
-    $temp = explode(" ", $time);
-    $hour = (int)explode(":", $temp[0])[0];
+//     $time = $_POST["time"];
+//     $temp = explode(" ", $time);
+//     $hour = (int)explode(":", $temp[0])[0];
 
-    if ($temp[1] === "PM") {
-        if ($hour === 1) {
-            $hour = 13;
-        } else if ($hour === 2) {
-            $hour = 14;
-        } else if ($hour === 3) {
-            $hour = 15;
-        } else if ($hour === 4) {
-            $hour = 16;
-        } else if ($hour === 5) {
-            $hour = 17;
-        }
-    }
-    add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
+//     if ($temp[1] === "PM") {
+//         if ($hour === 1) {
+//             $hour = 13;
+//         } else if ($hour === 2) {
+//             $hour = 14;
+//         } else if ($hour === 3) {
+//             $hour = 15;
+//         } else if ($hour === 4) {
+//             $hour = 16;
+//         } else if ($hour === 5) {
+//             $hour = 17;
+//         }
+//     }
+//     add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
 
-    $complete_date = $date . " " . $hour . ":00:00.0";
-    $new_date = date('Y-m-d H', strtotime($complete_date));
-    create_appointment($conn, $patient_id, $doctor_id, $new_date, $serviceId);
-    header("location: main_page.php");
-}
+//     $complete_date = $date . " " . $hour . ":00:00.0";
+//     $new_date = date('Y-m-d H', strtotime($complete_date));
+//     create_appointment($conn, $patient_id, $doctor_id, $new_date, $serviceId);
+//     header("location: main_page.php");
+// }
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url'], $doctor_id);
     include "../components/all_services.php";
     $services = select_services_by_specialization($conn, $doctor["specialization"]);
-    display_all_services($services, $doctor_id, $conn);
+    display_all_services($services, $doctor_id);
     echo "</div>";
     ?>
 
