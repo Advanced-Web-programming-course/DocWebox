@@ -20,7 +20,7 @@ function get_non_available_hours($conn, $doctor_id, $day, $month, $year)
 
     $non_available_hours = array();
     try {
-        $sql = "SELECT * FROM availability WHERE doctor_id='$doctor_id' AND day>='$day' AND month='$month' AND year='$year'";
+        $sql = "SELECT * FROM availability WHERE doctor_id='$doctor_id' AND day='$day' AND month='$month' AND year='$year'";
         $result = $conn->query($sql);
 
         while ($row = $result->fetch_assoc()) {
