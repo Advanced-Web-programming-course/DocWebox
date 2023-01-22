@@ -82,9 +82,10 @@ foreach ($doctor_towns_json as $town) {
     include "../components/sidebar.php";
     button_sidebar($logged_user['full_name']);
     echo " <div id='main-page-content' class='col'>";
-    include "../components/search_bar.php";
-    show_search_bar($doctor_towns, $doctor_specialities);
-
+    if ($_SESSION['type'] == "p") {
+        include "../components/search_bar.php";
+        show_search_bar($doctor_towns, $doctor_specialities);
+    }
     include "../components/upcoming_apointments.php";
     include "../components/all_apointments.php";
     echo "</div>";
