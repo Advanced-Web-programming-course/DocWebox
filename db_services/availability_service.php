@@ -14,6 +14,12 @@ function add_appointment_to_availability($conn, $doctor_id, $day, $month, $year,
     }
 }
 
+function update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour)
+{
+    mysqli_query($conn, "UPDATE availability set doctor_id='$doctor_id', day='$day', month='$month', year='$year', hour='$hour' WHERE doctor_id='$doctor_id' AND day='$day' AND month='$month' AND year='$year' AND hour='$hour'") or
+        die("Query error: " . mysqli_error($conn));
+}
+
 
 function get_non_available_hours($conn, $doctor_id, $day, $month, $year)
 {

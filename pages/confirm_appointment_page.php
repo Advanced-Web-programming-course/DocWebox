@@ -80,14 +80,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once "../db_services/availability_service.php";
         require_once "../db_services/appointment_service.php";
 
-        add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
 
         $complete_date = $date . " " . $hour . ":00:00.0";
         $new_date = date('Y-m-d H', strtotime($complete_date));
         if ($isEdit) {
             $appointment_id = $_POST["appointment_id"];
+            update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
             edit_appointment($conn, $appointment_id, $patient_id, $doctor_id, $new_date, $service_id);
         } else {
+            add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
             create_appointment($conn, $patient_id, $doctor_id, $new_date, $service_id);
         }
         header("location: main_page.php");
