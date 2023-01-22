@@ -14,13 +14,21 @@ if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET[
     return;
 }
 
-if(isset($_POST['submit']))
-{
+if (isset($_POST['submit'])) {
     $filename = $_FILES["profile-pic"]["name"];
     $from = $_FILES["profile-pic"]["tmp_name"];
-    $upload = move_uploaded_file($from, "../images/".$filename);
-    edit_doctor_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], $_POST['address'], $_POST['region'], $_POST['doctor'], "../images/".$filename);
+    $upload = move_uploaded_file($from, "../images/" . $filename);
+    edit_doctor_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], $_POST['address'], $_POST['region'], $_POST['specialization'], "../images/" . $filename);
 }
+
+$doctor_specialities = array();
+
+$doctor_specialities_json = json_decode(file_get_contents("../data/doctor_types.json"), true);
+
+foreach ($doctor_specialities_json as $speciality) {
+    array_push($doctor_specialities, $speciality);
+}
+
 
 ?>
 
@@ -55,7 +63,7 @@ if(isset($_POST['submit']))
     include "../components/profile_section.php";
     display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url'], $doctor['description']);
     include "../components/edit_doctor_profile_section.php";
-    display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['id']);
+    display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['id'], $doctor_specialities);
     echo "</div>";
     echo "</div>";
     include "../components/footer.php";
@@ -83,14 +91,14 @@ if(isset($_POST['submit']))
 
 <script>
     $(document).ready(function() {
-    
+
         // update doctor's description onclick "Save" in modal
         $(document).on('click', '#saveBtn', function() {
-            
+
 
             var id = $('#docId').val();
             var desc = $('textarea#desc-text').val();
-            alert(id+' '+desc);
+            alert(id + ' ' + desc);
             $.ajax({
                 url: "../controllers/update.php",
                 method: "POST",
@@ -98,18 +106,18 @@ if(isset($_POST['submit']))
                 data: {
                     update: 1,
                     id: id,
-                    description:desc
+                    description: desc
                 },
                 success: function(dataResult) {
                     var dataResult = JSON.parse(dataResult);
-                    
+
                     if (dataResult.statusCode == 1) {
                         $('#editDescriptionModal').modal().hide();
                         location.reload();
                         // swal("Data Updated!", {
                         //     icon: "success",
                         // }).then((result) => {
-                            
+
                         // });    
                     }
                 }
