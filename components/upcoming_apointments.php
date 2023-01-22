@@ -22,10 +22,10 @@ $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
                 $service = select_doctor_service_by_id($conn, $appointments[$i]['service_id']);
                 $app_id = $appointments[$i]['id'];
                 $imerominia = date("d/m/Y", $date);
-                $ora = date("H:m", $date);
+                $ora = date("H:00", $date);
 
                 phone_modal($app_id, $doctor['phone']);
-                edit_appointment_modal($app_id, $service);
+                edit_appointment_modal($app_id, $appointments[$i], $service, $doctor["id"]);
                 cancel_appointment_modal($app_id);
                 echo "<div class='box'>
           <div class='icons'>

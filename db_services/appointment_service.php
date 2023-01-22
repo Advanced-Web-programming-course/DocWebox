@@ -44,6 +44,13 @@ function create_appointment($conn, $patient_id, $doctor_id, $date, $service_id)
     }
 }
 
+function edit_appointment($conn, $appointment_id,  $patient_id, $doctor_id, $new_date, $service_id)
+{
+
+    mysqli_query($conn, "UPDATE appointment set patient_id='$patient_id', doctor_id='$doctor_id', appointment_date='$new_date', service_id='$service_id' WHERE id='$appointment_id'") or
+        die("Query error: " . mysqli_error($conn));
+}
+
 
 
 // function select_appointments_by_doctor_id($conn, $doctor_id)

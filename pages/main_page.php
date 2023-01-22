@@ -59,6 +59,12 @@ foreach ($doctor_towns_json as $town) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+
+    <!-- expiriement time picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.14.0/jquery.timepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/timepicker@1.14.0/jquery.timepicker.min.js"></script>
+
+
     <script src="https://kit.fontawesome.com/d2c306d566.js" crossorigin="anonymous"></script>
 
     <!-- Import Modals css -->

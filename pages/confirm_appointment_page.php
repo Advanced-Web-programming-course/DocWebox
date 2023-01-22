@@ -31,7 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // header("location: main_page.php");
     }
 
-    if (isset($_POST["confirm"])) {
+    if (isset($_POST["confirm"]) || isset($_POST["edit"])) {
+
+        $isEdit = false;
+        $appointment_id = "";
+        if (isset($_POST["edit"])) {
+            $isEdit = true;
+            $appointment_id = $_POST["appointment_id"];
+        }
+
         if ($_SESSION['type'] == "d") {
             echo "alert('Doctor cannot book an appointment');";
         }
@@ -76,7 +84,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $complete_date = $date . " " . $hour . ":00:00.0";
         $new_date = date('Y-m-d H', strtotime($complete_date));
-        create_appointment($conn, $patient_id, $doctor_id, $new_date, $service_id);
+        if ($isEdit) {
+            $appointment_id = $_POST["appointment_id"];
+            edit_appointment($conn, $appointment_id, $patient_id, $doctor_id, $new_date, $service_id);
+        } else {
+            create_appointment($conn, $patient_id, $doctor_id, $new_date, $service_id);
+        }
         header("location: main_page.php");
     }
 } else {
