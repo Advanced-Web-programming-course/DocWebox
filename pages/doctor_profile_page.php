@@ -22,14 +22,11 @@ if (isset($_POST['submit'])) {
 }
 
 $doctor_specialities = array();
-
 $doctor_specialities_json = json_decode(file_get_contents("../data/doctor_types.json"), true);
 
 foreach ($doctor_specialities_json as $speciality) {
     array_push($doctor_specialities, $speciality);
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -69,14 +66,13 @@ foreach ($doctor_specialities_json as $speciality) {
     include "../components/footer.php";
     ?>
     <script>
+
         document.getElementById('edit-button').addEventListener('click', function(e) {
             openEditForm();
         });
-
         function openEditForm() {
             let profileForm = document.getElementById('edit-doctor-profile-section');
             if (profileForm.style.visibility == 'visible') {
-
                 profileForm.style.visibility = 'hidden';
             } else profileForm.style.visibility = 'visible';
         }
@@ -95,10 +91,8 @@ foreach ($doctor_specialities_json as $speciality) {
         // update doctor's description onclick "Save" in modal
         $(document).on('click', '#saveBtn', function() {
 
-
             var id = $('#docId').val();
             var desc = $('textarea#desc-text').val();
-            alert(id + ' ' + desc);
             $.ajax({
                 url: "../controllers/update.php",
                 method: "POST",
