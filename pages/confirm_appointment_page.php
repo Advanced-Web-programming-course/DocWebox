@@ -11,6 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "alert('Doctor cannot book an appointment');";
         }
 
+        $create_or_update = "confirm";
+
+        if (isset($_POST['appointment_id'])) {
+            $appointment_id = $_POST['appointment_id'];
+            $create_or_update = "edit";
+        }
+
         require_once "../db_services/doctor_service.php";
         $doctor_id = $_POST["doctor_id"];
         $doctor = select_doctor_by_id($conn, $doctor_id);
@@ -134,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     display_simple_doctor_selected_section($doctor["full_name"], $doctor["specialization"], $doctor["address"], $doctor["region"], $doctor["img_url"]);
     include "../components/booking_info.php";
     display_booking_info_section($date, $time, $service["title"], "€" . $service["price"]);
-    display_member_info_section($logged_user["full_name"], $logged_user["email"], $logged_user["phone"], $doctor_id, $service_id, $date, $time);
+    display_member_info_section($logged_user["full_name"], $logged_user["email"], $logged_user["phone"], $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id);
     echo "</div>";
 
     // // When submits form it shows the 
@@ -144,6 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="../js/confirm_appointment.js"></script>
 </body>
 
 </html>

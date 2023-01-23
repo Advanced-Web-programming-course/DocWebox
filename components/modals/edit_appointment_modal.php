@@ -71,7 +71,7 @@ function edit_appointment_modal($id, $appointment, $service, $doctor_id)
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='cancel' id='dcancelbtn' data-bs-dismiss='modal'>Ακύρωση</button>
-                    <button type='submit' name='edit' value='Συνέχεια' class='continue' id='continue'>Συνέχεια</button>
+                    <button type='submit' name='continue' value='Συνέχεια' class='continue' id='continue'>Συνέχεια</button>
                 </div>
             </form>
         </div>

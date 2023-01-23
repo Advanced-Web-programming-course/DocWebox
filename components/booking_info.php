@@ -18,7 +18,7 @@ function display_booking_info_section($date, $hour, $visitType, $price)
 }
 
 
-function display_member_info_section($fullname, $email, $phone, $doctor_id, $service_id, $date, $time)
+function display_member_info_section($fullname, $email, $phone, $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id)
 {
     echo "  
     <div class='member_info_section'>
@@ -41,12 +41,15 @@ function display_member_info_section($fullname, $email, $phone, $doctor_id, $ser
         </div>
     </div>
     <div class='confirmB'> 
-    <form action='' method='post'>
+    <form name='appointmentConfirmationForm' id='appointment-confirmation-form' action='" . $_SERVER['PHP_SELF'] . "' method='post'>
         <input type='text' hidden name='date' value='$date'>
         <input type='text' hidden name='time' value='$time'>
         <input type='text' hidden name='doctor_id' value='$doctor_id'>
-        <input type='text' hidden name='service_id' value='$service_id'>
-        <button type='submit' name='confirm' class='btn btn-secondary' data-toggle='modal' data-target='#confirmationModal'>
+        <input type='text' hidden name='service_id' value='$service_id'>";
+    if ($create_or_update == 'edit') {
+        echo "<input type='text' hidden name='appointment_id' value='$appointment_id'>";
+    }
+    echo "<button id='confirmation-button' type='submit' name='$create_or_update' class='btn btn-secondary' data-toggle='modal' data-target='#confirmationModal'>
         Επιβεβαίωση</button>
     </form>
     </div>";
