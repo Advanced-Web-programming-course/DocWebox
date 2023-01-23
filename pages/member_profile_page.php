@@ -42,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "kati phge lathosssss";
         } else {
             // ecw diagrafoume
+            require_once "../db_services/availability_service.php";
+            require_once "../db_services/appointment_service.php";
+            delete_appointment_availabilitys_by_patient_id($conn, $id);
+            delete_appointments_by_patient_id($conn, $id);
             $ok = delete_patient_by_id($conn, $id);
             echo "ok bro? " . $ok;
             if ($ok) {
