@@ -35,11 +35,6 @@ include "../controllers/register_controller.php";
             <button class='register2'>Εγγραφή</button>
         </div>
 
-        <div>
-            <div class='title'>Καλωσήρθατε</div>
-            <div class='subtitle'>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</div>
-        </div>
-
         <?php
         if ($type == "d") {
             include "../components/doctor_register_form.php";

@@ -37,11 +37,6 @@ include "../controllers/login_controller.php";
             <button onclick='window.location.href = "register_page.php<?php echo "?type=$type"; ?>"' class='register'>Εγγραφή</button>
         </div>
 
-        <div>
-            <div class='title'>Καλωσήρθατε</div>
-            <div class='subtitle'>Συνδεθείτε για να δείτε τα ραντεβού σας</div>
-        </div>
-
         <?php
         include "../components/login_form.php";
         if ($type == "d") {
