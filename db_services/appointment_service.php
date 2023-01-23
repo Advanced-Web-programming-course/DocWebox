@@ -70,6 +70,21 @@ function select_appointments_by_doctor_id($conn, $doctor_id)
     return $appointments;
 }
 
+function select_appointment_by_id($conn, $id)
+{
+
+    $sql = "SELECT * FROM appointment WHERE id='$id'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        return $result->fetch_assoc();
+    }
+
+    return null;
+}
+
 // function select_appointments_by_doctor_id($conn, $doctor_id)
 // {
 // $id = htmlspecialchars($id);

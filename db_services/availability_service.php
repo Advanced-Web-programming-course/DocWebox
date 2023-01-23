@@ -14,9 +14,25 @@ function add_appointment_to_availability($conn, $doctor_id, $day, $month, $year,
     }
 }
 
-function update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour)
+function update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour,  $appointment_id)
 {
-    mysqli_query($conn, "UPDATE availability set doctor_id='$doctor_id', day='$day', month='$month', year='$year', hour='$hour' WHERE doctor_id='$doctor_id' AND day='$day' AND month='$month' AND year='$year' AND hour='$hour'") or
+
+    require_once "../db_services/appointment_service.php";
+    $appointment = select_appointment_by_id($conn, $appointment_id);
+    $app_date = explode(" ", $appointment["appointment_date"])[0];
+    $app_date = explode("-", $app_date);
+
+    $app_year = $app_date[0];
+    $app_month = $app_date[1];
+    $app_day = $app_date[2];
+
+    $app_date = $app_month . "/" . $app_day . "/" . $app_year;
+
+    $time = explode(" ", $appointment["appointment_date"])[1];
+    $timeArr = explode(":", $time);
+    $time = $timeArr[0] . ":" . $timeArr[1];
+
+    mysqli_query($conn, "UPDATE availability set doctor_id='$doctor_id', day='$day', month='$month', year='$year', hour='$hour' WHERE doctor_id='$doctor_id' AND day='$app_day' AND month='$app_month' AND year='$app_year' AND hour='$time'") or
         die("Query error: " . mysqli_error($conn));
 }
 

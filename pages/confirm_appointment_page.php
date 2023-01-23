@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $create_or_update = "confirm";
+        $appointment_id = "";
 
         if (isset($_POST['appointment_id'])) {
             $appointment_id = $_POST['appointment_id'];
@@ -92,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $new_date = date('Y-m-d H', strtotime($complete_date));
         if ($isEdit) {
             $appointment_id = $_POST["appointment_id"];
-            update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
+            update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour, $appointment_id);
             edit_appointment($conn, $appointment_id, $patient_id, $doctor_id, $new_date, $service_id);
         } else {
             add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
