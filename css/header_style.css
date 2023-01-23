@@ -44,3 +44,14 @@
     margin-left: 185px;
     position: absolute;
 }
+
+@media screen and (max-width: 450px) {
+    #logoicon{
+        margin-left: 0;
+    }
+    #logotext{
+        margin-left: 108px;
+        font-size: 25px;
+    }
+   
+  }
