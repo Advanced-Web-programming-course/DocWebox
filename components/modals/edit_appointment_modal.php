@@ -37,7 +37,7 @@ function edit_appointment_modal($id, $appointment, $service, $doctor_id)
                                     <div class='col-md-12'>
                                     <label for='date' class='col-md col-form-label'>Ημέρα</label>
                                             <div class='input-group date' id='datepicker$id'>
-                                                <input value='$date' required name='date' id='datepicker$id' type='text' class='form-control'>
+                                                <input required name='date' id='datepicker$id' type='text' class='form-control'>
                                                 <span class='input-group-append'>
                                                     <span class='input-group-text bg-white d-block'>
                                                         <i class='fa fa-calendar'></i>
@@ -52,7 +52,7 @@ function edit_appointment_modal($id, $appointment, $service, $doctor_id)
                                     <div class='col-md-12'>
                                     <label for='date' class='col-md col-form-label'>Ώρα</label>
                                             <div class='input-group date' id='timepicker$id'>
-                                                <input value='$time' required name='time' type='text' class='timepicker$id form-control'>
+                                                <input required name='time' type='text' class='timepicker$id form-control'>
                                                 <span class='input-group-append'>
                                                     <span class='input-group-text bg-white d-block'>
                                                         <i class='fa-regular fa-clock'></i>
