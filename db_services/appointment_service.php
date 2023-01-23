@@ -37,7 +37,7 @@ function create_appointment($conn, $patient_id, $doctor_id, $date, $service_id)
 
     try {
         if ($conn->query($sql) === TRUE) {
-            return true;
+            return $conn->insert_id;
         }
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";

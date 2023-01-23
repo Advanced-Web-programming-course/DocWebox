@@ -60,6 +60,7 @@ echo "<br>";
 $sql = "CREATE TABLE IF NOT EXISTS `docwebox`.`availability` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `doctor_id` INT NOT NULL,
+  `appointment_id` INT NOT NULL,
   `day` INT NOT NULL,
   `month` INT NOT NULL,
   `year` INT NOT NULL,
@@ -101,22 +102,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error creating table service: " . mysqli_error($conn);
 }
-echo "<br>";
 
-// Create Table review
-$sql = "CREATE TABLE IF NOT EXISTS review (
-  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  patient_id INT NOT NULL,
-  doctor_id INT NOT NULL,
-  rating INT NOT NULL,
-  comment VARCHAR(150) NOT NULL
-  )";
-
-if (mysqli_query($conn, $sql)) {
-  echo "Table review created successfully";
-} else {
-  echo "Error creating table review: " . mysqli_error($conn);
-}
 echo "<br>";
 
 // Create Table admin

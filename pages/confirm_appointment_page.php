@@ -96,8 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             update_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour, $appointment_id);
             edit_appointment($conn, $appointment_id, $patient_id, $doctor_id, $new_date, $service_id);
         } else {
-            add_appointment_to_availability($conn, $doctor_id, $day, $month, $year, $hour);
-            create_appointment($conn, $patient_id, $doctor_id, $new_date, $service_id);
+            $app_id = create_appointment($conn, $patient_id, $doctor_id, $new_date, $service_id);
+            add_appointment_to_availability($conn, $doctor_id, $app_id, $day, $month, $year, $hour);
         }
         header("location: main_page.php");
     }
