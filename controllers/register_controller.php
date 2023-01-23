@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($type == "d") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
-            $ok = create_doctor($name, $phone, $email, $password, $address, $region, $specialization, "", "");
+            $ok = create_doctor($name, $phone, $email, $password, $address, $region, $specialization, "", "http://localhost/DocWebox/images/user_image.png");
             if ($ok) {
                 header("location: ../pages/login_page.php?type=d");
             }
