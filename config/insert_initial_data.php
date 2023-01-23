@@ -81,6 +81,12 @@ create_doctor_service("Bαζεκτομή", 200, "Ανδρολόγος");
 create_doctor_service("Αντιστροφή Bαζεκτομής", 60, "Ανδρολόγος");
 create_doctor_service("Oρμονοθεραπεία", 30.55, "Ανδρολόγος");
 
+create_doctor_service("Γενική εξέταση", 50, "Γυναικολόγος");
+create_doctor_service("Γυναικολογικός Υπέρηχος", 80, "Γυναικολόγος");
+create_doctor_service("Τεστ Παπανικολάου", 150, "Γυναικολόγος");
+create_doctor_service("Αντιμετώπιση Παθήσεων Μαστού", 100, "Γυναικολόγος");
+create_doctor_service("Υστεροσκόπηση", 40, "Γυναικολόγος");
+
 echo "<br>";
 echo "<br>";
 echo "Table : Appointment<br>";
