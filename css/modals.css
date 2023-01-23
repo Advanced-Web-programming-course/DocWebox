@@ -98,6 +98,8 @@ textarea {
 } */
 
 /* ---------------------------- BOOKING CONFIRMATION MODAL ---------------------------- */
-
+.confirmation .modal-body{
+    margin-bottom: 2rem;
+}
 
 
