@@ -3,7 +3,6 @@
 .profile-section{
  display: flex;
  flex-direction: column;
- margin-top: 1rem;
  font-family: 'Inter';
  font-weight: 400;
  gap: 4px;
@@ -15,8 +14,10 @@
 .title{
     font-size: 20px;
     line-height: 150%;
-    color: #FFFFFF;
+    color: #00BFB4;
     margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .profile {

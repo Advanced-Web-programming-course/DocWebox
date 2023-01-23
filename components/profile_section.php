@@ -6,8 +6,8 @@
 function display_profile_section($name, $info1, $info2, $image_url, $patient_id)
 {
     echo "
-    <div class='profile-section'>
     <div class='title'>Το προφίλ μου</div>
+    <div class='profile-section'>
     <div class='profile'>
         <div class='col info-wrapper'>
             <div class='info'>

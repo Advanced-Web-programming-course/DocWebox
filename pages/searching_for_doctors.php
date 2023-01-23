@@ -40,16 +40,15 @@ if (str_ends_with($_SERVER["REQUEST_URI"], '/searching_for_doctors.php')) {
 function add_doctor($id, $name, $speciality, $address, $region, $region_id, $price, $img_url)
 {
     $doc_element = "
-    <div class='doctor grey_font_color gray_borderline' id='doc_" . $id . "'>
-        
+    <div class='doctor grey_font_color gray_borderline' id='doc_" . $id . "'>    
         <div id='section_1'>
             <div style='display: flex;'>
-            <img class='circle' src='$img_url' alt='doctor' height='48px' height='48px'>
-            <div style = 'margin-left:14px;'>
-                <label style='display: block;' class='big_text_size'>" . $name . "</label>
-                <label style='display: block;' class='small_text_size'>" . $speciality . "</label>
+                <img class='circle' src='$img_url' alt='doctor' height='48px' height='48px'>
+                <div style = 'margin-left:14px;'>
+                    <label style='display: block;' class='big_text_size'>" . $name . "</label>
+                    <label style='display: block;' class='small_text_size'>" . $speciality . "</label>
+                </div>
             </div>
-        </div>
             <label id='address' class='small_text_size'>" . $address . ", " . $region . "</label>
             <input style='display:none;' id='doc_" . $id . "_region' type='text' value='" . $region_id . "'>
         </div>
