@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = clean_input($_POST["phone"]);
     $address = clean_input($_POST["address"]);
     $region = clean_input($_POST["region"]);
+    $specialization = "";
+    $specialization = clean_input($_POST["specialization"]);
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_err = "Invalid email format";
@@ -49,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($type == "d") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
-            $ok = create_doctor($name, $phone, $email, $password, $address, $region, "", "", "");
+            $ok = create_doctor($name, $phone, $email, $password, $address, $region, $specialization, "", "");
             if ($ok) {
                 header("location: ../pages/login_page.php?type=d");
             }

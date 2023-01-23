@@ -39,6 +39,7 @@
             <div class="row">
                 <?php
                 $json_towns = json_decode(file_get_contents("../data/towns.json"), true);
+                $specializations = json_decode(file_get_contents("../data/doctor_types.json"), true);
                 ?>
                 <label for="dregister-region">Περιοχή</label><br>
                 <select required name="region" id="dregister-region">
@@ -51,9 +52,19 @@
                 <p style="color: red;"><?php echo $region_err; ?> </p>
                 <!-- <input name="region" id="dregister-region" type="text" placeholder="Πανόραμα" required>
                 <p style="color: red;"><?php echo $region_err; ?> </p> -->
-
             </div>
 
+            <div class="row">
+                <label for="dregister-region">Ειδικότητα</label><br>
+                <select required name="specialization" id="dregister-region">
+                    <option default disabled selected value="">Διαλέξτε Ειδικότητα</option>
+                    <?php
+                    foreach ($specializations as $spe) {
+                        echo '<option value="' . $spe . '">' . $spe . '</option>';
+                    } ?>
+                </select>
+
+            </div>
         </div>
     </div>
 
