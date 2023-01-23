@@ -14,7 +14,6 @@
    </div>
 
    <div class='down'>
-      <a class='forgot-pass' href="#">Ξέχασα τον κωδικό μου</a>
       <input type='submit' class='loginbtn' value='Σύνδεση'>
    </div>
 

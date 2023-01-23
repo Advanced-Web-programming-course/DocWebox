@@ -67,7 +67,7 @@ button, .loginbtn, .registerbtn {
 }
 
 
-.row input, #dregister-region {
+.row input, #dregister-region, #dregister-specialization {
     box-sizing: border-box;
     border: none;
     outline: none;
@@ -84,7 +84,7 @@ button, .loginbtn, .registerbtn {
   color:#545454;
 }
 
-#dregister-region {
+#dregister-region, #dregister-specialization {
   border: 0.7px solid #AAAAAA;
   border-radius: 5px;
 }

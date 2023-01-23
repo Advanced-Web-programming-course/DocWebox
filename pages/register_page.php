@@ -47,7 +47,6 @@ include "../controllers/register_controller.php";
             include "../components/register_form.php";
         }
         ?>
-        <!-- όταν εγγαρφη ως γιατρός doctor_register_form.php -->
     </div>
 </body>
 <script src="../js/toggle_password.js"></script>

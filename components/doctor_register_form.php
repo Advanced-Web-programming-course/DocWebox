@@ -55,8 +55,8 @@
             </div>
 
             <div class="row">
-                <label for="dregister-region">Ειδικότητα</label><br>
-                <select required name="specialization" id="dregister-region">
+                <label for="dregister-specialization">Ειδικότητα</label><br>
+                <select required name="specialization" id="dregister-specialization">
                     <option default disabled selected value="">Διαλέξτε Ειδικότητα</option>
                     <?php
                     foreach ($specializations as $spe) {
@@ -69,7 +69,6 @@
     </div>
 
     <div class="down">
-        <a class="forgot-pass" href="#">Ξέχασα τον κωδικό μου</a>
         <input type="submit" class="registerbtn" value="Εγγραφή">
     </div>
 </form>
