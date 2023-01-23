@@ -33,15 +33,13 @@
 - patient.php
 - appointment.php
 - service.php
-- review.php
 
 ## Services ή Repository (Μέθοδοι CRUD = CREATE, READ, UPDATE, DELETE) για κάθε οντότητα
 
-- admin_db_service.php (κλάση με μεθοδους για τον admin)
-- doctor_db_service.php (κλάση με μεθοδους για τον doctor)
-- patient_db_service.php (κλάση με μεθοδους για τον patient)
-- appointment_db_service.php (κλάση με μεθοδους για τον appointment)
+- admin_db_service.php (αρχειο με μεθοδους για τον admin)
+- doctor_db_service.php (αρχειο με μεθοδους για τον doctor)
+- patient_db_service.php (αρχειο με μεθοδους για τον patient)
+- appointment_db_service.php (αρχειο με μεθοδους για τον appointment)
 - doctor_service_db_service.php
-- review_db_service.php
 
 ## Shared (shared functionality [methods etc.] )
