@@ -60,6 +60,7 @@ echo "<br>";
 $sql = "CREATE TABLE IF NOT EXISTS `docwebox`.`availability` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `doctor_id` INT NOT NULL,
+  `patient_id` INT NOT NULL,
   `appointment_id` INT NOT NULL,
   `day` INT NOT NULL,
   `month` INT NOT NULL,
