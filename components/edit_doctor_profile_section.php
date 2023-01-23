@@ -17,9 +17,13 @@ function display_doctor_edit_profile_section($name, $email, $phone, $specializat
         </div>
         <div class='row'>
             <select name='specialization' id='doctor'>
-                <option selected hidden>Ειδικότητα Ιατρού</option>";
+                <option default hidden disabled >Ειδικότητα Ιατρού</option>";
     for ($i = 0; $i < count($doctor_specialities); $i++) {
-        echo "<option value='$doctor_specialities[$i]'>$doctor_specialities[$i]</option>";
+        if ($specialization == $doctor_specialities[$i]) {
+            echo "<option selected value='$doctor_specialities[$i]'>$doctor_specialities[$i]</option>";
+        } else {
+            echo "<option value='$doctor_specialities[$i]'>$doctor_specialities[$i]</option>";
+        }
     }
 
     echo "</select>
