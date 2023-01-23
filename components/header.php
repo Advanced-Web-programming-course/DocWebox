@@ -18,7 +18,7 @@ function display_login_register_header($action, $type)
     echo "<header id='header-component'>
         <div id='upperheader'>
             <link rel='stylesheet' href='../css/header_style.css'>
-            <a id='wholelogo' href='./pages/main_page.php'>
+            <a id='wholelogo' href='./main_page.php'>
                 $logo
             <p id='logotext'>DOCWEBOX</p></a>
         </div>
