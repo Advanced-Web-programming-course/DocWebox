@@ -23,7 +23,7 @@ function delete_appointment($conn, $id)
 
     try {
         if ($conn->query($sql) === TRUE) {
-            header("refresh:0");
+            // header("refresh:0");
         }
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
