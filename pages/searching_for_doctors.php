@@ -7,6 +7,9 @@ include "../db_services/doctor_service.php";
 
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 
+if ($_SESSION['type'] == 'd') {
+    header("location: main_page.php");
+}
 
 $doctor_specialities = array();
 $doctor_towns = array();
