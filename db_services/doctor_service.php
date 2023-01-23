@@ -133,3 +133,19 @@ function edit_doctor_data($conn, $id, $name, $phone, $email, $address, $region, 
         die("Query error: " . mysqli_error($conn));
     header("Refresh:0");
 }
+
+
+
+function delete_doctor_by_id($conn, $id)
+{
+    $sql = "DELETE FROM doctor WHERE id='$id'";
+
+    try {
+        if ($conn->query($sql) === TRUE) {
+            return true;
+        }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
+        return false;
+    }
+}

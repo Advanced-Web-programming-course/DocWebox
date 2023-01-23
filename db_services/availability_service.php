@@ -34,6 +34,14 @@ function delete_appointment_availabilitys_by_patient_id($conn, $patient_id)
 }
 
 
+function delete_appointment_availabilitys_by_doctor_id($conn, $doctor_id)
+{
+    mysqli_query($conn, "DELETE FROM availability WHERE doctor_id='$doctor_id'") or
+        die("Query error: " . mysqli_error($conn));
+}
+
+
+
 
 function get_non_available_hours($conn, $doctor_id, $day, $month, $year)
 {

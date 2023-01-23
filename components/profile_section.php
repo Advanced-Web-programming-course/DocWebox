@@ -32,7 +32,7 @@ function display_profile_section($name, $info1, $info2, $image_url, $patient_id)
 </div>";
 }
 
-function display_doctor_profile_section($name, $info1, $info2a, $info2b, $image_url, $description)
+function display_doctor_profile_section($name, $info1, $info2a, $info2b, $image_url, $description, $id)
 {
     echo "
     
@@ -51,7 +51,7 @@ function display_doctor_profile_section($name, $info1, $info2a, $info2b, $image_
             </div>
             <div class='buttons'>
                 <div class='col'>
-                    <a id='delete-button'>Διαγραφή Λογαριασμού</a>
+                    <a data-target='#deleteModal-$id' data-toggle='modal' id='delete-button'>Διαγραφή Λογαριασμού</a>
                 </div>
                 <div class='col'>
                     <a href='../controllers/logout.php' id='logout-button'>Αποσύνδεση</a>

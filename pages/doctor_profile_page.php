@@ -32,6 +32,42 @@ $doctor_specialities_json = json_decode(file_get_contents("../data/doctor_types.
 foreach ($doctor_specialities_json as $speciality) {
     array_push($doctor_specialities, $speciality);
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['account_id'])) {
+        $id = $_POST['account_id'];
+
+        if ($logged_user["id"] != $id) {
+            // error
+            echo "Error";
+        } else {
+            // ecw diagrafoume
+            require_once "../db_services/availability_service.php";
+            require_once "../db_services/appointment_service.php";
+
+            delete_appointment_availabilitys_by_doctor_id($conn, $id);
+
+            delete_appointments_by_doctor_id($conn, $id);
+
+            $ok = delete_doctor_by_id($conn, $id);
+
+            if ($ok) {
+                // Initialize the session
+                session_start();
+
+                // Unset all of the session variables
+                $_SESSION = array();
+
+                // Destroy the session.
+                session_destroy();
+
+                header("location: login_page.php");
+            }
+        }
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -62,10 +98,15 @@ foreach ($doctor_specialities_json as $speciality) {
     include "../components/sidebar.php";
     button_sidebar($logged_user['full_name']);
     echo " <div class='col'>";
+
+    require_once "../components/modals/delete_account_modal.php";
+    delete_account_modal($doctor["id"]);
+
     include "../components/profile_section.php";
-    display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url'], $doctor['description']);
+    display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url'], $doctor['description'], $doctor['id']);
     include "../components/edit_doctor_profile_section.php";
     display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['id'], $doctor_specialities);
+
     echo "</div>";
     echo "</div>";
     include "../components/footer.php";

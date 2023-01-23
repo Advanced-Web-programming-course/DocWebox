@@ -43,6 +43,19 @@ function delete_appointments_by_patient_id($conn, $patient_id)
     }
 }
 
+function delete_appointments_by_doctor_id($conn, $doctor_id)
+{
+    $sql = "DELETE FROM appointment WHERE doctor_id='$doctor_id'";
+
+    try {
+        if ($conn->query($sql) === TRUE) {
+            // header("refresh:0");
+        }
+    } catch (Throwable $e) {
+        echo "Error: " . $conn->error . "<br>";
+    }
+}
+
 
 function create_appointment($conn, $patient_id, $doctor_id, $date, $service_id)
 {
