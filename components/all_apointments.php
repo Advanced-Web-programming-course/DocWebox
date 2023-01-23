@@ -13,8 +13,8 @@ for ($i = 0; $i < count($appointments); $i++) { $date=strtotime($appointments[$i
             <div class='not-completed-box'><span id='not-completed'> Ακόμα δεν έχεις πραγματοποιήσει καμία επίσκεψη σε γιατρό!</span></div>" ; } else{ echo"<header>
     <div class='column'>Ονοματεπώνυμο Γιατρού</div>
     <div class='column'>Υπηρεσία</div>
-    <div class='column'>Τιμή</div>
-    <div class='column'>Ημερομηνία</div>
+    <div class='column' id='col_price'>Τιμή</div>
+    <div class='column' id='col_date'>Ημερομηνία</div>
     <div class='column column-sm'></div>
     </header>";
 
@@ -27,8 +27,8 @@ for ($i = 0; $i < count($appointments); $i++) { $date=strtotime($appointments[$i
             echo" <div class='row'>
             <div class='column'>".$doctor['full_name']."</div>
             <div class='column'>". $doctor['specialization'] . "-" . $service['title'] ."</div>
-            <div class='column'>".$service['price']."€</div>
-            <div class='column'>$formated_date</div>
+            <div class='column' id='price_value'>".$service['price']."€</div>
+            <div class='column' id='date_value'>$formated_date</div>
             <div class='column column-sm'>
                 <a href='#' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#phoneModal-$app_id'>
                     <img src='../images/call.png' alt='' width='20' height='20'>

@@ -66,3 +66,10 @@
         font-weight: 600;
         font-size: 14px;
     }
+
+
+    @media screen and (max-width: 560px) {
+        #col_price, #col_date, #price_value, #date_value {
+            display: none;
+        }
+    }
