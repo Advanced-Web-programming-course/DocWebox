@@ -4,6 +4,11 @@ ensure_auth();
 include "../config/db_connection.php";
 require_once "../db_services/doctor_service.php";
 
+if ($_SESSION['type'] == 'p') {
+    header("location: main_page.php");
+}
+
+
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 $doctor = null;
 
@@ -66,10 +71,10 @@ foreach ($doctor_specialities_json as $speciality) {
     include "../components/footer.php";
     ?>
     <script>
-
         document.getElementById('edit-button').addEventListener('click', function(e) {
             openEditForm();
         });
+
         function openEditForm() {
             let profileForm = document.getElementById('edit-doctor-profile-section');
             if (profileForm.style.visibility == 'visible') {
