@@ -35,23 +35,51 @@ echo "<br>";
 echo "Table : Doctor Service<br>";
 echo "------------------<br>";
 
+/*Pathologist services  */
+create_doctor_service("Γενική εξέταση", 30.55, "Παθολόγος");
 create_doctor_service("Ράματα", 50.5, "Παθολόγος");
-create_doctor_service("Εξέταση", 23.8, "Ψυχολόγος");
-create_doctor_service("Αφαίρεση γύψου", 50.0, "Ορθοπαιδικός");
+create_doctor_service("Συνταγογράφηση", 10.5, "Παθολόγος");
+create_doctor_service("Ανάγνωση εξετάσεων", 50.5, "Παθολόγος");
+create_doctor_service("Βιοψία", 100, "Παθολόγος");
+
+/*Psychologist services  */
+create_doctor_service("Γενική εξέταση", 30.55, "Ψυχολόγος");
+create_doctor_service("Ψυχανάληση", 23.8, "Ψυχολόγος");
+create_doctor_service("Ψυχολογική αξιολόγηση", 100, "Ψυχολόγος");
+create_doctor_service("Οικογενειακή θεραπεία", 300, "Ψυχολόγος");
+create_doctor_service("Ψυχοθεραπεία", 25, "Ψυχολόγος");
+
+/*Orthopedic  services  */
+create_doctor_service("Γενική εξέταση", 50.0, "Ορθοπαιδικός");
+create_doctor_service("Αρθροσκόπηση", 45, "Ορθοπαιδικός");
+create_doctor_service("Επισκευή κατάγματος", 70.0, "Ορθοπαιδικός");
+create_doctor_service("Ανακατασκευή συνδέσμων", 150.0, "Ορθοπαιδικός");
+create_doctor_service("Φυσικοθεραπεία", 25, "Ορθοπαιδικός");
+
+/*Dentist  services  */
+create_doctor_service("Γενική εξέταση", 50, "Οδοντίατρος");
+create_doctor_service("Εξαγωγή Δοντιού", 67.74, "Οδοντίατρος");
 create_doctor_service("Καθαρισμός", 30.58, "Οδοντίατρος");
 create_doctor_service("Αιμοληψία", 9.4, 5);
 create_doctor_service("Σφράγισμα", 25.53, "Οδοντίατρος");
-create_doctor_service("Συνταγογράφηση", 10.5, "Παθολόγος");
-create_doctor_service("Ψυχανάληση", 23.8, "Ψυχολόγος");
-create_doctor_service("Εξαγωγή Δοντιού", 67.74, "Οδοντίατρος");
-create_doctor_service("Ανάγνωση εξετάσεων", 50.5, "Παθολόγος");
-create_doctor_service("Γενική εξέταση", 30.55, "Παθολόγος");
-create_doctor_service("Γενική εξέταση", 30.55, "Ψυχολόγος");
-create_doctor_service("Γενική εξέταση", 30.55, "Ενδοκρινολόγος");
-create_doctor_service("Γενική εξέταση", 30.55, "Ουρολόγος");
-create_doctor_service("Γενική εξέταση", 30.55, "Ανδρολόγος");
-
-
+/*Endocrinologist  services  */
+create_doctor_service("Γενική εξέταση", 50, "Ενδοκρινολόγος");
+create_doctor_service("Διαχείριση διαβήτη", 25, "Ενδοκρινολόγος");
+create_doctor_service("Θεραπεία αυξητικής ορμόνης", 120, "Ενδοκρινολόγος");
+create_doctor_service("Αντιμετώπιση ακρομεγαλίας", 60, "Ενδοκρινολόγος");
+create_doctor_service("Αξιολόγηση υπογονιμότητας", 30.55, "Ενδοκρινολόγος");
+/*Urologist  services  */
+create_doctor_service("Γενική εξέταση", 50, "Ουρολόγος");
+create_doctor_service("Κυστεοσκόπηση", 40, "Ουρολόγος");
+create_doctor_service("Διαχείριση πέτρας στα νεφρά", 130.55, "Ουρολόγος");
+create_doctor_service("Eξέταση προστάτη", 100, "Ουρολόγος");
+create_doctor_service("Ουροδυναμική δοκιμή", 30.55, "Ουρολόγος");
+/*Andrologist  services  */
+create_doctor_service("Γενική εξέταση", 50, "Ανδρολόγος");
+create_doctor_service("Ανάλυση σπέρματος", 80, "Ανδρολόγος");
+create_doctor_service("Bαζεκτομή", 200, "Ανδρολόγος");
+create_doctor_service("Αντιστροφή Bαζεκτομής", 60, "Ανδρολόγος");
+create_doctor_service("Oρμονοθεραπεία", 30.55, "Ανδρολόγος");
 
 echo "<br>";
 echo "<br>";
