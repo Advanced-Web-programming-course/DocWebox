@@ -42,7 +42,7 @@ function patient_upcoming_apointments($conn){
       </div>
       <div class='info'>
           <div class='name'> " . $doctor['full_name'] . " </div>
-          <div class='service'>  " . $service['title'] . "</div>
+          <div class='service'>" . $doctor['specialization'] . "-" . $service['title'] . "</div>
       </div>
   </div>";
         }

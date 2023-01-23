@@ -26,7 +26,7 @@ for ($i = 0; $i < count($appointments); $i++) { $date=strtotime($appointments[$i
             $formated_date=date("d/m/Y H:m", $date); phone_modal($app_id,$doctor['phone']); 
             echo" <div class='row'>
             <div class='column'>".$doctor['full_name']."</div>
-            <div class='column'>".$service['title']."</div>
+            <div class='column'>". $doctor['specialization'] . "-" . $service['title'] ."</div>
             <div class='column'>".$service['price']."€</div>
             <div class='column'>$formated_date</div>
             <div class='column column-sm'>
