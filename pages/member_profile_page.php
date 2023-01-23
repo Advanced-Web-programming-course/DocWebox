@@ -5,6 +5,11 @@ ensure_auth();
 include "../config/db_connection.php";
 include "../db_services/patient_service.php";
 
+if ($_SESSION['type'] == 'd') {
+    header("location: main_page.php");
+}
+
+
 $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 $profil_user = null;
 
@@ -21,12 +26,11 @@ if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GE
     return;
 }
 
-if(isset($_POST['submit']))
-{
+if (isset($_POST['submit'])) {
     $filename = $_FILES["profile-pic"]["name"];
     $from = $_FILES["profile-pic"]["tmp_name"];
-    move_uploaded_file($from, "../images/".$filename);
-    edit_patient_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], "../images/".$filename);
+    move_uploaded_file($from, "../images/" . $filename);
+    edit_patient_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], "../images/" . $filename);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
