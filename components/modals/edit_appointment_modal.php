@@ -24,7 +24,7 @@ function edit_appointment_modal($id, $appointment, $service, $doctor_id)
             <input type='text' name='service_id' value='$id' hidden>
             <input type='text' name='doctor_id' value='$doctor_id' hidden>
             <input type='text' name='appointment_id' value='$appointment[id]' hidden>
-
+            
                 
             <div class='modal-body'>
                     <div class='btitle'>Υπηρεσία</div>
