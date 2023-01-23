@@ -37,14 +37,16 @@ include "../controllers/login_controller.php";
             <button onclick='window.location.href = "register_page.php<?php echo "?type=$type"; ?>"' class='register'>Εγγραφή</button>
         </div>
 
-        <?php
-        include "../components/login_form.php";
-        if ($type == "d") {
-            echo "<div class='sign-as'><a href='login_page.php?type=p'>Είσοδος ως μέλος</a></div>";
-        } else if ($type == "p") {
-            echo "<div class='sign-as'><a href='login_page.php?type=d'>Είσοδος ως γιατρός</a></div>";
-        }
-        ?>
+        <div>
+            <?php
+            include "../components/login_form.php";
+            if ($type == "d") {
+                echo "<div class='sign-as'><a href='login_page.php?type=p'>Είσοδος ως μέλος</a></div>";
+            } else if ($type == "p") {
+                echo "<div class='sign-as'><a href='login_page.php?type=d'>Είσοδος ως γιατρός</a></div>";
+            }
+            ?>
+        </div>
     </div>
 
 </body>
