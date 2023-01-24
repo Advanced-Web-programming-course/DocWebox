@@ -26,17 +26,29 @@ foreach ($doctor_towns_json as $town) {
     array_push($doctor_towns, $town);
 }
 
+$speciality = 'Ειδικότητα Ιατρού';
+$location = 'Τοποθεσία';
+
+if (isset($_GET['location'])) {
+    $location = $_GET['location'];
+}
+
+if (isset($_GET['speciality'])) {
+    $speciality = $_GET['speciality'];
+}
+
+
 if (str_ends_with($_SERVER["REQUEST_URI"], '/searching_for_doctors.php')) {
     $doctors = select_doctors($conn);
 } else {
-    if ($_GET['location'] == "Τοποθεσία" and $_GET['speciality'] == "Ειδικότητα Ιατρού") {
+    if ($location == "Τοποθεσία" and $speciality == "Ειδικότητα Ιατρού") {
         $doctors = select_doctors($conn);
-    } else if ($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] == "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors_by_region($conn, $_GET['location']);
-    } else if ($_GET['location'] == "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors_by_specialization($conn, $_GET['speciality']);
-    } else if ($_GET['location'] != "Τοποθεσία" and  $_GET['speciality'] != "Ειδικότητα Ιατρού") {
-        $doctors = select_doctors_by_specialization_region($conn, $_GET['speciality'], $_GET['location']);
+    } else if ($location != "Τοποθεσία" and  $speciality == "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors_by_region($conn, $location);
+    } else if ($location == "Τοποθεσία" and  $speciality != "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors_by_specialization($conn, $speciality);
+    } else if ($location != "Τοποθεσία" and  $speciality != "Ειδικότητα Ιατρού") {
+        $doctors = select_doctors_by_specialization_region($conn, $speciality, $location);
     }
 }
 
@@ -112,69 +124,53 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
     echo "</div>";
     include "../components/footer.php";
     ?>
+    <script src="../js/searching_for_doctor.js"></script>
+
     <script>
-        document.getElementById("search_button").onclick = search_for_doctor;
+        $(document).ready(function() {
 
-        function search_for_doctor() {
-            window.location.href = "searching_for_doctors.php?location=" + document.getElementById("location").value +
-                "&speciality=" + document.getElementById("doctor").value;
-        }
-        if (window.location.href.includes("location")) {
-
-            let params = (new URL(window.location.href)).searchParams;
-            document.getElementById("doctor").value = params.get('speciality');
-            document.getElementById("location").value = params.get('location');
-        }
-    </script>
-</body>
-
-</html>
-
-<script>
-    $(document).ready(function() {
-
-        function load_data(input) {
-            $.ajax({
-                url: "../controllers/live_search.php",
-                method: "POST",
-                data: {
-                    input
-                },
-                dataType: "json",
-                success: function(data) {
-                    let results = document.getElementById("search-results");
-                    results.innerHTML = " ";
-                    if (data.length > 0) {
-                        $.each(data, function(index, element) {
-                            doctorAdd(element);
-                        });
-                    } else { // in case the serach does not match to a doctor specialization then show Data Not Found
-                        dataNotFound(results);
+            function load_data(input) {
+                $.ajax({
+                    url: "../controllers/live_search.php",
+                    method: "POST",
+                    data: {
+                        input
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        let results = document.getElementById("search-results");
+                        results.innerHTML = " ";
+                        if (data.length > 0) {
+                            $.each(data, function(index, element) {
+                                doctorAdd(element);
+                            });
+                        } else { // in case the serach does not match to a doctor specialization then show Data Not Found
+                            dataNotFound(results);
+                        }
                     }
-                }
-            });
-        }
+                });
+            }
 
-        function dataNotFound(results) {
-            let div = document.createElement("div");
-            div.classList.add('no-data');
-            div.innerHTML =
-                `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
-            results.appendChild(div);
-        }
+            function dataNotFound(results) {
+                let div = document.createElement("div");
+                div.classList.add('no-data');
+                div.innerHTML =
+                    `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
+                results.appendChild(div);
+            }
 
-        // 
-        function doctorAdd(doctor) {
+            // 
+            function doctorAdd(doctor) {
 
-            let results = document.getElementById("search-results");
-            let div = document.createElement("div");
-            div.classList.add('doctor');
-            div.classList.add('grey_font_color');
-            div.classList.add('gray_borderline');
-            div.setAttribute('id', doctor.id);
+                let results = document.getElementById("search-results");
+                let div = document.createElement("div");
+                div.classList.add('doctor');
+                div.classList.add('grey_font_color');
+                div.classList.add('gray_borderline');
+                div.setAttribute('id', doctor.id);
 
-            div.innerHTML =
-                `<div id='section_1'>
+                div.innerHTML =
+                    `<div id='section_1'>
                     <div style='display: flex;'>
                     <img class='circle' src='${doctor.img_url}' alt='doctor' height='48px' height='48px'>
                     <div style = 'margin-left:14px;'>
@@ -188,20 +184,24 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
                 <div id='section_2'>
                     <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
             </div>`
-            results.appendChild(div);
-        }
-
-        $('#mysearch').keyup(function() {
-            var search = $(this).val();
-
-            if (search != '') {
-                // sets default values in selectors when typing in live-search bar
-                $('#doctor').prop('selectedIndex', 0);
-                $('#location').prop('selectedIndex', 0);
-                load_data(search);
-            } else {
-                load_data();
+                results.appendChild(div);
             }
+
+            $('#mysearch').keyup(function() {
+                var search = $(this).val();
+
+                if (search != '') {
+                    // sets default values in selectors when typing in live-search bar
+                    $('#doctor').prop('selectedIndex', 0);
+                    $('#location').prop('selectedIndex', 0);
+                    load_data(search);
+                } else {
+                    load_data();
+                }
+            });
         });
-    });
-</script>
+    </script>
+
+</body>
+
+</html>
