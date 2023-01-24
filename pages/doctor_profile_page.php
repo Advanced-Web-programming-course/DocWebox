@@ -13,7 +13,11 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 $doctor = null;
 
 if (isset($_GET['doctor_id']) && !empty($_GET['doctor_id']) && is_numeric($_GET['doctor_id'])) {
-    $doctor = select_doctor_by_id($conn, $_GET['doctor_id']);
+    if ($logged_user['id'] != $_GET['doctor_id'] && $_SESSION['type'] != 'a') {
+        echo "Error 404 Page";
+    } else {
+        $doctor = select_doctor_by_id($conn, $_GET['doctor_id']);
+    }
 } else {
     echo "<h1>Error 404 page</h1>";
     return;
@@ -23,7 +27,8 @@ if (isset($_POST['submit'])) {
     $filename = $_FILES["profile-pic"]["name"];
     $from = $_FILES["profile-pic"]["tmp_name"];
     $upload = move_uploaded_file($from, "../images/" . $filename);
-    edit_doctor_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], $_POST['address'], $_POST['region'], $_POST['specialization'], "../images/" . $filename);
+    edit_doctor_data($conn, $doctor["id"], $_POST['name'], $_POST['tel'], $_POST['email'], $_POST['address'], $_POST['region'], $_POST['specialization'], "../images/" . $filename);
+    $doctor = select_doctor_by_id($conn, $doctor["id"]);
 }
 
 $doctor_specialities = array();

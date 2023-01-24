@@ -45,19 +45,16 @@ function delete_patient_by_id($conn, $id)
         echo "Error: " . $conn->error . "<br>";
         return false;
     }
-
 }
 
 function edit_patient_data($conn, $id, $name, $phone, $email, $img_path)
 {
-    if($img_path == "../images/")
-    {
+    if ($img_path == "../images/") {
         $row = select_patient_by_id($conn, $_SESSION['id']);
         $img_path = $row['img_url'];
     }
 
-    mysqli_query($conn, "UPDATE patient set full_name='$name', phone='$phone', email='$email', img_url='$img_path' WHERE id = '$id'") or
-    die("Query error: " . mysqli_error($conn));
-    header("Refresh:0");
-    
+    mysqli_query($conn, "UPDATE patient set full_name='$name', phone='$phone', email='$email', img_url='$img_path' WHERE id='$id'") or
+        die("Query error: " . mysqli_error($conn));
+    // header("Refresh:0");
 }

@@ -52,7 +52,7 @@ if (str_ends_with($_SERVER["REQUEST_URI"], '/searching_for_doctors.php')) {
     }
 }
 
-function add_doctor($id, $name, $speciality, $address, $region, $region_id, $price, $img_url)
+function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img_url)
 {
     $doc_element = "
     <div class='doctor grey_font_color gray_borderline' id='doc_" . $id . "'>    
@@ -114,7 +114,7 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $pri
         <?php
         if ($doctors != null) {
             foreach ($doctors as $doc) {
-                echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], "50", $doc['img_url']);
+                echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], $doc['img_url']);
             }
         }
         ?>

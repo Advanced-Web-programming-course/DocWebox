@@ -26,8 +26,8 @@ $sql = "CREATE TABLE IF NOT EXISTS patient (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(150) NOT NULL,
     phone VARCHAR(50) NOT NULL,
-    email VARCHAR(150) UNIQUE NOT NULL,
-    password VARCHAR(150) UNIQUE NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    password VARCHAR(150) NOT NULL,
     img_url TEXT NOT NULL
     )";
 if (mysqli_query($conn, $sql)) {
@@ -42,9 +42,9 @@ $sql = "CREATE TABLE IF NOT EXISTS doctor (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(150) NOT NULL,
     phone VARCHAR(50) NOT NULL,
-    email VARCHAR(150) UNIQUE NOT NULL,
-    password VARCHAR(150) UNIQUE NOT NULL,
-    address VARCHAR(150) UNIQUE NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    password VARCHAR(150) NOT NULL,
+    address VARCHAR(150) NOT NULL,
     region VARCHAR(150) NOT NULL,
     specialization VARCHAR(150) NOT NULL,
     description VARCHAR(150) NOT NULL,
@@ -110,8 +110,8 @@ echo "<br>";
 $sql = "CREATE TABLE IF NOT EXISTS admin (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   full_name VARCHAR(150) NOT NULL,
-  email VARCHAR(150) UNIQUE NOT NULL,
-  password VARCHAR(150) UNIQUE NOT NULL
+  email VARCHAR(150) NOT NULL,
+  password VARCHAR(150) NOT NULL
   )";
 
 if (mysqli_query($conn, $sql)) {

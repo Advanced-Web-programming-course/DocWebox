@@ -14,8 +14,10 @@ $logged_user = get_loggedin_user($conn, $_SESSION['type'], $_SESSION['id']);
 $profil_user = null;
 
 if (isset($_GET['patient_id']) && !empty($_GET['patient_id']) && is_numeric($_GET['patient_id'])) {
-    if ($logged_user['id'] == $_GET['patient_id']) {
+    if ($logged_user['id'] == $_GET['patient_id'] && $_SESSION['type'] != 'a') {
         $profil_user = $logged_user;
+    } else if ($_SESSION["type"] == 'a') {
+        $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
     } else {
         // $profil_user = select_patient_by_id($conn, $_GET['patient_id']);
         echo "<h1>Error 404 page</h1>";
@@ -30,7 +32,8 @@ if (isset($_POST['submit'])) {
     $filename = $_FILES["profile-pic"]["name"];
     $from = $_FILES["profile-pic"]["tmp_name"];
     move_uploaded_file($from, "../images/" . $filename);
-    edit_patient_data($conn, $_SESSION['id'], $_POST['name'], $_POST['tel'], $_POST['email'], "../images/" . $filename);
+    edit_patient_data($conn, $profil_user['id'], $_POST['name'], $_POST['tel'], $_POST['email'], "../images/" . $filename);
+    $profil_user = select_patient_by_id($conn, $profil_user["id"]);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['account_id'];
         if ($logged_user["id"] != $id) {
             // error
-            echo "kati phge lathosssss";
+            echo "Error";
         } else {
             // ecw diagrafoume
             require_once "../db_services/availability_service.php";
@@ -96,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo " <div class='container-fluid row' id='profile-page-content'>";
 
     include "../components/sidebar.php";
-    button_sidebar($logged_user['full_name']);
+    button_sidebar($profil_user['full_name']);
     echo " <div class='col'>";
 
     include "../components/profile_section.php";

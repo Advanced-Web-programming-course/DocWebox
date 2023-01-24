@@ -46,6 +46,10 @@ foreach ($doctor_towns_json as $town) {
     <link rel="stylesheet" href="../css/search_bar.css">
     <link rel="stylesheet" href="../css/upcoming_apointments.css">
 
+    <link rel="stylesheet" href="../css/searching_for_doctors.css">
+    <link rel="stylesheet" href="../css/global.css">
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -80,22 +84,55 @@ foreach ($doctor_towns_json as $town) {
 
     echo "<div class='container-fluid row' id='content'>";
 
-    include "../components/sidebar.php";
-    button_sidebar($logged_user['full_name']);
-    echo " <div id='main-page-content' class='col'>";
-    if ($_SESSION['type'] == "p") {
-        include "../components/search_bar.php";
-        show_search_bar($doctor_towns, $doctor_specialities);
+    if ($_SESSION['type'] != 'a') {
+        include "../components/sidebar.php";
+        button_sidebar($logged_user['full_name']);
     }
-    include "../components/upcoming_apointments.php";
-    include "../components/all_apointments.php";
-    echo "</div>";
-    echo "</div>";
-    include "../components/footer.php";
+
+    echo " <div id='main-page-content' class='col'>";
+
+    if ($_SESSION['type'] == 'a') {
+
+        echo "<div class='custom-container' style='display: flex; justify-content: space-evenly; align-items: start;'>
+        <div class='doctors-column'>";
+        require_once "../db_services/doctor_service.php";
+        require_once "../components/doctor_row_display.php";
+        require_once "../db_services/patient_service.php";
+        require_once "../components/member_row_display.php";
+
+        $doctors = select_doctors($conn);
+        $patients = select_patients($conn);
+        echo "<div style = 'font-size: 2rem; line-height: 150%; color: #00BFB4;'>Επεξεργασία Ιατρών</div>";
+        foreach ($doctors as $doctor) {
+            echo doctor_row_display($doctor, "Επεξεργασία");
+        }
+        echo "</div>
+            <div class='patients-column'>";
+        echo "<div style = 'font-size: 2rem; line-height: 150%; color: #00BFB4;'>Επεξεργασία Χρηστών</div>";
+        foreach ($patients as $patient) {
+            echo patient_row_display($patient, "Επεξεργασία");
+        }
+        echo "</div>
+        </div>";
+    } else {
+        if ($_SESSION['type'] == "p") {
+            include "../components/search_bar.php";
+            show_search_bar($doctor_towns, $doctor_specialities);
+        }
+        include "../components/upcoming_apointments.php";
+        include "../components/all_apointments.php";
+        echo "</div>";
+        echo "</div>";
+        include "../components/footer.php";
+    }
 
     ?>
 
-    <script src="../js/searching_for_doctor.js"></script>
+    <?php
+    if ($_SESSION['type'] == 'p') {
+        echo '<script src="../js/searching_for_doctor.js"></script>';
+    }
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
