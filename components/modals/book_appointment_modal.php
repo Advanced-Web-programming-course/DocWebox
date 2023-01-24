@@ -1,6 +1,6 @@
 <!-- book appointment modal -->
 <?php
-function book_appointment_modal($id, $service, $doctor_id)
+function book_appointment_modal($id, $service, $doctor_id, $patient_id)
 {
     echo "<div class='modal fade' id='bookAppointmentModal-$id' tabindex='-1' aria-labelledby='bookAppointmentModalLabel'
     aria-hidden='true' data-bs-backdrop='static' data-bs-keyboard='false'>
@@ -9,6 +9,7 @@ function book_appointment_modal($id, $service, $doctor_id)
             <form class='book-appointment-form' action='./confirm_appointment_page.php' method='post'>
             <input type='text' name='service_id' value='$id' hidden>
             <input type='text' name='doctor_id' value='$doctor_id' hidden>
+            <input type='text' name='patient_id' value='$patient_id' hidden>
                 
             <div class='modal-body'>
                     <div class='btitle'>Υπηρεσία</div>

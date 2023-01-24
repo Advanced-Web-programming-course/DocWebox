@@ -18,7 +18,7 @@ function display_booking_info_section($date, $hour, $visitType, $price)
 }
 
 
-function display_member_info_section($fullname, $email, $phone, $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id)
+function display_member_info_section($fullname, $email, $phone, $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id, $patient_id)
 {
     echo "  
     <div class='member_info_section'>
@@ -45,7 +45,8 @@ function display_member_info_section($fullname, $email, $phone, $doctor_id, $ser
         <input type='text' hidden name='date' value='$date'>
         <input type='text' hidden name='time' value='$time'>
         <input type='text' hidden name='doctor_id' value='$doctor_id'>
-        <input type='text' hidden name='service_id' value='$service_id'>";
+        <input type='text' hidden name='service_id' value='$service_id'>
+        <input type='text' hidden name='patient_id' value='$patient_id'>";
     if ($create_or_update == 'edit') {
         echo "<input type='text' hidden name='appointment_id' value='$appointment_id'>";
     }

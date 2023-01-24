@@ -1,14 +1,15 @@
 <?php
-require_once "../components/modals/phone_modal.php";
- require_once "../components/modals/edit_appointment_modal.php";
- require_once "../components/modals/cancel_modal.php";
-//  require_once "../db_services/appointment_service.php";
-require_once "../db_services/patient_service.php";
-require_once "../db_services/doctor_service.php";
 
+function patient_upcoming_apointments($conn, $patient_id)
+{
+    require_once "../components/modals/phone_modal.php";
+    require_once "../components/modals/edit_appointment_modal.php";
+    require_once "../components/modals/cancel_modal.php";
+    require_once "../db_services/appointment_service.php";
+    require_once "../db_services/patient_service.php";
+    require_once "../db_services/doctor_service.php";
 
-function patient_upcoming_apointments($conn){
-    $appointments = select_appointments_by_patient_id($conn, $_SESSION['id']);
+    $appointments = select_appointments_by_patient_id($conn, $patient_id);
     $upcomming = 0;
     $today = time();
     for ($i = 0; $i < count($appointments); $i++) {
@@ -21,18 +22,18 @@ function patient_upcoming_apointments($conn){
             $imerominia = date("d/m/Y", $date);
             $ora = date("H:00", $date);
 
-            phone_modal($app_id,$doctor['phone']);
-            edit_appointment_modal($app_id, $appointments[$i], $service, $doctor["id"]);
+            phone_modal($app_id, $doctor['phone']);
+            edit_appointment_modal($app_id, $appointments[$i], $service, $doctor["id"], $patient_id);
             cancel_appointment_modal($app_id);
             echo "<div class='box'>
       <div class='icons'>
-          <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#phoneModal-$app_id'>
+          <a class='icon' role='button' data-bs-toggle='modal' data-bs-target='#phoneModal-$app_id'>
               <img src='../images/call.png' alt='' width='20' height='20'>
           </a>
-          <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#editAppointmentModal-$app_id'>
+          <a  class='icon' role='button' data-bs-toggle='modal' data-bs-target='#editAppointmentModal-$app_id'>
               <img src='../images/edit.png' alt='' width='23' height='23'>
           </a>
-          <a href='' class='icon' role='button' data-bs-toggle='modal' data-bs-target='#cancelModal-$app_id'>
+          <a  class='icon' role='button' data-bs-toggle='modal' data-bs-target='#cancelModal-$app_id'>
               <img src='../images/delete.png' alt='' width='20' height='20'>
           </a>
       </div>
@@ -51,8 +52,16 @@ function patient_upcoming_apointments($conn){
         echo "<span id='not-upcomming'> Δεν έχεις κλείσει κάποιο ραντεβού. Ξεκίνησε την αναζήτηση επιλέγοντας τη ειδικότητα που ψάχνεις και την τοποθεσία σου!</span>";
     }
 }
-function doctor_upcoming_apointments($conn){
-    $appointments = select_appointments_by_doctor_id($conn, $_SESSION['id']);
+function doctor_upcoming_apointments($conn, $doctor_id)
+{
+    require_once "../components/modals/phone_modal.php";
+    require_once "../components/modals/edit_appointment_modal.php";
+    require_once "../components/modals/cancel_modal.php";
+    require_once "../db_services/appointment_service.php";
+    require_once "../db_services/patient_service.php";
+    require_once "../db_services/doctor_service.php";
+
+    $appointments = select_appointments_by_doctor_id($conn, $doctor_id);
     $upcomming = 0;
     $today = time();
     for ($i = 0; $i < count($appointments); $i++) {
@@ -64,7 +73,7 @@ function doctor_upcoming_apointments($conn){
             $app_id = $appointments[$i]['id'];
             $imerominia = date("d/m/Y", $date);
             $ora = date("H:00", $date);
-            phone_modal($app_id,$patient['phone']);
+            phone_modal($app_id, $patient['phone']);
             cancel_appointment_modal($app_id);
             echo "<div class='box'>
       <div class='icons'>
@@ -90,17 +99,3 @@ function doctor_upcoming_apointments($conn){
         echo "<span id='not-upcomming'> Κανένας ασθενής δεν έχει προγραμματίσει προσεχές ραντεβού!</span>";
     }
 }
-?>
-<div class='upcoming-apointments' id='upcoming_apointments'>
-    <p>Επερχόμενα Ραντεβού</p>
-    <div class='upcoming-box'>
-        <?php
-        if ($_SESSION['type'] == "p") {
-            patient_upcoming_apointments($conn);
-        }else if ($_SESSION['type'] == "d") {
-            doctor_upcoming_apointments($conn);
-        }
-        ?>
-
-    </div>
-</div>

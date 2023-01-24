@@ -26,7 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $service_id = $_POST["service_id"];
         $service = select_doctor_service_by_id($conn, $service_id);
 
-        $patient_id = $logged_user['id'];
+        $patient_id = $_POST['patient_id'];
+
+        require_once "../db_services/patient_service.php";
+
+        $patient = select_patient_by_id($conn, $patient_id);
         $date = $_POST["date"];
 
         $time = $_POST["time"];
@@ -59,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $service_id = $_POST["service_id"];
         $service = select_doctor_service_by_id($conn, $service_id);
 
-        $patient_id = $logged_user['id'];
+        $patient_id = $_POST['patient_id'];
         $date = $_POST["date"];
 
         $dateArray = explode("/", $date);
@@ -142,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     display_simple_doctor_selected_section($doctor["full_name"], $doctor["specialization"], $doctor["address"], $doctor["region"], $doctor["img_url"]);
     include "../components/booking_info.php";
     display_booking_info_section($date, $time, $service["title"], "€" . $service["price"]);
-    display_member_info_section($logged_user["full_name"], $logged_user["email"], $logged_user["phone"], $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id);
+    display_member_info_section($patient["full_name"], $patient["email"], $patient["phone"], $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id, $patient_id);
     echo "</div>";
 
     // // When submits form it shows the 

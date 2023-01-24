@@ -55,7 +55,7 @@ require_once "../db_services/availability_service.php";
     display_doctor_selected_section($doctor['full_name'], $doctor['specialization'], $doctor['address'], $doctor['region'], $doctor['description'], $doctor['img_url'], $doctor_id);
     include "../components/all_services.php";
     $services = select_services_by_specialization($conn, $doctor["specialization"]);
-    display_all_services($services, $doctor_id);
+    display_all_services($services, $doctor_id, $logged_user["id"]);
     echo "</div>";
     ?>
 

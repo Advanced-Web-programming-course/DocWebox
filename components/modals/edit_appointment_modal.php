@@ -1,6 +1,6 @@
 <!-- edit appointment modal -->
 <?php
-function edit_appointment_modal($id, $appointment, $service, $doctor_id)
+function edit_appointment_modal($id, $appointment, $service, $doctor_id, $patient_id)
 {
 
     $date = explode(" ", $appointment["appointment_date"])[0];
@@ -24,6 +24,7 @@ function edit_appointment_modal($id, $appointment, $service, $doctor_id)
             <input type='text' name='service_id' value='$id' hidden>
             <input type='text' name='doctor_id' value='$doctor_id' hidden>
             <input type='text' name='appointment_id' value='$appointment[id]' hidden>
+            <input type='text' name='patient_id' value='$patient_id' hidden>
             
                 
             <div class='modal-body'>

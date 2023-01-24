@@ -120,6 +120,20 @@ foreach ($doctor_towns_json as $town) {
             show_search_bar($doctor_towns, $doctor_specialities);
         }
         include "../components/upcoming_apointments.php";
+
+        echo "<div class='upcoming-apointments' id='upcoming_apointments'>
+        <p>Επερχόμενα Ραντεβού</p>
+        <div class='upcoming-box'>";
+
+        if ($_SESSION['type'] == "p") {
+            patient_upcoming_apointments($conn, $logged_user["id"]);
+        } else if ($_SESSION['type'] == "d") {
+            doctor_upcoming_apointments($conn, $logged_user["id"]);
+        }
+
+        echo "</div> </div>";
+
+
         include "../components/all_apointments.php";
         echo "</div>";
         echo "</div>";
