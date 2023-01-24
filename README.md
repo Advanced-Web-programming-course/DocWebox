@@ -11,8 +11,13 @@
 - initialize.php (εδω καλείται ο κωδικας την πρωτη φορα που θα τρέξει η εφαρμογη ώστε να δημιουργηθεί η βάση και οι πίνακες)
 
 ## Pages
-
 - τα αρχεία που περιέχουν τις οθόνες (View χρήστη γιατρού κτλπ)
+
+
+## controllers 
+- login_controller.php
+- register_controller.php
+- etc
 
 ## Partials ή Components
 
@@ -25,14 +30,6 @@
 ## JS (Αρχεια Javascript)
 
 ## CSS (Αρχεια CSS)
-
-## Model (Οντότητες του συστήματος)
-
-- admin.php
-- doctor.php
-- patient.php
-- appointment.php
-- service.php
 
 ## Services ή Repository (Μέθοδοι CRUD = CREATE, READ, UPDATE, DELETE) για κάθε οντότητα
 
