@@ -8,7 +8,7 @@ function doctor_row_display($doctor, $button_label)
                 <img class='circle' src='$doctor[img_url]' alt='doctor' height='48px' height='48px'>
                 <div style = 'margin-left:14px;'>
                     <label style='display: block;' class='big_text_size'>$doctor[full_name]</label>
-                    <label style='display: block;' class='small_text_size'>$doctor[specialization]</label>
+                    <label style='display: block; text-align:start;' class='small_text_size'>$doctor[specialization]</label>
                 </div>
             </div>
             <input style='display:none;' id='doc_$doctor[id]_region' type='text' value='$doctor[region]'>

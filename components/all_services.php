@@ -15,6 +15,7 @@ function display_all_services($services, $doctor_id, $patient_id)
                     <div class='el colprice'>€" . $services[$i]["price"] . "</div>
                 </a>
                 <hr>";
+        
     }
     echo '</section>
         </div>

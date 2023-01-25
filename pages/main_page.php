@@ -96,25 +96,25 @@ foreach ($doctor_towns_json as $town) {
         echo "<div class='aLogoutHeader'><a href='../controllers/logout.php' id='alogout'>Αποσύνδεση</a></div>";
 
         echo "<div class='custom-container'>
-        <div class='doctors-column'>";
-        require_once "../db_services/doctor_service.php";
-        require_once "../components/doctor_row_display.php";
-        require_once "../db_services/patient_service.php";
-        require_once "../components/member_row_display.php";
-       
-        $doctors = select_doctors($conn);
-        $patients = select_patients($conn);
-        echo "<div class='adtitle'>Επεξεργασία Ιατρών</div>";
-        foreach ($doctors as $doctor) {
-            echo doctor_row_display($doctor, "Επεξεργασία");
-        }
-        echo "</div>
+            <div class='doctors-column'>";
+                require_once "../db_services/doctor_service.php";
+                require_once "../components/doctor_row_display.php";
+                require_once "../db_services/patient_service.php";
+                require_once "../components/member_row_display.php";
+            
+                $doctors = select_doctors($conn);
+                $patients = select_patients($conn);
+                echo "<div class='adtitle'>Επεξεργασία Ιατρών</div>";
+                    foreach ($doctors as $doctor) {
+                        echo doctor_row_display($doctor, "Επεξεργασία");
+                    }
+            echo "</div>
             <div class='patients-column'>";
-        echo "<div class='adtitle' >Επεξεργασία Χρηστών</div>";
-        foreach ($patients as $patient) {
-            echo patient_row_display($patient, "Επεξεργασία");
-        }
-        echo "</div>
+                    echo "<div class='adtitle' >Επεξεργασία Χρηστών</div>";
+                    foreach ($patients as $patient) {
+                        echo patient_row_display($patient, "Επεξεργασία");
+                    }
+            echo "</div>
         </div>";
     } else {
         

@@ -17,18 +17,18 @@ body{
     padding: 5px;
 }
 
-.custom-container{
+.custom-container {
     display: flex;
     justify-content: space-evenly;
     align-items: start;      
 }
 
 .adtitle{
+    margin: 0.5rem;
     font-size: 2rem; 
     line-height: 150%; 
     color: #00BFB4;
 }
-
 
 .livesearch {
     display: none;
@@ -44,7 +44,7 @@ body{
 }
 
 .aLogoutHeader{
-    margin: 5px;
+    margin: 7px;
 }
 
 @media screen and (max-width: 560px) {

@@ -13,7 +13,7 @@ function book_appointment_modal($id, $service, $doctor_id, $patient_id)
                 
             <div class='modal-body'>
                     <div class='btitle'>Υπηρεσία</div>
-                    <div class='bsubtitle' id='simple-visit'>" . $service["title"] . " " . $service["price"] . "</div>
+                    <div class='bsubtitle' id='simple-visit'>" . $service["title"] . " " . $service["price"] . "€</div>
                     <div class='btitle'>Επιλέξτε ημέρα και ώρα του ραντεβού</div> <br />
                     <div class='comment'>
                         <div class='calendararea'>
