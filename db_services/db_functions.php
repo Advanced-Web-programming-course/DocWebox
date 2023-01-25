@@ -1,8 +1,8 @@
 <?php
 
-function create_patient($fullname, $phone_num, $email, $pword, $img_url)
+function create_patient($conn, $fullname, $phone_num, $email, $pword, $img_url)
 {
-    include "../config/db_connection.php";
+
     $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO patient (full_name, phone, email, password, img_url)
@@ -17,19 +17,15 @@ function create_patient($fullname, $phone_num, $email, $pword, $img_url)
             echo "Password : " . $pword . "<br>";
             echo "Img url : " . $img_url . "<br>";
         }
-        return TRUE;
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
-        return FALSE;
     }
     echo "<br>";
-
-    $conn->close();
 }
 
-function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation, $doctor_description, $img_url)
+function create_doctor($conn, $fullname, $phone_num, $email, $pword, $address, $rigion, $specialisation, $doctor_description, $img_url)
 {
-    include "../config/db_connection.php";
+
     $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO doctor (full_name, phone, email, password, address, region, specialization, description, img_url)
@@ -48,19 +44,15 @@ function create_doctor($fullname, $phone_num, $email, $pword, $address, $rigion,
             echo "Description : " . $doctor_description . "<br>";
             echo "Img url : " . $img_url . "<br>";
         }
-        return TRUE;
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
-        return FALSE;
     }
     echo "<br>";
-
-    $conn->close();
 }
 
-function create_doctor_service($title, $price, $specialisation)
+function create_doctor_service($conn, $title, $price, $specialisation)
 {
-    include "../config/db_connection.php";
+
 
     $sql = "INSERT INTO service (title, price , specialization)
     VALUES ('$title', '$price', '$specialisation')";
@@ -76,13 +68,11 @@ function create_doctor_service($title, $price, $specialisation)
         echo "Error: " . $conn->error . "<br>";
     }
     echo "<br>";
-
-    $conn->close();
 }
 
-function create_appointment($patient_id, $doctor_id, $appointment_date, $service_id)
+function create_appointment($conn, $patient_id, $doctor_id, $appointment_date, $service_id)
 {
-    include "../config/db_connection.php";
+
 
     $sql = "INSERT INTO appointment (patient_id, doctor_id , appointment_date, service_id)
     VALUES ('$patient_id', '$doctor_id', '$appointment_date', '$service_id')";
@@ -99,13 +89,11 @@ function create_appointment($patient_id, $doctor_id, $appointment_date, $service
         echo "Error: " . $conn->error . "<br>";
     }
     echo "<br>";
-
-    $conn->close();
 }
 
-function create_admin($email, $fullname, $pword)
+function create_admin($conn, $email, $fullname, $pword)
 {
-    include "../config/db_connection.php";
+
     $hashed_password = password_hash($pword, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO admin (email, full_name,password )
@@ -121,12 +109,10 @@ function create_admin($email, $fullname, $pword)
         echo "Error: " . $conn->error . "<br>";
     }
     echo "<br>";
-
-    $conn->close();
 }
-function get_doctors($filters)
+function get_doctors($conn, $filters)
 {
-    include "../config/db_connection.php";
+
 
     $doctors = array();
 
@@ -138,10 +124,7 @@ function get_doctors($filters)
         while ($row = $result->fetch_assoc()) {
             array_push($doctors, array($row["id"], $row["full_name"], $row["phone"], $row["email"], $row["password"], $row["address"], $row["region"], $row["specialization"], $row["description"], $row["img_url"]));
         }
-    } else {
-        return "0 results";
     }
-    $conn->close();
 
     return $doctors;
 }

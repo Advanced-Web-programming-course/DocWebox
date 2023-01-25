@@ -121,9 +121,12 @@ if (mysqli_query($conn, $sql)) {
 }
 echo "<br>";
 
+$sql = "SELECT * FROM doctor, patient, admin WHERE 1";
 
+$result = $conn->query($sql);
 
-// insert dummy data
-require_once "insert_initial_data.php";
+if ($result->num_rows == 0) {
+  require_once __DIR__ . "/insert_initial_data.php";
+}
 
 mysqli_close($conn);

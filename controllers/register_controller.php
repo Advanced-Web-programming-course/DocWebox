@@ -13,15 +13,31 @@ $address = $address_err = "";
 $region = $region_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["name"])) {
+        $name = clean_input($_POST["name"]);
+    }
+    if (isset($_POST["email"])) {
+        $email = clean_input($_POST["email"]);
+    }
+    if (isset($_POST["password"])) {
+        $password = clean_input($_POST["password"]);
+    }
 
-    $name = clean_input($_POST["name"]);
-    $email = clean_input($_POST["email"]);
-    $password = clean_input($_POST["password"]);
-    $phone = clean_input($_POST["phone"]);
-    $address = clean_input($_POST["address"]);
-    $region = clean_input($_POST["region"]);
+    if (isset($_POST["phone"])) {
+        $phone = clean_input($_POST["phone"]);
+    }
+
+    if (isset($_POST["address"])) {
+        $address = clean_input($_POST["address"]);
+    }
+    if (isset($_POST["region"])) {
+        $region = clean_input($_POST["region"]);
+    }
     $specialization = "";
-    $specialization = clean_input($_POST["specialization"]);
+    if (isset($_POST["specialization"])) {
+        $specialization = clean_input($_POST["specialization"]);
+    }
+
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_err = "Invalid email format";
@@ -51,17 +67,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($type == "d") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
-            $ok = create_doctor($name, $phone, $email, $password, $address, $region, $specialization, "", "http://localhost/DocWebox/images/user_image.png");
-            if ($ok) {
-                header("location: ../pages/login_page.php?type=d");
-            }
+            $ok = create_doctor($conn, $name, $phone, $email, $password, $address, $region, $specialization, "", "http://localhost/DocWebox/images/user_image.png");
+            header("location: ../pages/login_page.php?type=d");
         }
     } else if ($type == "p") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err)) {
-            $ok = create_patient($name, $phone, $email, $password, "http://localhost/DocWebox/images/user_image.png");
-            if ($ok) {
-                header("location: ../pages/login_page.php?type=p");
-            }
+            $ok = create_patient($conn, $name, $phone, $email, $password, "http://localhost/DocWebox/images/user_image.png");
+            header("location: ../pages/login_page.php?type=p");
         }
     }
 }
