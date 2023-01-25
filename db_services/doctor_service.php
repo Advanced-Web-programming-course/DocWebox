@@ -125,7 +125,7 @@ function edit_doctor_data($conn, $id, $name, $phone, $email, $address, $region, 
     $row = select_doctor_by_id($conn, $_SESSION['id']);
 
     if ($img_path == "../images/") {
-        $row = select_doctor_by_id($conn, $_SESSION['id']);
+        $row = select_doctor_by_id($conn, $id);
         $img_path = $row['img_url'];
     }
 

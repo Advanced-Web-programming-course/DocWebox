@@ -50,7 +50,7 @@ function delete_patient_by_id($conn, $id)
 function edit_patient_data($conn, $id, $name, $phone, $email, $img_path)
 {
     if ($img_path == "../images/") {
-        $row = select_patient_by_id($conn, $_SESSION['id']);
+        $row = select_patient_by_id($conn, $id);
         $img_path = $row['img_url'];
     }
 
