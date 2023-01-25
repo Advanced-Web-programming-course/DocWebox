@@ -113,13 +113,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <!-- Bootstrap, Ajax -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
     <!-- Bootstrap Datepicker -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
     </script>
@@ -161,6 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "../components/profile_section.php";
     display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url'], $doctor['description'], $doctor['id']);
 
+    if ($_SESSION['type'] == "a") {
     include "../components/upcoming_apointments.php";
 
     echo "<div class='upcoming-apointments' id='upcoming_apointments'>
@@ -170,6 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     doctor_upcoming_apointments($conn, $doctor["id"]);
 
     echo "</div> </div>";
+    }
 
 
     include "../components/edit_doctor_profile_section.php";
@@ -180,18 +184,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "../components/footer.php";
     ?>
     <script>
-        document.getElementById('edit-button').addEventListener('click', function(e) {
-            openEditForm();
-        });
+    document.getElementById('edit-button').addEventListener('click', function(e) {
+        openEditForm();
+    });
 
-        function openEditForm() {
-            let profileForm = document.getElementById('edit-doctor-profile-section');
-            if (profileForm.style.visibility == 'visible') {
-                profileForm.style.visibility = 'hidden';
-            } else profileForm.style.visibility = 'visible';
-        }
+    function openEditForm() {
+        let profileForm = document.getElementById('edit-doctor-profile-section');
+        if (profileForm.style.visibility == 'visible') {
+            profileForm.style.visibility = 'hidden';
+        } else profileForm.style.visibility = 'visible';
+    }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
 </body>
@@ -199,36 +204,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 
 <script>
-    $(document).ready(function() {
+$(document).ready(function() {
 
-        // update doctor's description onclick "Save" in modal
-        $(document).on('click', '#saveBtn', function() {
+    // update doctor's description onclick "Save" in modal
+    $(document).on('click', '#saveBtn', function() {
 
-            var id = $('#docId').val();
-            var desc = $('textarea#desc-text').val();
-            $.ajax({
-                url: "../controllers/update.php",
-                method: "POST",
-                catch: false,
-                data: {
-                    update: 1,
-                    id: id,
-                    description: desc
-                },
-                success: function(dataResult) {
-                    var dataResult = JSON.parse(dataResult);
+        var id = $('#docId').val();
+        var desc = $('textarea#desc-text').val();
+        $.ajax({
+            url: "../controllers/update.php",
+            method: "POST",
+            catch: false,
+            data: {
+                update: 1,
+                id: id,
+                description: desc
+            },
+            success: function(dataResult) {
+                var dataResult = JSON.parse(dataResult);
 
-                    if (dataResult.statusCode == 1) {
-                        $('#editDescriptionModal').modal().hide();
-                        location.reload();
-                        // swal("Data Updated!", {
-                        //     icon: "success",
-                        // }).then((result) => {
+                if (dataResult.statusCode == 1) {
+                    $('#editDescriptionModal').modal().hide();
+                    location.reload();
+                    // swal("Data Updated!", {
+                    //     icon: "success",
+                    // }).then((result) => {
 
-                        // });    
-                    }
+                    // });    
                 }
-            });
+            }
         });
     });
+});
 </script>
