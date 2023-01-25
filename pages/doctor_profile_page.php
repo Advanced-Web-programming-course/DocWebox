@@ -49,6 +49,16 @@ foreach ($doctor_specialities_json as $speciality) {
     array_push($doctor_specialities, $speciality);
 }
 
+$doctor_towns = array();
+
+
+$doctor_towns_json = json_decode(file_get_contents("../data/towns.json"), true);
+
+foreach ($doctor_towns_json as $town) {
+    array_push($doctor_towns, $town);
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['account_id'])) {
         $id = $_POST['account_id'];
@@ -163,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     include "../components/edit_doctor_profile_section.php";
-    display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['id'], $doctor_specialities);
+    display_doctor_edit_profile_section($doctor['full_name'], $doctor['email'], $doctor['phone'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['id'], $doctor_specialities, $doctor_towns);
 
     echo "</div>";
     echo "</div>";

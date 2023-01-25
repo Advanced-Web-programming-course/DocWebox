@@ -2,7 +2,7 @@
 include "../components/modals/edit_description_modal.php";
 
 
-function display_doctor_edit_profile_section($name, $email, $phone, $specialization, $region, $address, $id, $doctor_specialities)
+function display_doctor_edit_profile_section($name, $email, $phone, $specialization, $region, $address, $id, $doctor_specialities, $doctor_towns)
 {
     edit_doctor_description_modal($id);
     echo "
@@ -37,7 +37,20 @@ function display_doctor_edit_profile_section($name, $email, $phone, $specializat
         </div>
         <div class='row'>
             <input type='text' id='address' name='address' placeholder='Οδός' value='" . $address . "'>
-            <input type='text' id='region' name='region' placeholder='Περιοχή' value='" . $region . "'>
+            
+            <select name='region' id='doctor'>
+                <option default hidden disabled >Περιοχή</option>";
+    for ($i = 0; $i < count($doctor_towns); $i++) {
+        if ($region == $doctor_towns[$i]) {
+            echo "<option selected value='$doctor_towns[$i]'>$doctor_towns[$i]</option>";
+        } else {
+            echo "<option value='$doctor_towns[$i]'>$doctor_towns[$i]</option>";
+        }
+    }
+
+    echo "</select>
+
+
         </div>
         <input type='submit' name='submit' id='submit' style='display:none;'>
         <label id='save' for='submit'>Αποθήκευση</label>
