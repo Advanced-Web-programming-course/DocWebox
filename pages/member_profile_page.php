@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $padding = "";
 
     if ($_SESSION["type"] == 'a') {
-        $padding = "p-3";
+        $padding = "p-2";
     }
 
 

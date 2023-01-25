@@ -146,16 +146,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $padding = "";
 
     if ($_SESSION['type'] == 'a') {
-        $padding = 'p-4';
+        $padding = 'p-2';
     }
 
-    echo " <div class='container-fluid row $padding' id='profile-page-content'>";
+    echo " <div class='container-fluid row $padding g-0' id='profile-page-content'>";
 
     if ($_SESSION['type'] != 'a') {
         include "../components/sidebar.php";
         button_sidebar($logged_user['full_name']);
     }
-    echo " <div class='col'>";
+    echo " <div class='col doc-prof-section'>";
 
     require_once "../components/modals/delete_account_modal.php";
     delete_account_modal($doctor["id"]);
@@ -225,12 +225,7 @@ $(document).ready(function() {
 
                 if (dataResult.statusCode == 1) {
                     $('#editDescriptionModal').modal().hide();
-                    location.reload();
-                    // swal("Data Updated!", {
-                    //     icon: "success",
-                    // }).then((result) => {
-
-                    // });    
+                    location.reload(); 
                 }
             }
         });
