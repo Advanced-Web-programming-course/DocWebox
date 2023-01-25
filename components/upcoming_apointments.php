@@ -49,6 +49,10 @@ function patient_upcoming_apointments($conn, $patient_id)
         }
     }
     if ($upcomming == 0) {
+        if ($_SESSION['type'] == "a") {
+            echo "<span id='not-upcomming'> Δεν υπάρχει κάποιο προγραμματισμένο ραντεβού!</span>";
+        }
+        else
         echo "<span id='not-upcomming'> Δεν έχεις κλείσει κάποιο ραντεβού. Ξεκίνησε την αναζήτηση επιλέγοντας τη ειδικότητα που ψάχνεις και την τοποθεσία σου!</span>";
     }
 }
@@ -96,6 +100,10 @@ function doctor_upcoming_apointments($conn, $doctor_id)
         }
     }
     if ($upcomming == 0) {
+        if ($_SESSION['type'] == "a") {
+            echo "<span id='not-upcomming'> Δεν υπάρχει κάποιο προγραμματισμένο ραντεβού!</span>";
+        }
+        else
         echo "<span id='not-upcomming'> Κανένας ασθενής δεν έχει προγραμματίσει προσεχές ραντεβού!</span>";
     }
 }
