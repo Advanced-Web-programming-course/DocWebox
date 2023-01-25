@@ -11,7 +11,6 @@ function doctor_row_display($doctor, $button_label)
                     <label style='display: block;' class='small_text_size'>$doctor[specialization]</label>
                 </div>
             </div>
-            <label id='address' class='small_text_size'>$doctor[address], $doctor[region]</label>
             <input style='display:none;' id='doc_$doctor[id]_region' type='text' value='$doctor[region]'>
         </div>
         <div id='section_2'>
