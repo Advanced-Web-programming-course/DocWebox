@@ -69,3 +69,10 @@ font-weight: 400;
     font-weight: 600;
     font-size: 14px;
 }
+
+@media screen and (max-width: 530px) {
+    .upcoming-box {
+        justify-content: center;
+        
+    }
+  }
