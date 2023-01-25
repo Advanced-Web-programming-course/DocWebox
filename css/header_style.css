@@ -53,5 +53,8 @@
         margin-left: 108px;
         font-size: 25px;
     }
-   
+
+    #lowertext{
+        font-size: 18px;
+    }
   }

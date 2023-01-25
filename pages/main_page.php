@@ -82,39 +82,42 @@ foreach ($doctor_towns_json as $town) {
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
 
-    echo "<div class='container-fluid row' id='content'>";
+    echo "<div class='container-fluid row g-0' id='content'>";
 
     if ($_SESSION['type'] != 'a') {
         include "../components/sidebar.php";
         button_sidebar($logged_user['full_name']);
     }
 
-    echo " <div id='main-page-content' class='col'>";
+    echo " <div id='main-page-content' class='col g-0'>";
 
     if ($_SESSION['type'] == 'a') {
+        
+        echo "<div class='aLogoutHeader'><a href='../controllers/logout.php' id='alogout'>Αποσύνδεση</a></div>";
 
-        echo "<div class='custom-container' style='display: flex; justify-content: space-evenly; align-items: start;'>
+        echo "<div class='custom-container'>
         <div class='doctors-column'>";
         require_once "../db_services/doctor_service.php";
         require_once "../components/doctor_row_display.php";
         require_once "../db_services/patient_service.php";
         require_once "../components/member_row_display.php";
-
+       
         $doctors = select_doctors($conn);
         $patients = select_patients($conn);
-        echo "<div style = 'font-size: 2rem; line-height: 150%; color: #00BFB4;'>Επεξεργασία Ιατρών</div>";
+        echo "<div class='adtitle'>Επεξεργασία Ιατρών</div>";
         foreach ($doctors as $doctor) {
             echo doctor_row_display($doctor, "Επεξεργασία");
         }
         echo "</div>
             <div class='patients-column'>";
-        echo "<div style = 'font-size: 2rem; line-height: 150%; color: #00BFB4;'>Επεξεργασία Χρηστών</div>";
+        echo "<div class='adtitle' >Επεξεργασία Χρηστών</div>";
         foreach ($patients as $patient) {
             echo patient_row_display($patient, "Επεξεργασία");
         }
         echo "</div>
         </div>";
     } else {
+        
         if ($_SESSION['type'] == "p") {
             include "../components/search_bar.php";
             show_search_bar($doctor_towns, $doctor_specialities);
@@ -132,7 +135,6 @@ foreach ($doctor_towns_json as $town) {
         }
 
         echo "</div> </div>";
-
 
         include "../components/all_apointments.php";
         echo "</div>";
