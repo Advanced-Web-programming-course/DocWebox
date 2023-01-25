@@ -147,6 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($_SESSION['type'] == 'a') {
         $padding = 'p-2';
+        ?> <link rel="stylesheet" href="../css/admin.css"><?php
     }
 
     echo " <div class='container-fluid row $padding g-0' id='profile-page-content'>";
@@ -154,12 +155,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION['type'] != 'a') {
         include "../components/sidebar.php";
         button_sidebar($logged_user['full_name']);
+     
     }
     echo " <div class='col doc-prof-section'>";
 
     require_once "../components/modals/delete_account_modal.php";
     delete_account_modal($doctor["id"]);
 
+   
     include "../components/profile_section.php";
     display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url'], $doctor['description'], $doctor['id']);
 

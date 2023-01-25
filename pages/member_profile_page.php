@@ -132,6 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($_SESSION["type"] == 'a') {
         $padding = "p-2";
+        ?> <link rel="stylesheet" href="../css/admin.css"> <?php
+
     }
 
 

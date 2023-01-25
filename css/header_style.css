@@ -50,11 +50,19 @@
         margin-left: 0;
     }
     #logotext{
-        margin-left: 108px;
-        font-size: 25px;
+        margin-left: 125px;
+        font-size: 29px;
     }
 
     #lowertext{
         font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 300px) {
+
+    #logotext{
+        margin-left: 110px;
+        font-size: 20px;
     }
   }
