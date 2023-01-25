@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
+html,body{
+    overflow-x: hidden;
+}
+
 body{
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
 }
 
 #content{
@@ -16,6 +19,10 @@ body{
     flex-direction: column;
     gap: 20px;
 }
+.searching-section {
+    padding: 5px !important;
+ }
+
 
 
 .doctor{

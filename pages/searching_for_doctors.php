@@ -102,10 +102,10 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img
     <?php
     include "../components/header.php";
     display_default_header($logged_user['full_name']);
-    echo "<div class='container-fluid row' id='content'>";
+    echo "<div class='container-fluid row g-0' id='content'>";
     include "../components/sidebar.php";
     button_sidebar($logged_user['full_name']);
-    echo " <div id='searching-for-doctor-content' class='col'>";
+    echo " <div id='searching-for-doctor-content' class='col searching-section'>";
 
     include "../components/search_bar.php";
     show_search_bar($doctor_towns, $doctor_specialities);
