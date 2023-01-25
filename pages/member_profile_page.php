@@ -133,13 +133,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    echo " <div class='container-fluid row $padding' id='profile-page-content'>";
+    echo " <div class='container-fluid row $padding g-0 ' id='profile-page-content'>";
 
     if ($_SESSION["type"] != 'a') {
         include "../components/sidebar.php";
         button_sidebar($profil_user['full_name']);
     }
-    echo " <div class='col'>";
+    echo " <div class='col g-0 prof-section'>";
 
     include "../components/profile_section.php";
     include("../components/modals/delete_account_modal.php");
