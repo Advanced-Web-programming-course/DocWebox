@@ -139,19 +139,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <?php
-    include "../components/header.php";
-    display_default_header($logged_user['full_name']);
-    echo "<div class='con'>";
-    include "../components/doctor_selected.php";
-    display_simple_doctor_selected_section($doctor["full_name"], $doctor["specialization"], $doctor["address"], $doctor["region"], $doctor["img_url"]);
-    include "../components/booking_info.php";
-    display_booking_info_section($date, $time, $service["title"], "€" . $service["price"]);
-    display_member_info_section($patient["full_name"], $patient["email"], $patient["phone"], $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id, $patient_id);
-    echo "</div>";
-
-    // // When submits form it shows the 
-    // include "../components/booking_info.php";
-    // display_booking_confrimation();
+        include "../components/header.php";
+        display_default_header($logged_user['full_name']);
+        
+        echo "<div class='confirm-con'>";
+            include "../components/doctor_selected.php";
+            display_simple_doctor_selected_section($doctor["full_name"], $doctor["specialization"], $doctor["address"], $doctor["region"], $doctor["img_url"]);
+            include "../components/booking_info.php";
+            display_booking_info_section($date, $time, $service["title"], "€" . $service["price"]);
+            display_member_info_section($patient["full_name"], $patient["email"], $patient["phone"], $doctor_id, $service_id, $date, $time, $create_or_update, $appointment_id, $patient_id);
+        echo "</div>";
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap');
 
-.con
+html, body{
+    overflow-x: hidden;
+}
+
+.confirm-con
 {
     display: flex;
     flex-direction: column;
-    margin: 15rem;
-    margin-top: 8rem;
+    padding: 0.5rem;
+    margin-top: 7.6rem;
     gap: 20px;
 }
 
-.booking_info_section,.member_info_section {
+.booking_info_section, .member_info_section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -39,7 +43,6 @@
     font-weight: 400;
 }
 
-
 .booking .info-booking{
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +53,7 @@
     color: #E43F6F;
 }
 
-.info-member{
+.info-member {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row; 
@@ -107,6 +110,15 @@
     font-size: 16px;
     word-wrap: break-word;
 }
+
+@media screen and (max-width: 560px) {
+    .confirm-con{
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+  }
 
 
 
