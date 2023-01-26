@@ -9,7 +9,7 @@ function search_for_doctor() {
     "searching_for_doctors.php?location=" +
     document.getElementById("location").value +
     "&speciality=" +
-    document.getElementById("doctor").value;
+    document.getElementById("doctor-search").value;
 }
 if (window.location.href.includes("location")) {
   let params = new URL(window.location.href).searchParams;

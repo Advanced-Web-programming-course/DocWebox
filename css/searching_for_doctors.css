@@ -18,12 +18,15 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: 0 1.5rem;
 }
 .searching-section {
     padding: 5px !important;
  }
 
-
+ #doctor-search{
+    margin-right: 0.5rem;
+ }
 
 .doctor{
     padding: 23px 31px;

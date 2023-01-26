@@ -3,12 +3,14 @@ select{
     padding: 12px;
     border-radius: 6px;
     font-size: 16px;
+    
 }
 
 #mysearch {
     height: 48px;
     overflow-x: scroll;
     white-space:nowrap;
+    margin-left: 0.5rem;
 
 }
 
@@ -21,6 +23,7 @@ select{
 }
 
 .search>button {
+    margin-left: 0.5rem;
     width: 66px;
     height: 48px;
     border-radius: 6px;

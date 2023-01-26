@@ -4,7 +4,7 @@ function show_search_bar($towns, $types)
 {
     echo "
         <div class='search'>
-                <select name='doctor' id='doctor'>
+                <select name='doctor' id='doctor-search'>
                     <option selected default >Ειδικότητα Ιατρού</option> ";
     for ($i = 0; $i < count($towns); $i++) {
         if ($types[$i] != "") {
