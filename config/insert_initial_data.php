@@ -1,6 +1,6 @@
 <?php
 include "./db_services/db_functions.php";
-require_once __DIR__ . "./db_connection.php";
+require_once __DIR__ . "/db_connection.php";
 //Patient
 echo "Table : Patient<br>";
 echo "------------------<br>";

@@ -146,8 +146,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $padding = "";
 
     if ($_SESSION['type'] == 'a') {
-        $padding = 'p-2';
-        ?> <link rel="stylesheet" href="../css/admin.css"><?php
+        $padding = 'p-5';
+        ?>
+        <link rel="stylesheet" href="../css/admin.css">
+    <?php
     }
 
     echo " <div class='container-fluid row $padding g-0' id='profile-page-content'>";
@@ -155,27 +157,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION['type'] != 'a') {
         include "../components/sidebar.php";
         button_sidebar($logged_user['full_name']);
-     
+
     }
     echo " <div class='col doc-prof-section'>";
 
     require_once "../components/modals/delete_account_modal.php";
     delete_account_modal($doctor["id"]);
 
-   
+
     include "../components/profile_section.php";
     display_doctor_profile_section($doctor['full_name'], $doctor['specialization'], $doctor['region'], $doctor['address'], $doctor['img_url'], $doctor['description'], $doctor['id']);
 
     if ($_SESSION['type'] == "a") {
-    include "../components/upcoming_apointments.php";
+        include "../components/upcoming_apointments.php";
 
-    echo "<div class='upcoming-apointments' id='upcoming_apointments'>
+        echo "<div class='upcoming-apointments' id='upcoming_apointments'>
         <p>Επερχόμενα Ραντεβού</p>
         <div class='upcoming-box'>";
 
-    doctor_upcoming_apointments($conn, $doctor["id"]);
+        doctor_upcoming_apointments($conn, $doctor["id"]);
 
-    echo "</div> </div>";
+        echo "</div> </div>";
     }
 
 
@@ -187,51 +189,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include "../components/footer.php";
     ?>
     <script>
-    document.getElementById('edit-button').addEventListener('click', function(e) {
-        openEditForm();
-    });
+        document.getElementById('edit-button').addEventListener('click', function (e) {
+            openEditForm();
+        });
 
-    function openEditForm() {
-        let profileForm = document.getElementById('edit-doctor-profile-section');
-        if (profileForm.style.visibility == 'visible') {
-            profileForm.style.visibility = 'hidden';
-        } else profileForm.style.visibility = 'visible';
-    }
+        function openEditForm() {
+            let profileForm = document.getElementById('edit-doctor-profile-section');
+            if (profileForm.style.visibility == 'visible') {
+                profileForm.style.visibility = 'hidden';
+            } else profileForm.style.visibility = 'visible';
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 
 </body>
 
 </html>
 
 <script>
-$(document).ready(function() {
+    $(document).ready(function () {
 
-    // update doctor's description onclick "Save" in modal
-    $(document).on('click', '#saveBtn', function() {
+        // update doctor's description onclick "Save" in modal
+        $(document).on('click', '#saveBtn', function () {
 
-        var id = $('#docId').val();
-        var desc = $('textarea#desc-text').val();
-        $.ajax({
-            url: "../controllers/update.php",
-            method: "POST",
-            catch: false,
-            data: {
-                update: 1,
-                id: id,
-                description: desc
-            },
-            success: function(dataResult) {
-                var dataResult = JSON.parse(dataResult);
+            var id = $('#docId').val();
+            var desc = $('textarea#desc-text').val();
+            $.ajax({
+                url: "../controllers/update.php",
+                method: "POST",
+                catch: false,
+                data: {
+                    update: 1,
+                    id: id,
+                    description: desc
+                },
+                success: function (dataResult) {
+                    var dataResult = JSON.parse(dataResult);
 
-                if (dataResult.statusCode == 1) {
-                    $('#editDescriptionModal').modal().hide();
-                    location.reload(); 
+                    if (dataResult.statusCode == 1) {
+                        $('#editDescriptionModal').modal().hide();
+                        location.reload();
+                    }
                 }
-            }
+            });
         });
     });
-});
 </script>

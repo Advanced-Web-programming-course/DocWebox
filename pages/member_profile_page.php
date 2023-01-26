@@ -131,8 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $padding = "";
 
     if ($_SESSION["type"] == 'a') {
-        $padding = "p-2";
-        ?> <link rel="stylesheet" href="../css/admin.css"> <?php
+        $padding = "p-5";
+        ?>
+        <link rel="stylesheet" href="../css/admin.css">
+    <?php
 
     }
 
@@ -152,15 +154,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     display_profile_section($profil_user['full_name'], $profil_user['email'], $profil_user['phone'], $profil_user["img_url"], $profil_user['id']);
 
     if ($_SESSION['type'] == "a") {
-    include "../components/upcoming_apointments.php";
+        include "../components/upcoming_apointments.php";
 
-    echo "<div class='upcoming-apointments' id='upcoming_apointments'>
+        echo "<div class='upcoming-apointments' id='upcoming_apointments'>
         <p>Επερχόμενα Ραντεβού</p>
         <div class='upcoming-box'>";
 
-    patient_upcoming_apointments($conn, $profil_user["id"]);
+        patient_upcoming_apointments($conn, $profil_user["id"]);
 
-    echo "</div> </div>";
+        echo "</div> </div>";
     }
 
     include "../components/edit_profile_section.php";
@@ -171,21 +173,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     ?>
     <script>
-    document.getElementById('edit-button').addEventListener('click', function(e) {
-        openEditForm();
-    });
+        document.getElementById('edit-button').addEventListener('click', function (e) {
+            openEditForm();
+        });
 
-    function openEditForm() {
-        let profileForm = document.getElementById('edit-profile-section');
-        if (profileForm.style.visibility == 'visible') {
+        function openEditForm() {
+            let profileForm = document.getElementById('edit-profile-section');
+            if (profileForm.style.visibility == 'visible') {
 
-            profileForm.style.visibility = 'hidden';
-        } else profileForm.style.visibility = 'visible';
-    }
+                profileForm.style.visibility = 'hidden';
+            } else profileForm.style.visibility = 'visible';
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
