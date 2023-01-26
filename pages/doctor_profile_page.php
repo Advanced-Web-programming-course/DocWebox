@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['account_id'])) {
         $id = $_POST['account_id'];
 
-        if ($logged_user["id"] != $id) {
+        if ($logged_user["id"] != $id && $_SESSION['type'] != 'a') {
             // error
             echo "Error";
         } else {
@@ -78,16 +78,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ok = delete_doctor_by_id($conn, $id);
 
             if ($ok) {
-                // Initialize the session
-                session_start();
 
-                // Unset all of the session variables
-                $_SESSION = array();
+                if ($_SESSION['type'] != 'a') {
+                    // Initialize the session
+                    session_start();
 
-                // Destroy the session.
-                session_destroy();
+                    // Unset all of the session variables
+                    $_SESSION = array();
 
-                header("location: login_page.php");
+                    // Destroy the session.
+                    session_destroy();
+
+                    header("location: login_page.php");
+                } else {
+                    header("location: main_page.php");
+                }
             }
         }
     }

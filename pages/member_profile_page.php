@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['account_id'])) {
 
         $id = $_POST['account_id'];
-        if ($logged_user["id"] != $id) {
+        if ($logged_user["id"] != $id && $_SESSION["type"] != 'a') {
             // error
             echo "Error";
         } else {
@@ -61,18 +61,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             delete_appointment_availabilitys_by_patient_id($conn, $id);
             delete_appointments_by_patient_id($conn, $id);
             $ok = delete_patient_by_id($conn, $id);
-            echo "ok bro? " . $ok;
             if ($ok) {
-                // Initialize the session
-                session_start();
+                if ($_SESSION['type'] != 'a') {
+                    // Initialize the session
+                    session_start();
 
-                // Unset all of the session variables
-                $_SESSION = array();
+                    // Unset all of the session variables
+                    $_SESSION = array();
 
-                // Destroy the session.
-                session_destroy();
+                    // Destroy the session.
+                    session_destroy();
 
-                header("location: login_page.php");
+                    header("location: login_page.php");
+                } else {
+                    header("location: main_page.php");
+                }
             }
         }
     }
