@@ -68,7 +68,7 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img
             <input style='display:none;' id='doc_" . $id . "_region' type='text' value='" . $region_id . "'>
         </div>
         <div id='section_2'>
-            <button onclick=\"select_doctor(" . $id . ")\" class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
+            <button onclick=\"select_doctor(" . $id . ")\" class='book_appointment pink_background big_text_size'>Κλείσε&nbsp Ραντεβού</button>
         </div>
     </div>
     ";

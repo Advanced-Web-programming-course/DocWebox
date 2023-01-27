@@ -101,7 +101,7 @@ create_appointment($conn, 3, 3, '2021-03-13 15:33:24', 3);
 create_appointment($conn, 1, 4, '2021-04-14 16:43:34', 4);
 create_appointment($conn, 4, 5, '2021-05-15 16:53:44', 5);
 create_appointment($conn, 6, 6, '2022-06-16 09:63:54', 6);
-create_appointment($conn, 1, 2, '2022-07-17 08:03:64', 7);
+create_appointment($conn, 1, 2, '2023-04-17 08:03:24', 1);
 create_appointment($conn, 5, 8, '2021-08-18 10:23:54', 8);
 create_appointment($conn, 4, 9, '2023-09-17 22:43:04', 9);
 create_appointment($conn, 2, 2, '2023-11-11 23:23:44', 10);
