@@ -1,6 +1,6 @@
 <div>
     <div class='title'>Καλωσήρθατε</div>
-    <div class='subtitle'>Συνδεθείτε για να δείτε τα ραντεβού σας</div>
+    <div class='subtitle'>Δημιουργήστε τον λογαριασμό σας με ένα κλικ</div>
     <form class="doctor-register" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">          
         <label for="dregister-name">Ονοματεπώνυμο</label><br>
         <input name="name" id="dregister-name" type="text" placeholder="Μαρία Χχχχ" required autofocus>
