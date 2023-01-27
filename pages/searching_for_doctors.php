@@ -88,7 +88,8 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img
     <link rel="stylesheet" href="../css/data_not_found.css">
 
     <!-- Bootstrap, Ajax -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -117,6 +118,9 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img
                 echo add_doctor($doc['id'], $doc['full_name'], $doc['specialization'], $doc['address'], $doc['region'], $doc['region'], $doc['img_url']);
             }
         }
+        else{
+           echo "<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>";
+        }
         ?>
     </div>
     <?php
@@ -127,50 +131,50 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img
     <script src="../js/searching_for_doctor.js"></script>
 
     <script>
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-            function load_data(input) {
-                $.ajax({
-                    url: "../controllers/live_search.php",
-                    method: "POST",
-                    data: {
-                        input
-                    },
-                    dataType: "json",
-                    success: function(data) {
-                        let results = document.getElementById("search-results");
-                        results.innerHTML = " ";
-                        if (data.length > 0) {
-                            $.each(data, function(index, element) {
-                                doctorAdd(element);
-                            });
-                        } else { // in case the serach does not match to a doctor specialization then show Data Not Found
-                            dataNotFound(results);
-                        }
+        function load_data(input) {
+            $.ajax({
+                url: "../controllers/live_search.php",
+                method: "POST",
+                data: {
+                    input
+                },
+                dataType: "json",
+                success: function(data) {
+                    let results = document.getElementById("search-results");
+                    results.innerHTML = " ";
+                    if (data.length > 0) {
+                        $.each(data, function(index, element) {
+                            doctorAdd(element);
+                        });
+                    } else { // in case the serach does not match to a doctor specialization then show Data Not Found
+                        dataNotFound(results);
                     }
-                });
-            }
+                }
+            });
+        }
 
-            function dataNotFound(results) {
-                let div = document.createElement("div");
-                div.classList.add('no-data');
-                div.innerHTML =
-                    `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
-                results.appendChild(div);
-            }
+        function dataNotFound(results) {
+            let div = document.createElement("div");
+            div.classList.add('no-data');
+            div.innerHTML =
+                `<p><b>Oops! Δεν βρέθηκαν αποτελέσματα.</b></p>`
+            results.appendChild(div);
+        }
 
-            // 
-            function doctorAdd(doctor) {
+        // 
+        function doctorAdd(doctor) {
 
-                let results = document.getElementById("search-results");
-                let div = document.createElement("div");
-                div.classList.add('doctor');
-                div.classList.add('grey_font_color');
-                div.classList.add('gray_borderline');
-                div.setAttribute('id', doctor.id);
+            let results = document.getElementById("search-results");
+            let div = document.createElement("div");
+            div.classList.add('doctor');
+            div.classList.add('grey_font_color');
+            div.classList.add('gray_borderline');
+            div.setAttribute('id', doctor.id);
 
-                div.innerHTML =
-                    `<div id='section_1'>
+            div.innerHTML =
+                `<div id='section_1'>
                     <div style='display: flex;'>
                     <img class='circle' src='${doctor.img_url}' alt='doctor' height='48px' height='48px'>
                     <div style = 'margin-left:14px;'>
@@ -184,22 +188,22 @@ function add_doctor($id, $name, $speciality, $address, $region, $region_id, $img
                 <div id='section_2'>
                     <button onclick='window.location.href = "doctor_selected_page.php?doctor_id=${doctor.id}"' class='book_appointment pink_background big_text_size'>Κλέισε&nbsp Ραντεβού</button>
             </div>`
-                results.appendChild(div);
+            results.appendChild(div);
+        }
+
+        $('#mysearch').keyup(function() {
+            var search = $(this).val();
+
+            if (search != '') {
+                // sets default values in selectors when typing in live-search bar
+                $('#doctor').prop('selectedIndex', 0);
+                $('#location').prop('selectedIndex', 0);
+                load_data(search);
+            } else {
+                load_data();
             }
-
-            $('#mysearch').keyup(function() {
-                var search = $(this).val();
-
-                if (search != '') {
-                    // sets default values in selectors when typing in live-search bar
-                    $('#doctor').prop('selectedIndex', 0);
-                    $('#location').prop('selectedIndex', 0);
-                    load_data(search);
-                } else {
-                    load_data();
-                }
-            });
         });
+    });
     </script>
 
 </body>
