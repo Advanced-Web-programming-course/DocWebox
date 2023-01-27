@@ -1,3 +1,19 @@
+## DocWebox
+
+DocWebox is a helpful, attuned to health needs web application for doctors and users (patients). Users can easily find the most suitable professional, and instantly book an appointment for them. On the other hand, doctors can see their scheduled appointments. Doctors and users can edit, delete their appointments and edit/update their personal information. 
+
+## Univeristy Of Macedonia
+This project was created for the needs of our Web Programming lessons in University of Macedonia. The team consists of 6 students who worked together to write code and compose any deliverable assignments throughout the semester.
+
+## Team
+* [Αμπατζίδου Ελισάβετ](https://github.com/ElisavetAmpatzidou)
+* [Δασύρα Ευμορφία-Ελπίδα](https://github.com/EvitaDasyra)
+* [Κουταμάνης Νίκος](https://github.com/NickKoutamanis)
+* [Λούστα Αραβέλλα](https://github.com/aravellalousta)
+* [Παπαγαλάκης Νεκτάριος](https://github.com/NektariosPapagalakis)
+* [Πέπα Λέοναρντ](https://github.com/Leonardpepa)
+
+
 # File Structure
 
 ## DocWebox
