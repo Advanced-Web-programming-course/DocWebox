@@ -7,7 +7,7 @@ This project was created for the needs of our Web Programming lessons in Univers
 
 ## Team
 * [Αμπατζίδου Ελισάβετ](https://github.com/ElisavetAmpatzidou)
-* [Δασύρα Ευμορφία-Ελπίδα](https://github.com/EvitaDasyra)
+* [Δασύρα Ευμορφία-Ελπίδα](https://github.com/evitadasy)
 * [Κουταμάνης Νίκος](https://github.com/NickKoutamanis)
 * [Λούστα Αραβέλλα](https://github.com/aravellalousta)
 * [Παπαγαλάκης Νεκτάριος](https://github.com/NektariosPapagalakis)
@@ -56,3 +56,13 @@ This project was created for the needs of our Web Programming lessons in Univers
 - doctor_service_db_service.php
 
 ## Shared (shared functionality [methods etc.] )
+
+<h2>Results - Screenshots </h2>
+<div float="left">
+  <b><p>Login Page:</p></b>
+  <img src="screens/login.png" height="450"/><br><br>
+  <b><p>Main Page (user/patient):</p></b>
+  <img src="screens/user-main.png" height="450"/><br><br>
+  <b><p>Confirm Appointment Page</p></b>
+  <img src="screens/conf-appointment.png.png" height="450" />
+</div>
