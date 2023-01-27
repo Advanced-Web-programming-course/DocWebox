@@ -60,9 +60,9 @@ This project was created for the needs of our Web Programming lessons in Univers
 <h2>Results - Screenshots </h2>
 <div float="left">
   <b><p>Login Page:</p></b>
-  <img src="screens/login.png" height="450"/><br><br>
+  <img src="screens/login.png" height="450" width="500"/><br><br>
   <b><p>Main Page (user/patient):</p></b>
-  <img src="screens/user-main.png" height="450"/><br><br>
+  <img src="screens/user-main.png" height="450" width="500"/><br><br>
   <b><p>Confirm Appointment Page</p></b>
-  <img src="screens/conf-appointment.png.png" height="450" />
+  <img src="screens/conf-appointment.png" height="450" width="500" />
 </div>
