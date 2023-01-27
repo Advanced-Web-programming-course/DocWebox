@@ -67,13 +67,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($type == "d") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err) && empty($address_err) && empty($region_err)) {
-            $ok = create_doctor($conn, $name, $phone, $email, $password, $address, $region, $specialization, "", "http://localhost/DocWebox/images/user_image.png");
-            header("location: ../pages/login_page.php?type=d");
+            $id = create_doctor($conn, $name, $phone, $email, $password, $address, $region, $specialization, "", "http://localhost/DocWebox/images/user_image.png");
+
+            if ($id > 0) {
+                session_start();
+
+                // Store data in session variables
+                $_SESSION["loggedin"] = true;
+                $_SESSION["id"] = $id;
+                $_SESSION["type"] = "d";
+
+
+                $respose["success"] = true;
+                header("location: ../pages/main_page.php?type=d");
+            } else {
+                $email_err = "Something went wrong please try again";
+            }
         }
     } else if ($type == "p") {
         if (empty($email_err) && empty($name_err) && empty($password_err) && empty($phone_err)) {
-            $ok = create_patient($conn, $name, $phone, $email, $password, "http://localhost/DocWebox/images/user_image.png");
-            header("location: ../pages/login_page.php?type=p");
+            $id = create_patient($conn, $name, $phone, $email, $password, "http://localhost/DocWebox/images/user_image.png");
+            if ($id > 0) {
+                session_start();
+
+                // Store data in session variables
+                $_SESSION["loggedin"] = true;
+                $_SESSION["id"] = $id;
+                $_SESSION["type"] = "p";
+
+
+                $respose["success"] = true;
+                header("location: ../pages/main_page.php?type=p");
+            } else {
+                $email_err = "Something went wrong please try again";
+            }
         }
     }
 }

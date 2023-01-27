@@ -16,6 +16,7 @@ function create_patient($conn, $fullname, $phone_num, $email, $pword, $img_url)
             echo "Email : " . $email . "<br>";
             echo "Password : " . $pword . "<br>";
             echo "Img url : " . $img_url . "<br>";
+            return $conn->insert_id;
         }
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
@@ -43,6 +44,7 @@ function create_doctor($conn, $fullname, $phone_num, $email, $pword, $address, $
             echo "Specialisation id : " . $specialisation . "<br>";
             echo "Description : " . $doctor_description . "<br>";
             echo "Img url : " . $img_url . "<br>";
+            return $conn->insert_id;
         }
     } catch (Throwable $e) {
         echo "Error: " . $conn->error . "<br>";
